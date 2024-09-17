@@ -29,4 +29,6 @@ while there are students who have not been alloted and still have choices to be 
 8. After a student has been alloted a course, they should have various options - Accept the seat, slide (i.e. hold the seat in hope for a better one), or withdraw.
 9. Before each round, the student should be able to modify their priority list
 
+## Technologies used
+The core algorithm will be implemented in C++ and the user interface will be a web based system. The backend will be built with Python and the frontend with HTML, CSS and Javascript. The build system is meson, along with ninja.
 
