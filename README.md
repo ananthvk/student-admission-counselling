@@ -1,6 +1,19 @@
 # student-college matcher
 This is a C++ implementation of the Gale-Shapely algorithm, also known as the deferred acceptance algorithm, which is used to obtain stable matching. Here, the application tries to match a number of students to courses in various colleges. This project aims to simulate the working of a system such as KCET, COMEDK, or JOSSA.
 
+## Getting started
+
+To run this project, you need install meson and ninja.
+
+For a development build, you need to install clang, along with address sanitizer.
+
+```
+$ cd student-college-matcher
+$ CXX=clang++ CC=clang meson setup -Db_sanitize=address -Ddevelopment=true --reconfigure build
+$ cd build
+$ meson compile
+```
+
 ## Algorithm
 ### Pseudocode
 ```
