@@ -9,7 +9,7 @@ For a development build, you need to install clang, along with address sanitizer
 
 ```
 $ cd student-college-matcher
-$ CXX=clang++ CC=clang meson setup -Db_sanitize=address -Ddevelopment=true --reconfigure build
+$ CXX=clang++ CC=clang meson setup -Db_sanitize=address -Ddevelopment=true -Db_lundef=false --reconfigure build
 $ cd build
 $ meson compile
 ```

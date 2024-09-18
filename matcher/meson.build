@@ -28,8 +28,12 @@ else
     extra_args = []
 endif
 
-e = executable(
+executable(
     'main',
     'main.cpp',
-    cpp_args: extra_args
+    cpp_args: extra_args,
 )
+if get_option('enable-tests')
+    subdir('tests')
+endif
+
