@@ -1,6 +1,7 @@
 #pragma once
 #include <queue>
 #include <vector>
+#include<iostream>
 
 class GaleShapley;
 
@@ -56,7 +57,14 @@ class Student
     int id;
 
   public:
-    Student() : alloted_course(-1), current_preference_index(0) {}
+    Student(const std::vector<int> &preferences, int id)
+        : preferences(preferences), alloted_course(-1), current_preference_index(0), id(id)
+    {
+    }
+
+    int get_alloted_course_id() const { return alloted_course; }
+
+    int get_id() const { return id; }
 
     friend class GaleShapley;
 };
@@ -64,7 +72,7 @@ class Student
 class GaleShapley
 {
   public:
-    void perform_allotment(std::vector<Student> &students, std::vector<Course> &courses)
+    static void perform_allotment(std::vector<Student> &students, std::vector<Course> &courses)
     {
         // Contains a queue of students who have not been alloted, and still have pending choices to
         // be considered
@@ -72,14 +80,14 @@ class GaleShapley
         for (auto &student : students)
             not_alloted_students.push(&student);
 
-        while (not_alloted_students.empty())
+        while (!not_alloted_students.empty())
         {
             auto student = not_alloted_students.front();
             not_alloted_students.pop();
 
-            for (int i = student->current_preference_index; i < student->preferences.size(); i++)
+            for (; student->current_preference_index < student->preferences.size(); student->current_preference_index++)
             {
-                auto course_id = student->preferences[i];
+                auto course_id = student->preferences[student->current_preference_index];
                 Course &course = courses[course_id];
                 int rank = course.ranklist.get_rank(student->id);
 
@@ -89,6 +97,7 @@ class GaleShapley
                     course.available--;
                     student->alloted_course = course_id;
                     course.pq_rank_student.push(std::make_pair(rank, student->id));
+                    break;
                 }
                 else
                 {
@@ -99,8 +108,10 @@ class GaleShapley
                         auto rejected_student = course.pq_rank_student.top();
                         course.pq_rank_student.pop();
                         not_alloted_students.push(&students[rejected_student.second]);
+                        students[rejected_student.second].alloted_course = -1;
                         student->alloted_course = course_id;
                         course.pq_rank_student.push(std::make_pair(rank, student->id));
+                        break;
                     }
                 }
             }
