@@ -11,6 +11,8 @@ class RankList
   public:
     RankList(const std::vector<int> &rank_list);
 
+    // Temporary
+    RankList() {}
     // Returns the rank/priority of the student, lower the number, higher the priority
     int get_rank(int student_id) const;
 

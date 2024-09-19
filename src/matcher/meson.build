@@ -27,16 +27,10 @@ else
     extra_args = []
 endif
 
-include_dirs = [include_directories('.')]
-
-matcher_lib = static_library('matcher', ['da-algorithm.cpp'], cpp_args: extra_args)
-
-executable(
-    'main',
-    'main.cpp',
-    cpp_args: extra_args,
-    link_with: [matcher_lib],
-)
+matcher_inc = [include_directories('.')]
+matcher_lib = static_library('matcher', ['da_algorithm.cpp'], cpp_args: extra_args)
+matcher_dep = declare_dependency(link_with: matcher_lib, include_directories: matcher_inc)
+meson.override_dependency('matcher', matcher_dep)
 
 if get_option('enable-tests')
     subdir('tests')

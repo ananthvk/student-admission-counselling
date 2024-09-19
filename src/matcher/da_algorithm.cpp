@@ -1,4 +1,4 @@
-#include "da-algorithm.hpp"
+#include "da_algorithm.hpp"
 
 RankList::RankList(const std::vector<int> &rank_list) : rank_list(rank_list) {}
 
@@ -50,7 +50,7 @@ void GaleShapley::perform_allotment(std::vector<Student> &students, std::vector<
         auto student = not_alloted_students.front();
         not_alloted_students.pop();
 
-        for (; student->current_preference_index < student->preferences.size();
+        for (; student->current_preference_index < static_cast<int>(student->preferences.size());
              student->current_preference_index++)
         {
             auto course_id = student->preferences[student->current_preference_index];
