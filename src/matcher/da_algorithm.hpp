@@ -13,6 +13,7 @@ class RankList
 
     // Temporary
     RankList() {}
+
     // Returns the rank/priority of the student, lower the number, higher the priority
     int get_rank(int student_id) const;
 
@@ -21,22 +22,28 @@ class RankList
 
 class Course
 {
-    const RankList &ranklist;
+    const RankList *ranklist;
     int capacity;
     int available;
     // Priority queue of (rank, student_id), all the alloted students for this course
     std::priority_queue<std::pair<int, int>> pq_rank_student;
 
   public:
+    Course() : ranklist(nullptr) {}
+
+    Course(const RankList *ranklist, int capacity);
+
     Course(const RankList &ranklist, int capacity);
 
     int get_last_alloted_student() const;
 
     int get_last_alloted_rank() const;
 
-    int get_total_slots() const; 
+    int get_total_slots() const;
 
-    int get_available_slots() const; 
+    int get_available_slots() const;
+
+    void reset();
 
     friend class GaleShapley;
 };
@@ -51,9 +58,12 @@ class Student
   public:
     Student(const std::vector<int> &preferences, int id);
 
-    int get_alloted_course_id() const; 
+    Student() {}
 
-    int get_id() const; 
+    int get_alloted_course_id() const;
+
+    int get_id() const;
+    void reset();
 
     friend class GaleShapley;
 };
@@ -62,10 +72,4 @@ class GaleShapley
 {
   public:
     static void perform_allotment(std::vector<Student> &students, std::vector<Course> &courses);
-
-    // Removes allocation details from the student objects
-    static void reset(std::vector<Student> &students);
-
-    // Resets courses to their state before allocation
-    static void reset(std::vector<Course> &courses);
 };

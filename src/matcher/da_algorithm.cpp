@@ -5,8 +5,13 @@ RankList::RankList(const std::vector<int> &rank_list) : rank_list(rank_list) {}
 // Returns the rank/priority of the student, lower the number, higher the priority
 int RankList::get_rank(int student_id) const { return rank_list[student_id]; }
 
-Course::Course(const RankList &ranklist, int capacity)
+Course::Course(const RankList *ranklist, int capacity)
     : ranklist(ranklist), capacity(capacity), available(capacity)
+{
+}
+
+Course::Course(const RankList &ranklist, int capacity)
+    : ranklist(&ranklist), capacity(capacity), available(capacity)
 {
 }
 
@@ -28,6 +33,12 @@ int Course::get_total_slots() const { return capacity; }
 
 int Course::get_available_slots() const { return available; }
 
+void Course::reset()
+{
+    available = capacity;
+    pq_rank_student = decltype(pq_rank_student)();
+}
+
 Student::Student(const std::vector<int> &preferences, int id)
     : preferences(preferences), alloted_course(-1), current_preference_index(0), id(id)
 {
@@ -36,6 +47,14 @@ Student::Student(const std::vector<int> &preferences, int id)
 int Student::get_alloted_course_id() const { return alloted_course; }
 
 int Student::get_id() const { return id; }
+
+// Removes allocation details from the student objects
+void Student::reset()
+{
+    alloted_course = -1;
+    current_preference_index = 0;
+}
+
 
 void GaleShapley::perform_allotment(std::vector<Student> &students, std::vector<Course> &courses)
 {
@@ -55,7 +74,7 @@ void GaleShapley::perform_allotment(std::vector<Student> &students, std::vector<
         {
             auto course_id = student->preferences[student->current_preference_index];
             Course &course = courses[course_id];
-            int rank = course.ranklist.get_rank(student->id);
+            int rank = course.ranklist->get_rank(student->id);
 
             if (rank == -1)
             {
@@ -87,25 +106,5 @@ void GaleShapley::perform_allotment(std::vector<Student> &students, std::vector<
                 }
             }
         }
-    }
-}
-
-// Removes allocation details from the student objects
-void GaleShapley::reset(std::vector<Student> &students)
-{
-    for (auto &student : students)
-    {
-        student.alloted_course = -1;
-        student.current_preference_index = 0;
-    }
-}
-
-// Resets courses to their state before allocation
-void GaleShapley::reset(std::vector<Course> &courses)
-{
-    for (auto &course : courses)
-    {
-        course.available = course.capacity;
-        course.pq_rank_student = decltype(course.pq_rank_student)();
     }
 }

@@ -39,7 +39,7 @@ TEST(Matching, MultipleCourseSingleStudent)
 TEST(Matching, SingleCourseMultipleStudent)
 {
     RankList main_rank_list({4, 5, 6, 3, 2, 1});
-    std::vector<Course> courses = {Course(main_rank_list, 6)};
+    std::vector<Course> courses = {Course(&main_rank_list, 6)};
     std::vector<Student> students = {
         Student({0}, 0), Student({0}, 1), Student({0}, 2),
         Student({0}, 3), Student({0}, 4), Student({}, 5), // Student has not chosen any option
@@ -57,15 +57,15 @@ TEST(Matching, SingleCourseMultipleStudent)
     EXPECT_EQ(courses[0].get_available_slots(), 1);
 
     // All students get alloted a course
-    GaleShapley::reset(students);
-    GaleShapley::reset(courses);
+    for(auto& student: students) student.reset();
+    for(auto& course: courses) course.reset();
     students.pop_back();
     students.push_back(Student({0}, 5));
     GaleShapley::perform_allotment(students, courses);
     EXPECT_EQ(courses[0].get_available_slots(), 0);
 
     // Nobody gets alloted
-    GaleShapley::reset(courses);
+    for(auto& course: courses) course.reset();
     students = {
         Student({}, 0), Student({}, 1), Student({}, 2),
         Student({}, 3), Student({}, 4), Student({}, 5),
