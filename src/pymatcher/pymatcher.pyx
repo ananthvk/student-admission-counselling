@@ -15,7 +15,9 @@ cdef class PyRankList:
 cdef class PyCourse:
     cdef Course c_course
 
-    def __init__(self, ranklist: PyRankList, capacity: int) -> None:
+    def __init__(self, ranklist: PyRankList = None, capacity: int = None) -> None:
+        if ranklist is None or capacity is None:
+            return
         self.c_course = Course(&ranklist.c_ranklist, capacity)
     
     def get_last_alloted_student(self):
@@ -37,32 +39,63 @@ cdef class PyCourse:
 cdef class PyStudent:
     cdef Student c_student
 
-    def __init__(self, preferences, id) -> None:
+    def __init__(self, preferences = None, id = None) -> None:
+        if preferences is None or id is None:
+            return
         self.c_student = Student(preferences, id)
     
     def get_alloted_course_id(self):
         return self.c_student.get_alloted_course_id()
     
     def get_id(self):
-        return self.get_id()
+        return self.c_student.get_id()
     
     def reset(self):
-        self.reset()
+        self.c_student.reset()
+
+
+cdef class Students:
+    cdef vector[Student] students 
+
+    def __init__(self, li=[]):
+        for item in li:
+            self.add(item[0], item[1])
+    
+    def add(self, preferences, id):
+        self.students.push_back(Student(preferences, id))
+
+    def __getitem__(self, idx):
+        s = PyStudent()
+        s.c_student = self.students[idx]
+        return s
+    
+    def __len__(self):
+        return self.students.size()
+
+
+cdef class Courses:
+    cdef vector[Course] courses 
+    
+    def __init__(self, li=[]):
+        for item in li:
+            self.add(item[0], item[1])
+    
+    def add(self, ranklist: PyRankList, capacity):
+        self.courses.push_back(Course(&ranklist.c_ranklist, capacity))
+
+    def __getitem__(self, idx):
+        c = PyCourse()
+        c.c_course = self.courses[idx]
+        return c
+    
+    def __len__(self):
+        return self.courses.size()
 
 
 cdef class PyGaleShapley:
+    
     @staticmethod
-    def perform_allocation(students, courses):
-        # https://stackoverflow.com/questions/58171611/how-to-convert-python-object-to-a-stdvector-of-cython-extension-type-and-back
-        # TODO: Try implementing it without an additional copy
-        cdef vector[Student] c_students
-        cdef vector[Course] c_courses
+    def perform_allotment(students: Students, courses: Courses):
+        GaleShapley.perform_allotment(students.students, courses.courses)
 
-        cdef PyStudent s
-        for s in students:
-            c_students.push_back(s.c_student)
-
-        cdef PyCourse c
-        for c in courses:
-            c_courses.push_back(c.c_course)
-        GaleShapley.perform_allotment(c_students, c_courses)
+        

@@ -55,7 +55,6 @@ void Student::reset()
     current_preference_index = 0;
 }
 
-
 void GaleShapley::perform_allotment(std::vector<Student> &students, std::vector<Course> &courses)
 {
     // Contains a queue of students who have not been alloted, and still have pending choices to
