@@ -1,7 +1,6 @@
 #pragma once
 #include <queue>
 #include <vector>
-#include<iostream>
 
 class GaleShapley;
 
@@ -46,6 +45,10 @@ class Course
         return pq_rank_student.top().first;
     }
 
+    int get_total_slots() const { return capacity; }
+
+    int get_available_slots() const { return available; }
+
     friend class GaleShapley;
 };
 
@@ -85,11 +88,18 @@ class GaleShapley
             auto student = not_alloted_students.front();
             not_alloted_students.pop();
 
-            for (; student->current_preference_index < student->preferences.size(); student->current_preference_index++)
+            for (; student->current_preference_index < student->preferences.size();
+                 student->current_preference_index++)
             {
                 auto course_id = student->preferences[student->current_preference_index];
                 Course &course = courses[course_id];
                 int rank = course.ranklist.get_rank(student->id);
+
+                if (rank == -1)
+                {
+                    // The student is not eligible for this course
+                    continue;
+                }
 
                 // If the course has vacancy, allot the course to the student
                 if (courses[course_id].available > 0)
@@ -115,6 +125,26 @@ class GaleShapley
                     }
                 }
             }
+        }
+    }
+
+    // Removes allocation details from the student objects
+    static void reset(std::vector<Student> &students)
+    {
+        for (auto &student : students)
+        {
+            student.alloted_course = -1;
+            student.current_preference_index = 0;
+        }
+    }
+
+    // Resets courses to their state before allocation
+    static void reset(std::vector<Course> &courses)
+    {
+        for (auto &course : courses)
+        {
+            course.available = course.capacity;
+            course.pq_rank_student = decltype(course.pq_rank_student)();
         }
     }
 };

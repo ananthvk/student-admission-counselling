@@ -28,6 +28,8 @@ else
     extra_args = []
 endif
 
+include_dirs = [include_directories('.')]
+
 executable(
     'main',
     'main.cpp',
