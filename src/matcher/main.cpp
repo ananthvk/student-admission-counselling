@@ -45,4 +45,5 @@ int main()
         std::cout << student.get_id() << ": " << student.get_alloted_course_id() << std::endl;
     }
 
+    std::cout << "Hello, world" << std::endl;
 }

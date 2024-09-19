@@ -1,4 +1,3 @@
-
 if meson.get_compiler('cpp').get_id() == 'clang' and get_option('development')
     extra_args = [
         '-Wall',
@@ -30,12 +29,15 @@ endif
 
 include_dirs = [include_directories('.')]
 
+matcher_lib = static_library('matcher', ['da-algorithm.cpp'], cpp_args: extra_args)
+
 executable(
     'main',
     'main.cpp',
     cpp_args: extra_args,
+    link_with: [matcher_lib],
 )
+
 if get_option('enable-tests')
     subdir('tests')
 endif
-
