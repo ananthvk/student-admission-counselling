@@ -3,7 +3,18 @@ This is a C++ implementation of the Gale-Shapely algorithm, also known as the de
 
 ## Getting started
 
-To run this project, you need install meson and ninja.
+To run this project, you need install meson and a backend (for example, ninja).
+
+
+To build and run tests,
+
+```
+$ cd student-college-matcher
+$ meson setup build -Dbuildtype=release
+$ cd build
+$ meson compile
+$ meson test -v
+```
 
 For a development build, you need to install clang, along with address sanitizer.
 
@@ -13,6 +24,8 @@ $ CXX=clang++ CC=clang meson setup -Db_sanitize=address -Ddevelopment=true -Db_l
 $ cd build
 $ meson compile
 ```
+
+Note there are some issues when using asan, such as undefined symbols, so for building the python module, do not use asan.
 
 ## Algorithm
 ### Pseudocode
