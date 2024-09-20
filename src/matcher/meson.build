@@ -28,8 +28,8 @@ else
 endif
 
 matcher_inc = [include_directories('.')]
-matcher_lib = static_library('matcher', ['da_algorithm.cpp'], cpp_args: extra_args, version: '0.0.1')
-matcher_dep = declare_dependency(link_with: matcher_lib, include_directories: matcher_inc)
+matcher_lib = static_library('matcher', ['da_algorithm.cpp'], cpp_args: extra_args)
+matcher_dep = declare_dependency(link_with: matcher_lib, include_directories: matcher_inc, version: '0.0.1')
 meson.override_dependency('matcher', matcher_dep)
 
 if get_option('enable-tests')
