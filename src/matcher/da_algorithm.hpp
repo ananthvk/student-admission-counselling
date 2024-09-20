@@ -17,6 +17,8 @@ class RankList
     // Returns the rank/priority of the student, lower the number, higher the priority
     int get_rank(int student_id) const;
 
+    void set_rank(int student_id, int rank);
+
     friend class GaleShapley;
 };
 
@@ -43,6 +45,12 @@ class Course
 
     int get_available_slots() const;
 
+    void set_total_slots(int new_slots);
+
+    void set_available_slots(int new_slots);
+    
+    void set_ranklist(const RankList *rankList);
+
     void reset();
 
     friend class GaleShapley;
@@ -63,6 +71,11 @@ class Student
     int get_alloted_course_id() const;
 
     int get_id() const;
+    
+    void set_id(int new_id);
+    
+    void set_alloted_course(int new_course_id);
+    
     void reset();
 
     friend class GaleShapley;
