@@ -6,4 +6,5 @@ ext_module = py.extension_module(
     'pymatcher.pyx',
     dependencies: [dep_py, dep_matcher],
     override_options : ['cython_language=cpp'],
+    install: true
 )
