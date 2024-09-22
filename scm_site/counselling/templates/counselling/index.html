@@ -1,0 +1,12 @@
+{% extends 'counselling/base.html' %}
+{% block title %}
+  <title>Seat allocation system</title>
+{% endblock %}
+{% block content %}
+  <div>
+    <a href="{% url 'counselling:course_list' %}">List of available courses</a>
+  </div>
+  <div>
+    <a href="{% url 'counselling:college_list' %}">List of participating colleges</a>
+  </div>
+{% endblock %}

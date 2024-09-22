@@ -1,4 +1,10 @@
-<div>
-  <h1>{{ college.name }}</h1>
-  <p>[Details about college here]</p>
-</div>
+{% extends 'counselling/base.html' %}
+{% block title %}
+  <title>Information about {{ college.name }}</title>
+{% endblock %}
+{% block content %}
+  <div>
+    <h1>{{ college.name }}</h1>
+    <p>[Details about college here]</p>
+  </div>
+{% endblock %}

@@ -1,27 +1,33 @@
-<h1>College List</h1>
-{% if college_list %}
-  <table>
-    <tr>
-      <th>College Code</th>
-      <th>Name</th>
-      <th>City</th>
-      <th>Website</th>
-    </tr>
-    {% for college in college_list %}
+{% extends 'counselling/base.html' %}
+{% block title %}
+  <title>List of colleges participating in seat allocation</title>
+{% endblock %}
+{% block content %}
+  <h1>College list</h1>
+  {% if college_list %}
+    <table>
       <tr>
-        <td>
-          <a style="font-family: monospace;" href="{% url 'college_detail' college_id=college.id %}">{{ college.code }}</a>
-        </td>
-        <td>{{ college.name }}</td>
-        <td>{{ college.city }}</td>
-        <td>
-          {% if college.website %}
-            <a href="{{ college.website }}">{{ college.website }}</a>
-          {% else %}
-            -
-          {% endif %}
-        </td>
+        <th>College Code</th>
+        <th>Name</th>
+        <th>City</th>
+        <th>Website</th>
       </tr>
-    {% endfor %}
-  </table>
-{% endif %}
+      {% for college in college_list %}
+        <tr>
+          <td>
+            <a style="font-family: monospace;" href="{% url 'counselling:college_detail' college_id=college.id slug=college.slug %}">{{ college.code }}</a>
+          </td>
+          <td>{{ college.name }}</td>
+          <td>{{ college.city }}</td>
+          <td>
+            {% if college.website %}
+              <a href="{{ college.website }}">{{ college.website }}</a>
+            {% else %}
+              -
+            {% endif %}
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  {% endif %}
+{% endblock %}

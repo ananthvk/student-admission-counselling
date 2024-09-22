@@ -42,6 +42,7 @@ def seed_data(seed_data: dict):
     logger.info("Seeding data...")
     # for k, v in courses.items():
     #    Course(code=k, name=v).save()
+    logger.info('Adding colleges...')
     for college in seed_data["colleges"]:
         College(
             name=college["name"],
@@ -52,3 +53,11 @@ def seed_data(seed_data: dict):
             code=college["code"],
         ).save()
     logger.info(f'Added {len(seed_data["colleges"])} college(s)')
+    
+    logger.info('Adding courses')
+    for course_code, course_name in seed_data["courses"].items():
+        Course(
+            code = course_code,
+            name = course_name
+        ).save()
+    logger.info(f'Added {len(seed_data["courses"])} course(s)')

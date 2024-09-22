@@ -34,7 +34,7 @@ with open("KCET_COLLEGE_LIST.csv") as f:
         )
 
         website = filter_clean(cleaned_line[3]).replace(" ", "")
-        
+
         if not website.startswith("http"):
             website = "http://" + website
 
@@ -67,9 +67,18 @@ with open("KCET_COLLEGE_LIST.csv") as f:
 
         colleges += [college]
 
+# Read the courses
+
+courses = {}
+with open("KCET_COURSES_LIST.csv") as f:
+    reader = csv.reader(f)
+    for line in reader:
+        courses[line[0]] = line[1]
+
+
 with open("data.json", "w") as data_file:
-    college_dict = {"colleges": colleges}
-    json.dump(college_dict, data_file, indent=4, sort_keys=True)
+    data_dict = {"colleges": colleges, "courses": courses}
+    json.dump(data_dict, data_file, indent=4, sort_keys=True)
 
 
 """
