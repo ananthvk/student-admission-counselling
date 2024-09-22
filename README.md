@@ -27,6 +27,13 @@ $ meson compile
 
 Note there are some issues when using asan, such as undefined symbols, so for building the python module, do not use asan.
 
+## To seed the database with initial data
+
+```
+$ cd scm_site
+$ python manage.py seed ../dataset/data.json
+```
+
 ## Algorithm
 ### Pseudocode
 ```
