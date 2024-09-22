@@ -10,6 +10,12 @@ class Course(models.Model):
     def __str__(self):
         return f'[{self.code}] {self.name}'
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["code"], name="course_code_unique"
+            )
+        ]
 
 class College(models.Model):
     name = models.TextField()
@@ -22,6 +28,13 @@ class College(models.Model):
     
     def __str__(self) -> str:
         return f'[{self.code}] {self.name}'
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["code"], name="college_code_unique"
+            )
+        ]
 
 
 class RankList(models.Model):

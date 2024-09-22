@@ -6,7 +6,7 @@
             "code": "EBAG001",
             "college_type": "ENGINEERING",
             "name": "Basaveshwar Engineering College",
-            "website": "www.becbgk.edu"
+            "website": "http://www.becbgk.edu"
         },
         {
             "address": "BILURU GURUBASAVA MAHASWAMIJI",
@@ -14,7 +14,7 @@
             "code": "EBAG002",
             "college_type": "ENGINEERING",
             "name": "BILURU GURUBASAVA MAHASWAMIJI",
-            "website": "www.bgmitm.ac.in"
+            "website": "http://www.bgmitm.ac.in"
         },
         {
             "address": "Vijayapur Road Opp Agur RC",
@@ -22,44 +22,44 @@
             "code": "EBAG003",
             "college_type": "ENGINEERING",
             "name": "Jain Acharya Gundharnandi Maharaj",
-            "website": "jagmit.ac.in"
+            "website": "http://jagmit.ac.in"
         },
         {
             "address": "Jnana Gangotri Campus",
             "city": "Ballari",
-            "code": "EBAL001",
+            "code": "EBAL004",
             "college_type": "ENGINEERING",
             "name": "Ballari Institute of Technology",
-            "website": "www.bitm.edu.in"
+            "website": "http://www.bitm.edu.in"
         },
         {
             "address": "HUVINAHADAGALI-583219 Haveri Road",
             "city": "Ballari",
-            "code": "EBAL002",
+            "code": "EBAL005",
             "college_type": "ENGINEERING",
             "name": "Govt. Engineering College",
-            "website": "null"
+            "website": null
         },
         {
             "address": "Beside TSP Ltd. Indiranagar T.",
             "city": "Ballari",
-            "code": "EBAL003",
+            "code": "EBAL006",
             "college_type": "ENGINEERING",
             "name": "Proudadevaraya Institute of Technology",
-            "website": "www.pdit.ac.in"
+            "website": "http://www.pdit.ac.in"
         },
         {
             "address": "Cantonment Ballari- 583104",
             "city": "Ballari",
-            "code": "EBAL004",
+            "code": "EBAL007",
             "college_type": "ENGINEERING",
             "name": "Rao Bahaddur Y Mahabaleshwa",
-            "website": "www.rymec.in"
+            "website": "http://www.rymec.in"
         },
         {
             "address": "Savagaon Road Belagavi 590009",
             "city": "Belagavi",
-            "code": "EBEL001",
+            "code": "EBEL008",
             "college_type": "ENGINEERING",
             "name": "Angadi Institute of Technology",
             "website": "http://www.aitmbgm."
@@ -67,31 +67,31 @@
         {
             "address": "Jnana Ganga Udyambag",
             "city": "Belagavi",
-            "code": "EBEL002",
+            "code": "EBEL009",
             "college_type": "ENGINEERING",
             "name": "Gogte Institute of Technology BELGAUM",
-            "website": "www.git.edu"
+            "website": "http://www.git.edu"
         },
         {
             "address": "At/Post- Nidasoshi Pin- 591236",
             "city": "Belagavi",
-            "code": "EBEL003",
+            "code": "EBEL010",
             "college_type": "ENGINEERING",
             "name": "Hirasugar Institute of Technology",
-            "website": "www.hsit.ac.in"
+            "website": "http://www.hsit.ac.in"
         },
         {
             "address": "683/2A Udyambag Belagavi",
             "city": "Belagavi",
-            "code": "EBEL004",
+            "code": "EBEL011",
             "college_type": "ENGINEERING",
             "name": "JAIN COLLEGE OF ENGINEERING",
-            "website": "www.jcer.in"
+            "website": "http://www.jcer.in"
         },
         {
             "address": "599/2 T S Nagar Hunchanatti",
             "city": "Belagavi",
-            "code": "EBEL005",
+            "code": "EBEL012",
             "college_type": "ENGINEERING",
             "name": "Jain College of Engineering BELGAUM",
             "website": "http://www.jainbgm.in"
@@ -99,95 +99,95 @@
         {
             "address": "KLE Dr.M.S.SHESHGIRI COLLEGE OF",
             "city": "Belagavi",
-            "code": "EBEL006",
+            "code": "EBEL013",
             "college_type": "ENGINEERING",
             "name": "K L Es College of Engg. & Technology",
-            "website": "www.klescet.ac.in"
+            "website": "http://www.klescet.ac.in"
         },
         {
             "address": "P.B. No. 16Banantikodi Road CHIKODI",
             "city": "Belagavi",
-            "code": "EBEL007",
+            "code": "EBEL014",
             "college_type": "ENGINEERING",
             "name": "KLEs College of Engineering & Technology",
-            "website": "www.klecet.edu.in"
+            "website": "http://www.klecet.edu.in"
         },
         {
             "address": "R.S. 104 Halbhavi Villege P.O.",
             "city": "Belagavi",
-            "code": "EBEL008",
+            "code": "EBEL015",
             "college_type": "ENGINEERING",
             "name": "Maratha Mandal Engineering",
-            "website": "www.mmec.edu.in"
+            "website": "http://www.mmec.edu.in"
         },
         {
             "address": "Shivabasava Nagar Belagavi",
             "city": "Belagavi",
-            "code": "EBEL009",
+            "code": "EBEL016",
             "college_type": "ENGINEERING",
             "name": "S G Balekundri Institute of Technology",
-            "website": "www.sgbitbgm.in"
+            "website": "http://www.sgbitbgm.in"
         },
         {
             "address": "ABU CAMPUSNEAR RCU UNIVERSITY",
             "city": "Belagavi",
-            "code": "EBEL010",
+            "code": "EBEL017",
             "college_type": "ENGINEERING",
             "name": "Shaikh College of Engineering & Technology",
-            "website": "www.scetbgm.com"
+            "website": "http://www.scetbgm.com"
         },
         {
             "address": "BASAV VIDYA NAGAR NIPANI - 591",
             "city": "Belagavi",
-            "code": "EBEL011",
+            "code": "EBEL018",
             "college_type": "ENGINEERING",
             "name": "V S Ms Institute of Technology",
-            "website": "www.vsmit.ac.in"
+            "website": "http://www.vsmit.ac.in"
         },
         {
             "address": "#30/2Dodda Gubbi PostBengaluru-",
             "city": "Bengaluru Rural",
-            "code": "EBEN001",
+            "code": "EBEN019",
             "college_type": "ENGINEERING",
             "name": "Alpha College of Engineering",
-            "website": "www.alphace.ac.in"
+            "website": "http://www.alphace.ac.in"
         },
         {
             "address": "BGS Knowledge city",
             "city": "Bengaluru Rural",
-            "code": "EBEN002",
+            "code": "EBEN020",
             "college_type": "ENGINEERING",
             "name": "BGS SCHOOL OF ARCHITECTUR",
-            "website": "www.bgssap.edu.in"
+            "website": "http://www.bgssap.edu.in"
         },
         {
             "address": "Sy. No. 73 Off International Airport Road",
             "city": "Bengaluru Rural",
-            "code": "EBEN003",
+            "code": "EBEN021",
             "college_type": "ENGINEERING",
             "name": "Cambridge Institute of Technology",
-            "website": "www.cambridge.edu.in"
+            "website": "http://www.cambridge.edu.in"
         },
         {
             "address": "CHOLANAGAR HEBBAL R.T.NAGAR(POST)",
             "city": "Bengaluru Rural",
-            "code": "EBEN004",
+            "code": "EBEN022",
             "college_type": "ENGINEERING",
             "name": "Rajiv Gandhi Institute of Technology",
-            "website": "www.rgit.ac.in"
+            "website": "http://www.rgit.ac.in"
         },
         {
             "address": "Sir MVIT Campus Krishnadevara",
             "city": "Bengaluru Rural",
-            "code": "EBEN005",
+            "code": "EBEN023",
             "college_type": "ENGINEERING",
             "name": "Sir M V School of Architecture",
-            "website": "www.sirmvsa.org"
+            "website": "http://www.sirmvsa.org"
         },
         {
             "address": "Gudimavu Kumbalagodu Post Kengeri",
             "city": "Bengaluru Rural",
-            "code": "EBEN006",
+            "code": "EBEN024",
             "college_type": "ENGINEERING",
             "name": "Vivekananda Institute of Technology",
             "website": "http://www.vkitbangal"
@@ -195,103 +195,103 @@
         {
             "address": "18KM BANNERAGHATTA ROAD",
             "city": "Bengaluru Urban",
-            "code": "EBEN007",
+            "code": "EBEN025",
             "college_type": "ENGINEERING",
             "name": "A M C Engineering College",
-            "website": "www.amceducation.edu.in"
+            "website": "http://www.amceducation.edu.in"
         },
         {
             "address": "Soladevanahalli Dr. Sarvepalli",
             "city": "Bengaluru Urban",
-            "code": "EBEN008",
+            "code": "EBEN026",
             "college_type": "ENGINEERING",
             "name": "Acharya Institute of Technology",
-            "website": "www.acharya.ac.in"
+            "website": "http://www.acharya.ac.in"
         },
         {
             "address": "DR. RADHAKRISHNAN MARG",
             "city": "Bengaluru Urban",
-            "code": "EBEN009",
+            "code": "EBEN027",
             "college_type": "ENGINEERING",
             "name": "Acharyar NRV School of Architecture",
-            "website": "www.acharya.ac.in"
+            "website": "http://www.acharya.ac.in"
         },
         {
             "address": "207 Kambipura Mysore Road",
             "city": "Bengaluru Urban",
-            "code": "EBEN010",
+            "code": "EBEN028",
             "college_type": "ENGINEERING",
             "name": "ACS College of Engineering BANGALORE",
-            "website": "www.acsce.edu.in"
+            "website": "http://www.acsce.edu.in"
         },
         {
             "address": "No 10 Beside Shree Annapurneshw",
             "city": "Bengaluru Urban",
-            "code": "EBEN011",
+            "code": "EBEN029",
             "college_type": "ENGINEERING",
             "name": "Aditya Academy of Architecture",
-            "website": "www.aaad.in"
+            "website": "http://www.aaad.in"
         },
         {
             "address": "Bidadi Industrial Area Near",
             "city": "Bengaluru Urban",
-            "code": "EBEN012",
+            "code": "EBEN030",
             "college_type": "ENGINEERING",
             "name": "Amrutha Institute of Engineering",
-            "website": "www.aiems.in"
+            "website": "http://www.aiems.in"
         },
         {
             "address": "KANAKAPURA ROAD SOMANAHALLI",
             "city": "Bengaluru Urban",
-            "code": "EBEN013",
+            "code": "EBEN031",
             "college_type": "ENGINEERING",
             "name": "APS College of Engineering",
-            "website": "www.apsce.ac.in"
+            "website": "http://www.apsce.ac.in"
         },
         {
             "address": "1st Main AGs Colony Anandnagar",
             "city": "Bengaluru Urban",
-            "code": "EBEN014",
+            "code": "EBEN032",
             "college_type": "ENGINEERING",
             "name": "Atria Institute of Technology BANGALORE",
-            "website": "www.atria.edu"
+            "website": "http://www.atria.edu"
         },
         {
             "address": "P.B.No.1908 BullTemple Road",
             "city": "Bengaluru Urban",
-            "code": "EBEN015",
+            "code": "EBEN033",
             "college_type": "ENGINEERING",
             "name": "B M S (Even) College of Engineering",
-            "website": "www.bmsce.ac.in"
+            "website": "http://www.bmsce.ac.in"
         },
         {
             "address": "POST BOX NO 6443 AVALAHALLI",
             "city": "Bengaluru Urban",
-            "code": "EBEN016",
+            "code": "EBEN034",
             "college_type": "ENGINEERING",
             "name": "B M S Institute of Technology",
-            "website": "www.bmsit.ac.in"
+            "website": "http://www.bmsit.ac.in"
         },
         {
             "address": "P B No.7087 12thMain 27th Cross",
             "city": "Bengaluru Urban",
-            "code": "EBEN017",
+            "code": "EBEN035",
             "college_type": "ENGINEERING",
             "name": "B N M Institute of Technology BANGALORE",
-            "website": "www.bnmit.org"
+            "website": "http://www.bnmit.org"
         },
         {
             "address": "#259/B Bommasandra Industrial",
             "city": "Bengaluru Urban",
-            "code": "EBEN018",
+            "code": "EBEN036",
             "college_type": "ENGINEERING",
             "name": "B T L Institute of Technology Management",
-            "website": "www.btlit.ac.in"
+            "website": "http://www.btlit.ac.in"
         },
         {
             "address": "Near Heelalige Railway Station",
             "city": "Bengaluru Urban",
-            "code": "EBEN019",
+            "code": "EBEN037",
             "college_type": "ENGINEERING",
             "name": "Bangalore College of Engineering",
             "website": "http://www.bcet.ac.in"
@@ -299,95 +299,95 @@
         {
             "address": "K.R.Road V.V.Pura BANGALORE-",
             "city": "Bengaluru Urban",
-            "code": "EBEN020",
+            "code": "EBEN038",
             "college_type": "ENGINEERING",
             "name": "Bangalore Institute of Technology",
-            "website": "www.bit-bangalore.edu.in"
+            "website": "http://www.bit-bangalore.edu.in"
         },
         {
             "address": "Kodathi Village Carmelaram",
             "city": "Bengaluru Urban",
-            "code": "EBEN021",
+            "code": "EBEN039",
             "college_type": "ENGINEERING",
             "name": "Bangalore Technological Institute",
-            "website": "www.btibangalore.org"
+            "website": "http://www.btibangalore.org"
         },
         {
             "address": "Bull temple road Bengaluru",
             "city": "Bengaluru Urban",
-            "code": "EBEN022",
+            "code": "EBEN040",
             "college_type": "ENGINEERING",
             "name": "BMS College of Architecture",
-            "website": "www.bmsca.org"
+            "website": "http://www.bmsca.org"
         },
         {
             "address": "BULL TEMPLE ROAD BASAVANAGU",
             "city": "Bengaluru Urban",
-            "code": "EBEN023",
+            "code": "EBEN041",
             "college_type": "ENGINEERING",
             "name": "BMS College of Engineering",
-            "website": "www.bmsce.ac.in"
+            "website": "http://www.bmsce.ac.in"
         },
         {
             "address": "POST BOX NO. 6448 AVALAHALLI",
             "city": "Bengaluru Urban",
-            "code": "EBEN024",
+            "code": "EBEN042",
             "college_type": "ENGINEERING",
             "name": "BMS SCHOOL OF ARCHITECTUR",
-            "website": "www.bmssa.ac.in"
+            "website": "http://www.bmssa.ac.in"
         },
         {
             "address": "Dwarakanagar Bagalur Main Road",
             "city": "Bengaluru Urban",
-            "code": "EBEN025",
+            "code": "EBEN043",
             "college_type": "ENGINEERING",
             "name": "Brindavan College of Engg.",
-            "website": "www.brindavancollege.com"
+            "website": "http://www.brindavancollege.com"
         },
         {
             "address": "#132 IT PARK ROAD AECS LAYOUT",
             "city": "Bengaluru Urban",
-            "code": "EBEN026",
+            "code": "EBEN044",
             "college_type": "ENGINEERING",
             "name": "C M R Institute of Technology BANGALORE",
-            "website": "www.cmrit.ac.in"
+            "website": "http://www.cmrit.ac.in"
         },
         {
             "address": "K R Puram Bangalore- 560036 -do-",
             "city": "Bengaluru Urban",
-            "code": "EBEN027",
+            "code": "EBEN045",
             "college_type": "ENGINEERING",
             "name": "Camridge Institute of Technology",
-            "website": "www.cambridge.edu.in"
+            "website": "http://www.cambridge.edu.in"
         },
         {
             "address": "Doddakallasandra Kanakapura",
             "city": "Bengaluru Urban",
-            "code": "EBEN028",
+            "code": "EBEN046",
             "college_type": "ENGINEERING",
             "name": "City Engineering College",
-            "website": "www.cityengineeringcolleg"
+            "website": "http://www.cityengineeringcolleg"
         },
         {
             "address": "Building No.14 Shavige Malleshwara",
             "city": "Bengaluru Urban",
-            "code": "EBEN029",
+            "code": "EBEN047",
             "college_type": "ENGINEERING",
             "name": "Dayananda  Sagar College  of Architecture",
-            "website": "www.dayanandasagar.edu"
+            "website": "http://www.dayanandasagar.edu"
         },
         {
             "address": "Udayapura Kanakapura Road Opp Art",
             "city": "Bengaluru Urban",
-            "code": "EBEN030",
+            "code": "EBEN048",
             "college_type": "ENGINEERING",
             "name": "DAYANANDA SAGAR ACADEMY OF",
-            "website": "www.dsat.in"
+            "website": "http://www.dsat.in"
         },
         {
             "address": "SHAVIGE MALLESHWARA HILLS",
             "city": "Bengaluru Urban",
-            "code": "EBEN031",
+            "code": "EBEN049",
             "college_type": "ENGINEERING",
             "name": "Dayananda Sagar College of",
             "website": "http://www.dayananda"
@@ -395,79 +395,79 @@
         {
             "address": "Kumbalagodu Mysore Road Bangalore",
             "city": "Bengaluru Urban",
-            "code": "EBEN032",
+            "code": "EBEN050",
             "college_type": "ENGINEERING",
             "name": "Don Bosco Institute of Technology",
-            "website": "www.dbit.co.in"
+            "website": "http://www.dbit.co.in"
         },
         {
             "address": "Outer Ring Road Mallathahally",
             "city": "Bengaluru Urban",
-            "code": "EBEN033",
+            "code": "EBEN051",
             "college_type": "ENGINEERING",
             "name": "Dr. Ambedkar Institute of Technology",
-            "website": "www.dr-ait.org"
+            "website": "http://www.dr-ait.org"
         },
         {
             "address": "BYRANAYAKANAHAL LI NELAMANGAL",
             "city": "Bengaluru Urban",
-            "code": "EBEN034",
+            "code": "EBEN052",
             "college_type": "ENGINEERING",
             "name": "Dr. Sri Sri Sri Shivakumara Mahaswamy",
-            "website": "drsmce.org"
+            "website": "http://drsmce.org"
         },
         {
             "address": "Jnana Prabha Virgonagar Post",
             "city": "Bengaluru Urban",
-            "code": "EBEN035",
+            "code": "EBEN053",
             "college_type": "ENGINEERING",
             "name": "East Point College of Engg.",
-            "website": "www.eastpoint.ac.in"
+            "website": "http://www.eastpoint.ac.in"
         },
         {
             "address": "NO. 13 13TH A MAIN SECTOR A 80 FEET",
             "city": "Bengaluru Urban",
-            "code": "EBEN036",
+            "code": "EBEN054",
             "college_type": "ENGINEERING",
             "name": "EAST WEST COLLEGE OF ENGINEERING",
-            "website": "www.ewce.ac.in"
+            "website": "http://www.ewce.ac.in"
         },
         {
             "address": "#63 OFF MAGADI ROADQ",
             "city": "Bengaluru Urban",
-            "code": "EBEN037",
+            "code": "EBEN055",
             "college_type": "ENGINEERING",
             "name": "East West Institute of Technology",
-            "website": "www.ewit.edu"
+            "website": "http://www.ewit.edu"
         },
         {
             "address": "SY NO 63 NEW NO 195 EWIT CAMPUS OFF",
             "city": "Bengaluru Urban",
-            "code": "EBEN038",
+            "code": "EBEN056",
             "college_type": "ENGINEERING",
             "name": "EAST WEST SCHOOL OF ARCHITECTUR",
-            "website": "www.ewsa.edu.in"
+            "website": "http://www.ewsa.edu.in"
         },
         {
             "address": "R R NAGAR IDEAL HOMES TOWNSHIP R",
             "city": "Bengaluru Urban",
-            "code": "EBEN039",
+            "code": "EBEN057",
             "college_type": "ENGINEERING",
             "name": "Global Academy of Technology",
-            "website": "info@gat.ac.in"
+            "website": "http://info@gat.ac.in"
         },
         {
             "address": "181/1 182/1 Hoodi Village Sonnenahalli",
             "city": "Bengaluru Urban",
-            "code": "EBEN040",
+            "code": "EBEN058",
             "college_type": "ENGINEERING",
             "name": "Gopalan College of Engineering",
-            "website": "www.gopalancolleges.com"
+            "website": "http://www.gopalancolleges.com"
         },
         {
             "address": "181/1 181/2 BASAVANNANAGARA",
             "city": "Bengaluru Urban",
-            "code": "EBEN041",
+            "code": "EBEN059",
             "college_type": "ENGINEERING",
             "name": "GOPALAN SCHOOL OF ARCHITECTUR",
             "website": "http://www.gopalancol"
@@ -475,207 +475,207 @@
         {
             "address": "K R circle Bangalore Bangalore",
             "city": "Bengaluru Urban",
-            "code": "EBEN042",
+            "code": "EBEN060",
             "college_type": "ENGINEERING",
             "name": "Govt. S K S J Technological Institute",
-            "website": "www.gsksjti.ac.in"
+            "website": "http://www.gsksjti.ac.in"
         },
         {
             "address": "K R circle Bangalore Bangalore",
             "city": "Bengaluru Urban",
-            "code": "EBEN043",
+            "code": "EBEN061",
             "college_type": "ENGINEERING",
             "name": "Govt. S K S J Technological Institute(Eve)",
-            "website": "www.gsksjti.ac.in"
+            "website": "http://www.gsksjti.ac.in"
         },
         {
             "address": "RAJAJI NAGAR INDL ESTATE BANGALORE -",
             "city": "Bengaluru Urban",
-            "code": "EBEN044",
+            "code": "EBEN062",
             "college_type": "ENGINEERING",
             "name": "Govt. Tool Room & Training",
-            "website": "null"
+            "website": null
         },
         {
             "address": "# 22/1 Nagawara -- Bangalore -",
             "city": "Bengaluru Urban",
-            "code": "EBEN045",
+            "code": "EBEN063",
             "college_type": "ENGINEERING",
             "name": "H K B K College of Engineering",
-            "website": "www.hkbkeducation.org"
+            "website": "http://www.hkbkeducation.org"
         },
         {
             "address": "Impact Campus Kodigehalli",
             "city": "Bengaluru Urban",
-            "code": "EBEN046",
+            "code": "EBEN064",
             "college_type": "ENGINEERING",
             "name": "Impact College of Engg.",
-            "website": "www.iceas.ac.in"
+            "website": "http://www.iceas.ac.in"
         },
         {
             "address": "IMPACT Campus Sahakarnagar",
             "city": "Bengaluru Urban",
-            "code": "EBEN047",
+            "code": "EBEN065",
             "college_type": "ENGINEERING",
             "name": "IMPACT SCHOOL OF ARCHITECTUR",
-            "website": "www.isab.in"
+            "website": "http://www.isab.in"
         },
         {
             "address": "National Park Road Opp Meenakshi",
             "city": "Bengaluru Urban",
-            "code": "EBEN048",
+            "code": "EBEN066",
             "college_type": "ENGINEERING",
             "name": "Islamiah Inst. of Technology BANGALORE",
-            "website": "www.islamiahit.com"
+            "website": "http://www.islamiahit.com"
         },
         {
             "address": "JSS Campus Uttarahalli-Kengeri Road",
             "city": "Bengaluru Urban",
-            "code": "EBEN049",
+            "code": "EBEN067",
             "college_type": "ENGINEERING",
             "name": "J S S Academy of Technical Education",
-            "website": "www.jssateb.ac.in"
+            "website": "http://www.jssateb.ac.in"
         },
         {
             "address": "Jnanavikas Institute of Technology",
             "city": "Bengaluru Urban",
-            "code": "EBEN050",
+            "code": "EBEN068",
             "college_type": "ENGINEERING",
             "name": "Jnana Vikas Institute of Technology",
-            "website": "jvitedu.in"
+            "website": "http://jvitedu.in"
         },
         {
             "address": "Tataguni Off Kanakapura Road",
             "city": "Bengaluru Urban",
-            "code": "EBEN051",
+            "code": "EBEN069",
             "college_type": "ENGINEERING",
             "name": "JYOTHY INSTITUTE OF TECHNOLOGY",
-            "website": "www.jyothyit.ac.in"
+            "website": "http://www.jyothyit.ac.in"
         },
         {
             "address": "HEGDE NAGAR- KOGILU ROAD",
             "city": "Bengaluru Urban",
-            "code": "EBEN052",
+            "code": "EBEN070",
             "college_type": "ENGINEERING",
             "name": "K N S Institute of Technology BANGALORE",
-            "website": "www.knsit.com"
+            "website": "http://www.knsit.com"
         },
         {
             "address": "No 14Raghuvanahalli Kanakapura",
             "city": "Bengaluru Urban",
-            "code": "EBEN053",
+            "code": "EBEN071",
             "college_type": "ENGINEERING",
             "name": "K S Institute of Technology BANGALORE",
-            "website": "www.ksit.ac.in"
+            "website": "http://www.ksit.ac.in"
         },
         {
             "address": "No-15 Mallasandra Off.",
             "city": "Bengaluru Urban",
-            "code": "EBEN054",
+            "code": "EBEN072",
             "college_type": "ENGINEERING",
             "name": "K S SCHOOL OF ARCHITECTUR",
-            "website": "www.kssa.edu.in"
+            "website": "http://www.kssa.edu.in"
         },
         {
             "address": "No. 15 Mallasandra Off",
             "city": "Bengaluru Urban",
-            "code": "EBEN055",
+            "code": "EBEN073",
             "college_type": "ENGINEERING",
             "name": "K S School of Engineering & Management",
-            "website": "www.kssem.edu.in"
+            "website": "http://www.kssem.edu.in"
         },
         {
             "address": "Navarathna Agrahara Sadahalli Post",
             "city": "Bengaluru Urban",
-            "code": "EBEN056",
+            "code": "EBEN074",
             "college_type": "ENGINEERING",
             "name": "M S Engineering College",
-            "website": "www.msec.ac.in"
+            "website": "http://www.msec.ac.in"
         },
         {
             "address": "Vidya Soudha MSR Nagar MSRIT Post",
             "city": "Bengaluru Urban",
-            "code": "EBEN057",
+            "code": "EBEN075",
             "college_type": "ENGINEERING",
             "name": "M S Ramaiah Institute of Technology",
-            "website": "www.msrit.edu"
+            "website": "http://www.msrit.edu"
         },
         {
             "address": "Near ITPB CHANNASANDRA",
             "city": "Bengaluru Urban",
-            "code": "EBEN058",
+            "code": "EBEN076",
             "college_type": "ENGINEERING",
             "name": "M V J College of Engineering",
-            "website": "www.mvjce.edu.in"
+            "website": "http://www.mvjce.edu.in"
         },
         {
             "address": "Nagarjuna College of Engineering",
             "city": "Bengaluru Urban",
-            "code": "EBEN059",
+            "code": "EBEN077",
             "college_type": "ENGINEERING",
             "name": "Nagarjuna College of Engg.",
-            "website": "www.nagarjunaeducation."
+            "website": "http://www.nagarjunaeducation."
         },
         {
             "address": "NEW HORIZON KNOWELDGE PARK RING",
             "city": "Bengaluru Urban",
-            "code": "EBEN060",
+            "code": "EBEN078",
             "college_type": "ENGINEERING",
             "name": "New Horizon College of Engineering",
-            "website": "www.newhorizonindia.edu"
+            "website": "http://www.newhorizonindia.edu"
         },
         {
             "address": "Govindapura Gollahalli P.B.No. 6429",
             "city": "Bengaluru Urban",
-            "code": "EBEN061",
+            "code": "EBEN079",
             "college_type": "ENGINEERING",
             "name": "Nitte Meenakshi Institute of",
-            "website": "www.nmit.ac.in"
+            "website": "http://www.nmit.ac.in"
         },
         {
             "address": "Govindapura Gollahalli Yelahanka",
             "city": "Bengaluru Urban",
-            "code": "EBEN062",
+            "code": "EBEN080",
             "college_type": "ENGINEERING",
             "name": "Nitte School of Architecture",
-            "website": "www.nittesoa.ac.in"
+            "website": "http://www.nittesoa.ac.in"
         },
         {
             "address": "Hosur Road Electronic City",
             "city": "Bengaluru Urban",
-            "code": "EBEN063",
+            "code": "EBEN081",
             "college_type": "ENGINEERING",
             "name": "PESIT-Bangalore South",
-            "website": "www.pesse.in"
+            "website": "http://www.pesse.in"
         },
         {
             "address": "Channasandra Uttarahalli-Kengeri Road",
             "city": "Bengaluru Urban",
-            "code": "EBEN064",
+            "code": "EBEN082",
             "college_type": "ENGINEERING",
             "name": "R N S Institute of Technology BANGALORE",
-            "website": "www.rnsit.ac.in"
+            "website": "http://www.rnsit.ac.in"
         },
         {
             "address": "RR Layout Chikkabanavara Bangaluru",
             "city": "Bengaluru Urban",
-            "code": "EBEN065",
+            "code": "EBEN083",
             "college_type": "ENGINEERING",
             "name": "R R Institute of Technology BANGALORE",
-            "website": "www.rrit.ac.in"
+            "website": "http://www.rrit.ac.in"
         },
         {
             "address": "R. V. VIDYANIKETAN POST",
             "city": "Bengaluru Urban",
-            "code": "EBEN066",
+            "code": "EBEN084",
             "college_type": "ENGINEERING",
             "name": "R V College of Engineering BANGALORE",
-            "website": "www.rvce.edu.in"
+            "website": "http://www.rvce.edu.in"
         },
         {
             "address": "Sy.No.171/5Kothanur 8th phase J.P.",
             "city": "Bengaluru Urban",
-            "code": "EBEN067",
+            "code": "EBEN085",
             "college_type": "ENGINEERING",
             "name": "R V Institute of Technology and",
             "website": "https://rvitm.edu.in"
@@ -683,391 +683,391 @@
         {
             "address": "No. 14 Ramohalli Cross",
             "city": "Bengaluru Urban",
-            "code": "EBEN068",
+            "code": "EBEN086",
             "college_type": "ENGINEERING",
             "name": "RajaRajesheshwari College of Engineering",
-            "website": "www.rrce.org"
+            "website": "http://www.rrce.org"
         },
         {
             "address": "CHANNASANDRA UTTARAHALLI",
             "city": "Bengaluru Urban",
-            "code": "EBEN069",
+            "code": "EBEN087",
             "college_type": "ENGINEERING",
             "name": "RNS SCHOOL OF ARCHITECURE",
-            "website": "www.rnsit.ac.in"
+            "website": "http://www.rnsit.ac.in"
         },
         {
             "address": "R R LAYOUT CHIKKABANAVARA",
             "city": "Bengaluru Urban",
-            "code": "EBEN070",
+            "code": "EBEN088",
             "college_type": "ENGINEERING",
             "name": "RR School of Architecture BANGALORE",
-            "website": "www.rrsa.ac.in"
+            "website": "http://www.rrsa.ac.in"
         },
         {
             "address": "CA-Site No. 1 4th Block BSK 6th Stage",
             "city": "Bengaluru Urban",
-            "code": "EBEN071",
+            "code": "EBEN089",
             "college_type": "ENGINEERING",
             "name": "RV COLLEGE OF ARCHITECTUR",
-            "website": "www.rvca.edu.in"
+            "website": "http://www.rvca.edu.in"
         },
         {
             "address": "#67 BGS Health & Education city",
             "city": "Bengaluru Urban",
-            "code": "EBEN072",
+            "code": "EBEN090",
             "college_type": "ENGINEERING",
             "name": "S J B Institute of Technology BANGALORE",
-            "website": "www.sjbit.edu.in"
+            "website": "http://www.sjbit.edu.in"
         },
         {
             "address": "RAJANUKUNTE DODDABALLA",
             "city": "Bengaluru Urban",
-            "code": "EBEN073",
+            "code": "EBEN091",
             "college_type": "ENGINEERING",
             "name": "Sai Vidya Institute of Technology",
-            "website": "www.saividya.ac.in"
+            "website": "http://www.saividya.ac.in"
         },
         {
             "address": "AMBA BHAVANI TEMPLE ROAD",
             "city": "Bengaluru Urban",
-            "code": "EBEN074",
+            "code": "EBEN092",
             "college_type": "ENGINEERING",
             "name": "Sambhram Institute of Technology",
-            "website": "sambhramit.com"
+            "website": "http://sambhramit.com"
         },
         {
             "address": "No.14/5Chikkasandra Hesaraghatta",
             "city": "Bengaluru Urban",
-            "code": "EBEN075",
+            "code": "EBEN093",
             "college_type": "ENGINEERING",
             "name": "Sapthagiri College of Engineering",
-            "website": "www.sapthagiri.edu.in"
+            "website": "http://www.sapthagiri.edu.in"
         },
         {
             "address": "AyyappanagarDevasa ndra Main road",
             "city": "Bengaluru Urban",
-            "code": "EBEN076",
+            "code": "EBEN094",
             "college_type": "ENGINEERING",
             "name": "SEA College of Engineering & Technology",
-            "website": "www.seaedu.ac.in"
+            "website": "http://www.seaedu.ac.in"
         },
         {
             "address": "KRISHNADEVARAYAN AGAR KEMPEGOWDA",
             "city": "Bengaluru Urban",
-            "code": "EBEN077",
+            "code": "EBEN095",
             "college_type": "ENGINEERING",
             "name": "Sir M Visvesvaraya Institute of",
-            "website": "www.sirmvit.edu"
+            "website": "http://www.sirmvit.edu"
         },
         {
             "address": "BGS Health & Education City",
             "city": "Bengaluru Urban",
-            "code": "EBEN078",
+            "code": "EBEN096",
             "college_type": "ENGINEERING",
             "name": "SJB SCHOOL OF ARCHITECTUR",
-            "website": "www.sjbsap.edu.in"
+            "website": "http://www.sjbsap.edu.in"
         },
         {
             "address": "No.29 Hesaraghatta Main Road",
             "city": "Bengaluru Urban",
-            "code": "EBEN079",
+            "code": "EBEN097",
             "college_type": "ENGINEERING",
             "name": "Sri Krishana Institute of Technology",
-            "website": "www.sreis.in"
+            "website": "http://www.sreis.in"
         },
         {
             "address": "Chokkanahalli Chikkajala Post",
             "city": "Bengaluru Urban",
-            "code": "EBEN080",
+            "code": "EBEN098",
             "college_type": "ENGINEERING",
             "name": "Sri Revana Siddeshwara Institute of",
-            "website": "www.srsect.edu.in"
+            "website": "http://www.srsect.edu.in"
         },
         {
             "address": "Sai Leo Nagar Guddanahalli Post Anekal",
             "city": "Bengaluru Urban",
-            "code": "EBEN081",
+            "code": "EBEN099",
             "college_type": "ENGINEERING",
             "name": "Sri Sairam College of Engineering",
-            "website": "www.sairamce.edu.in"
+            "website": "http://www.sairamce.edu.in"
         },
         {
             "address": "SVCEVIDYANAGARK EMPAGOWDA",
             "city": "Bengaluru Urban",
-            "code": "EBEN082",
+            "code": "EBEN100",
             "college_type": "ENGINEERING",
             "name": "Sri Venkateshwara College of",
-            "website": "www.svcengg.edu.in"
+            "website": "http://www.svcengg.edu.in"
         },
         {
             "address": "#86/1 Gottigere Bannergatta",
             "city": "Bengaluru Urban",
-            "code": "EBEN083",
+            "code": "EBEN101",
             "college_type": "ENGINEERING",
             "name": "T. John Institute of Technology",
-            "website": "www.tjohncollege.com"
+            "website": "http://www.tjohncollege.com"
         },
         {
             "address": "Hosur Road Bommanahalli Bangalore",
             "city": "Bengaluru Urban",
-            "code": "EBEN084",
+            "code": "EBEN102",
             "college_type": "ENGINEERING",
             "name": "The Oxford College of Engineering",
-            "website": "www.theoxford.edu"
+            "website": "http://www.theoxford.edu"
         },
         {
             "address": "1 MAHAYOGI VEMANA ROAD 3RD",
             "city": "Bengaluru Urban",
-            "code": "EBEN085",
+            "code": "EBEN103",
             "college_type": "ENGINEERING",
             "name": "Vemana Institute of Technology",
-            "website": "www.vemanait.edu.in"
+            "website": "http://www.vemanait.edu.in"
         },
         {
             "address": "#35/1 Doddagubbi post Hennur-",
             "city": "Bengaluru Urban",
-            "code": "EBEN086",
+            "code": "EBEN104",
             "college_type": "ENGINEERING",
             "name": "Vijaya Vittal Institute of Technology",
-            "website": "www.svvit.org"
+            "website": "http://www.svvit.org"
         },
         {
             "address": "N.H.9 Basavakalyan.",
             "city": "Bidar",
-            "code": "EBID001",
+            "code": "EBID105",
             "college_type": "ENGINEERING",
             "name": "Basava Kalyan Engineering College",
-            "website": "www.betbkec.com"
+            "website": "http://www.betbkec.com"
         },
         {
             "address": "Bhalki-Humnabad Road Bhalki",
             "city": "Bidar",
-            "code": "EBID002",
+            "code": "EBID106",
             "college_type": "ENGINEERING",
             "name": "Bhemanna Khandre Institute of",
-            "website": "www.bkitbhalki.org"
+            "website": "http://www.bkitbhalki.org"
         },
         {
             "address": "MAILOOR-BIDAR ROAD BIDAR-",
             "city": "Bidar",
-            "code": "EBID003",
+            "code": "EBID107",
             "college_type": "ENGINEERING",
             "name": "Guru Nanak Dev Engineering",
-            "website": "www.gndecbidar.in"
+            "website": "http://www.gndecbidar.in"
         },
         {
             "address": "Gornalli Bidar",
             "city": "Bidar",
-            "code": "EBID004",
+            "code": "EBID108",
             "college_type": "ENGINEERING",
             "name": "LINGARAJ APPA ENGINEERING",
-            "website": "www.lingarajappaec.ac.in"
+            "website": "http://www.lingarajappaec.ac.in"
         },
         {
             "address": "Ekalavya Institute of Technology",
             "city": "Chamarajanagar",
-            "code": "ECHA001",
+            "code": "ECHA109",
             "college_type": "ENGINEERING",
             "name": "Ekalavya Institute of Technology",
-            "website": "www.ekalavyatech.in"
+            "website": "http://www.ekalavyatech.in"
         },
         {
             "address": "Bedarapura NANJANGUD ROAD",
             "city": "Chamarajanagar",
-            "code": "ECHA002",
+            "code": "ECHA110",
             "college_type": "ENGINEERING",
             "name": "Govt. Engineering College",
-            "website": "www.gec-chamarajanagara.ac."
+            "website": "http://www.gec-chamarajanagara.ac."
         },
         {
             "address": "Kodigehalli Doddaballapur",
             "city": "Chikballapur",
-            "code": "ECHI001",
+            "code": "ECHI111",
             "college_type": "ENGINEERING",
             "name": "R L Jalappa Institute of Technology",
-            "website": "www.rljit.in"
+            "website": "http://www.rljit.in"
         },
         {
             "address": "P.B.No:20 B B RoadChickballapur",
             "city": "Chikballapur",
-            "code": "ECHI002",
+            "code": "ECHI112",
             "college_type": "ENGINEERING",
             "name": "S J C Institute of Technology CHICKBALLAP",
-            "website": "www.sjcit.ac.in"
+            "website": "http://www.sjcit.ac.in"
         },
         {
             "address": "#73/1 VAralakonda Village",
             "city": "Chikballapur",
-            "code": "ECHI003",
+            "code": "ECHI113",
             "college_type": "ENGINEERING",
             "name": "Shah-Shib College of Engineering",
-            "website": "shashibgroup.org"
+            "website": "http://shashibgroup.org"
         },
         {
             "address": "Adichunchanagiri Extension Jyothinagar",
             "city": "Chikkamagaluru",
-            "code": "ECHI004",
+            "code": "ECHI114",
             "college_type": "ENGINEERING",
             "name": "Adichunchanagiri Institute of Technology",
-            "website": "www.aitchikmagalur.ac.in"
+            "website": "http://www.aitchikmagalur.ac.in"
         },
         {
             "address": "P.B.No.73 NH-4 ByePass",
             "city": "Chitradurga",
-            "code": "ECHI005",
+            "code": "ECHI115",
             "college_type": "ENGINEERING",
             "name": "S J M Institute of Technology CHITRADURGA",
-            "website": "www.sjmit.ac.in"
+            "website": "http://www.sjmit.ac.in"
         },
         {
             "address": "NH - 66 Kottara Chowki",
             "city": "Dakshin Kannad",
-            "code": "EDAK001",
+            "code": "EDAK116",
             "college_type": "ENGINEERING",
             "name": "A J Institute of Engineering and",
-            "website": "www.ajiet.edu.in"
+            "website": "http://www.ajiet.edu.in"
         },
         {
             "address": "Shobhavana Campus Mijar Moodbidri",
             "city": "Dakshin Kannad",
-            "code": "EDAK002",
+            "code": "EDAK117",
             "college_type": "ENGINEERING",
             "name": "Alvas Institute of Engineering and",
-            "website": "www.aiet.org.in"
+            "website": "http://www.aiet.org.in"
         },
         {
             "address": "Bearys Knowledge Campus",
             "city": "Dakshin Kannad",
-            "code": "EDAK003",
+            "code": "EDAK118",
             "college_type": "ENGINEERING",
             "name": "Bearys Institute of Technology",
-            "website": "www.bitmangalore.edu.in"
+            "website": "http://www.bitmangalore.edu.in"
         },
         {
             "address": "Benjanpadavu Bantwal. D.K Bantwal",
             "city": "Dakshin Kannad",
-            "code": "EDAK004",
+            "code": "EDAK119",
             "college_type": "ENGINEERING",
             "name": "Canara Engineering College",
-            "website": "www.canaraengineering.in"
+            "website": "http://www.canaraengineering.in"
         },
         {
             "address": "Majali-Mudageri Road Majali",
             "city": "Dakshin Kannad",
-            "code": "EDAK005",
+            "code": "EDAK120",
             "college_type": "ENGINEERING",
             "name": "Govt. Engineering College",
-            "website": "www.geckarwar.ac.in"
+            "website": "http://www.geckarwar.ac.in"
         },
         {
             "address": "Kurunjibag Sullia  D K Sullia",
             "city": "Dakshin Kannad",
-            "code": "EDAK006",
+            "code": "EDAK121",
             "college_type": "ENGINEERING",
             "name": "K V G College of Engineering",
-            "website": "office@kvgengg.com"
+            "website": "http://office@kvgengg.com"
         },
         {
             "address": "PADU POST VIA PEDUMALE",
             "city": "Dakshin Kannad",
-            "code": "EDAK007",
+            "code": "EDAK122",
             "college_type": "ENGINEERING",
             "name": "Karavali Institute of Technology",
-            "website": "www.karavaliinstituteoftec"
+            "website": "http://www.karavaliinstituteoftec"
         },
         {
             "address": "Badaga Mijar 0 Moodabidri",
             "city": "Dakshin Kannad",
-            "code": "EDAK008",
+            "code": "EDAK123",
             "college_type": "ENGINEERING",
             "name": "Mangalore Institute of Technology",
-            "website": "www.mite.ac.in"
+            "website": "http://www.mite.ac.in"
         },
         {
             "address": "Padil Padavu Kelinjar Village",
             "city": "Dakshin Kannad",
-            "code": "EDAK009",
+            "code": "EDAK124",
             "college_type": "ENGINEERING",
             "name": "MANGALORE MARINE COLLEGE AND",
-            "website": "www.cmc.ac.in"
+            "website": "http://www.cmc.ac.in"
         },
         {
             "address": "NADUPADAV KAIRANGALA NEAR",
             "city": "Dakshin Kannad",
-            "code": "EDAK010",
+            "code": "EDAK125",
             "college_type": "ENGINEERING",
             "name": "P A College of Engineering MANGALORE",
-            "website": "www.pace.edu.in"
+            "website": "http://www.pace.edu.in"
         },
         {
             "address": "Sahyadri College of Engineering",
             "city": "Dakshin Kannad",
-            "code": "EDAK011",
+            "code": "EDAK126",
             "college_type": "ENGINEERING",
             "name": "Sahyadri College of Engineering",
-            "website": "www.sahyadri.edu.in"
+            "website": "http://www.sahyadri.edu.in"
         },
         {
             "address": "SDM IT Dharmasthala Road Ujire",
             "city": "Dakshin Kannad",
-            "code": "EDAK012",
+            "code": "EDAK127",
             "college_type": "ENGINEERING",
             "name": "SDM Institute of Technology UJIRE",
-            "website": "www.sdmit.in"
+            "website": "http://www.sdmit.in"
         },
         {
             "address": "Airport Road Kenjar Mangalore",
             "city": "Dakshin Kannad",
-            "code": "EDAK013",
+            "code": "EDAK128",
             "college_type": "ENGINEERING",
             "name": "Shree Devi Institute of Technology",
-            "website": "www.sdc.ac.in"
+            "website": "http://www.sdc.ac.in"
         },
         {
             "address": "Srinivas Campus Valachil",
             "city": "Dakshin Kannad",
-            "code": "EDAK014",
+            "code": "EDAK129",
             "college_type": "ENGINEERING",
             "name": "Srinivas Institute of Technology",
-            "website": "www.srinivasgroup.com"
+            "website": "http://www.srinivasgroup.com"
         },
         {
             "address": "0 0 Mangalore",
             "city": "Dakshin Kannad",
-            "code": "EDAK015",
+            "code": "EDAK130",
             "college_type": "ENGINEERING",
             "name": "Srinivas School of Engineering",
-            "website": "Karnataka"
+            "website": null
         },
         {
             "address": "Vamanjoor Mangaluru Mangaluru",
             "city": "Dakshin Kannad",
-            "code": "EDAK016",
+            "code": "EDAK131",
             "college_type": "ENGINEERING",
             "name": "ST JOSEPH ENGINEERING COLLEGE",
-            "website": "www.sjec.ac.in"
+            "website": "http://www.sjec.ac.in"
         },
         {
             "address": "Nehru Nagar Post Puttur Puttur",
             "city": "Dakshin Kannad",
-            "code": "EDAK017",
+            "code": "EDAK132",
             "college_type": "ENGINEERING",
             "name": "Vivekananda College of Engg. & Tech.",
-            "website": "www.vcetputtur.ac.in"
+            "website": "http://www.vcetputtur.ac.in"
         },
         {
             "address": "Vidya Nagar NH-13 Thodar",
             "city": "Dakshin Kannad",
-            "code": "EDAK018",
+            "code": "EDAK133",
             "college_type": "ENGINEERING",
             "name": "YENEPOYA INSTITUTE OF TECHNOLOGY",
-            "website": "www.yit.edu.in"
+            "website": "http://www.yit.edu.in"
         },
         {
             "address": "Post Box No:325 Shamanur",
             "city": "Davangere",
-            "code": "EDAV001",
+            "code": "EDAV134",
             "college_type": "ENGINEERING",
             "name": "Bapuji Institute of Engineering",
             "website": "http://www.bietdvg."
@@ -1075,95 +1075,95 @@
         {
             "address": "POST BOX NO 4. P B ROAD DAVANGERE",
             "city": "Davangere",
-            "code": "EDAV002",
+            "code": "EDAV135",
             "college_type": "ENGINEERING",
             "name": "G M Institute of Technology DAVANGERE",
-            "website": "www.gmit.info"
+            "website": "http://www.gmit.info"
         },
         {
             "address": "Near Veereshwara Punyshram",
             "city": "Davangere",
-            "code": "EDAV003",
+            "code": "EDAV136",
             "college_type": "ENGINEERING",
             "name": "JAIN INSTITUTE OF TECHNOLOGY",
-            "website": "www.jitd.ac.in"
+            "website": "http://www.jitd.ac.in"
         },
         {
             "address": "Navagrahteerth NH-4 Road Varur-581207",
             "city": "Dharwad",
-            "code": "EDHA001",
+            "code": "EDHA137",
             "college_type": "ENGINEERING",
             "name": "AGM Rural College of Engineering",
-            "website": "www.agmrcet.ac.in"
+            "website": "http://www.agmrcet.ac.in"
         },
         {
             "address": "JAIN COLLEGE OF ENGINEERING",
             "city": "Dharwad",
-            "code": "EDHA002",
+            "code": "EDHA138",
             "college_type": "ENGINEERING",
             "name": "JAIN COLLEGE OF ENGINEERING",
-            "website": "www.jcethbl.in"
+            "website": "http://www.jcethbl.in"
         },
         {
             "address": "Opposite Airport Gokul Hubli-",
             "city": "Dharwad",
-            "code": "EDHA003",
+            "code": "EDHA139",
             "college_type": "ENGINEERING",
             "name": "KLE Institute of Technology HUBLI",
-            "website": "www.kleit.ac.in"
+            "website": "http://www.kleit.ac.in"
         },
         {
             "address": "Dhavalagiri Kalghatgi Road",
             "city": "Dharwad",
-            "code": "EDHA004",
+            "code": "EDHA140",
             "college_type": "ENGINEERING",
             "name": "S D M College of Engg. & Technology",
-            "website": "www.sdmcet.ac.in"
+            "website": "http://www.sdmcet.ac.in"
         },
         {
             "address": "AT POST :HULKOTI TQ / DT : GADAG",
             "city": "Gadag",
-            "code": "EGAD001",
+            "code": "EGAD141",
             "college_type": "ENGINEERING",
             "name": "Rural Engineering College",
-            "website": "www.rechulkoti.edu.in"
+            "website": "http://www.rechulkoti.edu.in"
         },
         {
             "address": "P.B.NO.23.Savanur Road Laxmeshwar",
             "city": "Gadag",
-            "code": "EGAD002",
+            "code": "EGAD142",
             "college_type": "ENGINEERING",
             "name": "Smt. Kamala & Sri Venkappa M Agadi",
-            "website": "www.agadiengcollege.com"
+            "website": "http://www.agadiengcollege.com"
         },
         {
             "address": "Mundaragi Road Gadag Gadag",
             "city": "Gadag",
-            "code": "EGAD003",
+            "code": "EGAD143",
             "college_type": "ENGINEERING",
             "name": "Tontadarya College of Engineering",
-            "website": "www.tce.ac.in"
+            "website": "http://www.tce.ac.in"
         },
         {
             "address": "Gommatanagara Shravanabela",
             "city": "Hassan",
-            "code": "EHAS001",
+            "code": "EHAS144",
             "college_type": "ENGINEERING",
             "name": "Bahubali College of Engineering",
-            "website": "www.bce.org.in"
+            "website": "http://www.bce.org.in"
         },
         {
             "address": "GOVERNMENT ENGINEERING COLLEGE",
             "city": "Hassan",
-            "code": "EHAS002",
+            "code": "EHAS145",
             "college_type": "ENGINEERING",
             "name": "Government Engineering College",
-            "website": "www.gecm.in"
+            "website": "http://www.gecm.in"
         },
         {
             "address": "Opp. Dairy Circle B M Road Hassan",
             "city": "Hassan",
-            "code": "EHAS003",
+            "code": "EHAS146",
             "college_type": "ENGINEERING",
             "name": "Govt. Engineering College",
             "website": "https://gechassan.ac.in"
@@ -1171,39 +1171,39 @@
         {
             "address": "P B NO.21 SALAGAME ROAD HASSAN",
             "city": "Hassan",
-            "code": "EHAS004",
+            "code": "EHAS147",
             "college_type": "ENGINEERING",
             "name": "Malnad College of Engineering",
-            "website": "www.mcehassan.ac.in"
+            "website": "http://www.mcehassan.ac.in"
         },
         {
             "address": "KIADB Thimmanahalli Industrial Area",
             "city": "Hassan",
-            "code": "EHAS005",
+            "code": "EHAS148",
             "college_type": "ENGINEERING",
             "name": "NDRK Institute of Technology HASSAN",
-            "website": "www.ndrkit.ac.in"
+            "website": "http://www.ndrkit.ac.in"
         },
         {
             "address": "Plot 1-D Growth Centre",
             "city": "Hassan",
-            "code": "EHAS006",
+            "code": "EHAS149",
             "college_type": "ENGINEERING",
             "name": "Rajeev Institute of Technology",
-            "website": "www.rithassan.org"
+            "website": "http://www.rithassan.org"
         },
         {
             "address": "GOVERNMENT ENGINEERING COLLEGE",
             "city": "Haveri",
-            "code": "EHAV001",
+            "code": "EHAV150",
             "college_type": "ENGINEERING",
             "name": "Govt. Engineering College",
-            "website": "dte.kar.nic.in"
+            "website": "http://dte.kar.nic.in"
         },
         {
             "address": "P B RoadRanebennur P B Road",
             "city": "Haveri",
-            "code": "EHAV002",
+            "code": "EHAV151",
             "college_type": "ENGINEERING",
             "name": "S T J Institute of Technology RANEBENNUR",
             "website": "http://www.stjit.ac.in"
@@ -1211,175 +1211,175 @@
         {
             "address": "SHARNBASVESHWAR EDUCATIONAL",
             "city": "Kalaburagi",
-            "code": "EKAL001",
+            "code": "EKAL152",
             "college_type": "ENGINEERING",
             "name": "Appa Institute of Engineering & Technology",
-            "website": "www.appaengg.org"
+            "website": "http://www.appaengg.org"
         },
         {
             "address": "Sharnbasaveshwar Campus Sharn Nagar",
             "city": "Kalaburagi",
-            "code": "EKAL002",
+            "code": "EKAL153",
             "college_type": "ENGINEERING",
             "name": "GODUTAI ENGINEERING COLLEGE FOR",
-            "website": "www.godutaiwomensengg."
+            "website": "http://www.godutaiwomensengg."
         },
         {
             "address": "ROUZA BUZURG GULBARGA",
             "city": "Kalaburagi",
-            "code": "EKAL003",
+            "code": "EKAL154",
             "college_type": "ENGINEERING",
             "name": "K B N College of Engineering",
-            "website": "www.kbnce.org"
+            "website": "http://www.kbnce.org"
         },
         {
             "address": "POST BOX  104 KCT CAMPUS",
             "city": "Kalaburagi",
-            "code": "EKAL004",
+            "code": "EKAL155",
             "college_type": "ENGINEERING",
             "name": "K C T Engineering College",
-            "website": "www.kctengineering.edu.in"
+            "website": "http://www.kctengineering.edu.in"
         },
         {
             "address": "Poojya Doddappa Appa College",
             "city": "Kalaburagi",
-            "code": "EKAL005",
+            "code": "EKAL156",
             "college_type": "ENGINEERING",
             "name": "P D A College of Engineering",
-            "website": "www.pdaengg.com"
+            "website": "http://www.pdaengg.com"
         },
         {
             "address": "5th KM Shahabad Road",
             "city": "Kalaburagi",
-            "code": "EKAL006",
+            "code": "EKAL157",
             "college_type": "ENGINEERING",
             "name": "SHETTY INSTITUTE OF TECHNOLOGY",
-            "website": "www.sitgulbarga.org"
+            "website": "http://www.sitgulbarga.org"
         },
         {
             "address": "Veerappa Nisty Engineering",
             "city": "Kalaburagi",
-            "code": "EKAL007",
+            "code": "EKAL158",
             "college_type": "ENGINEERING",
             "name": "Veerappa Nisty Engineering",
-            "website": "www.veerappanistyecs.org"
+            "website": "http://www.veerappanistyecs.org"
         },
         {
             "address": "Halligattu Ponnampet Ponnampet",
             "city": "Kodagu",
-            "code": "EKOD001",
+            "code": "EKOD159",
             "college_type": "ENGINEERING",
             "name": "Coorg Institute of Technology PONNAMPET",
-            "website": "www.citcoorg.edu.in"
+            "website": "http://www.citcoorg.edu.in"
         },
         {
             "address": "Thoradevandahalli Post & Village Kolar -",
             "city": "Kolar",
-            "code": "EKOL001",
+            "code": "EKOL160",
             "college_type": "ENGINEERING",
             "name": "C. Bairegouda Institute of Technology",
-            "website": "www.cbitkolar.in"
+            "website": "http://www.cbitkolar.in"
         },
         {
             "address": "Dr. T. Thimmaiah Road",
             "city": "Kolar",
-            "code": "EKOL002",
+            "code": "EKOL161",
             "college_type": "ENGINEERING",
             "name": "Dr. Timmaiah Institute of Technology  K",
-            "website": "www.drttit.edu.in"
+            "website": "http://www.drttit.edu.in"
         },
         {
             "address": "BEHIND ST JOHNS CHRUCH",
             "city": "Kolar",
-            "code": "EKOL003",
+            "code": "EKOL162",
             "college_type": "ENGINEERING",
             "name": "SHREE VINAYAKA INSTITUTE OF",
-            "website": "www.svgi.edu.in"
+            "website": "http://www.svgi.edu.in"
         },
         {
             "address": "Viprasai Nagar Anegundi",
             "city": "Koppal",
-            "code": "EKOP001",
+            "code": "EKOP163",
             "college_type": "ENGINEERING",
             "name": "Government Engineering College",
-            "website": "www.gecgangavathi.in"
+            "website": "http://www.gecgangavathi.in"
         },
         {
             "address": "Talakal Kukunoor Taluk",
             "city": "Koppal",
-            "code": "EKOP002",
+            "code": "EKOP164",
             "college_type": "ENGINEERING",
             "name": "GOVERNMENT ENGINEERING COLLEGE",
-            "website": "null"
+            "website": null
         },
         {
             "address": "BGSITBGNagar571448Nagama ngala",
             "city": "Mandya",
-            "code": "EMAN001",
+            "code": "EMAN165",
             "college_type": "ENGINEERING",
             "name": "B G S Inst. of Technology Mandya Dist",
-            "website": "www.bgsit.ac.in"
+            "website": "http://www.bgsit.ac.in"
         },
         {
             "address": "SIDDAIAHNA KOPALU GATE SUNDAHALLI",
             "city": "Mandya",
-            "code": "EMAN002",
+            "code": "EMAN166",
             "college_type": "ENGINEERING",
             "name": "CAUVERY INSTITUTE OF TECHNOLOGY",
-            "website": "www.cauveryinstitute.com"
+            "website": "http://www.cauveryinstitute.com"
         },
         {
             "address": "Bharathinagara(K M Doodi) Maddur TQ",
             "city": "Mandya",
-            "code": "EMAN003",
+            "code": "EMAN167",
             "college_type": "ENGINEERING",
             "name": "G MADEGOWDA INSTITUTE OF",
-            "website": "www.gmitmandya.in"
+            "website": "http://www.gmitmandya.in"
         },
         {
             "address": "GOVT ENGG COLLEGE K R PET- 571426",
             "city": "Mandya",
-            "code": "EMAN004",
+            "code": "EMAN168",
             "college_type": "ENGINEERING",
             "name": "Govt. Engineering College",
-            "website": "www.geckrpet.ac.in"
+            "website": "http://www.geckrpet.ac.in"
         },
         {
             "address": "Govt Engg college Madakeri",
             "city": "Mandya",
-            "code": "EMAN005",
+            "code": "EMAN169",
             "college_type": "ENGINEERING",
             "name": "Govt. Engineering College",
-            "website": "www.geckushalanagar.ac."
+            "website": "http://www.geckushalanagar.ac."
         },
         {
             "address": "Lakshmipura Road Palahally Post",
             "city": "Mandya",
-            "code": "EMAN006",
+            "code": "EMAN170",
             "college_type": "ENGINEERING",
             "name": "MYSURU ROYAL INSTITUTE OF",
-            "website": "www.mysuroyal.org"
+            "website": "http://www.mysuroyal.org"
         },
         {
             "address": "PES Engineering College Road",
             "city": "Mandya",
-            "code": "EMAN007",
+            "code": "EMAN171",
             "college_type": "ENGINEERING",
             "name": "P E S College of Engineering",
-            "website": "www.pescemandya.org"
+            "website": "http://www.pescemandya.org"
         },
         {
             "address": "13th KM Stone Mysuru - Kanakapura -",
             "city": "Mysuru",
-            "code": "EMYS001",
+            "code": "EMYS172",
             "college_type": "ENGINEERING",
             "name": "ATME College of Engineering",
-            "website": "www.atme.in"
+            "website": "http://www.atme.in"
         },
         {
             "address": "K.R.S. ROAD METGALLI 0 MYSORE",
             "city": "Mysuru",
-            "code": "EMYS002",
+            "code": "EMYS173",
             "college_type": "ENGINEERING",
             "name": "G S S S Institute of Engineering",
             "website": "http://www.geethashis"
@@ -1387,87 +1387,87 @@
         {
             "address": "plot no 9394 Belagola Industrial",
             "city": "Mysuru",
-            "code": "EMYS003",
+            "code": "EMYS174",
             "college_type": "ENGINEERING",
             "name": "Govt. Tool Room & Training",
-            "website": "www.karnataka.gov.in"
+            "website": "http://www.karnataka.gov.in"
         },
         {
             "address": "Belavadi Srirangapatna Taluk Mandya",
             "city": "Mysuru",
-            "code": "EMYS004",
+            "code": "EMYS175",
             "college_type": "ENGINEERING",
             "name": "Maharaja Institute of Tech.",
-            "website": "www.mitmysore.in"
+            "website": "http://www.mitmysore.in"
         },
         {
             "address": "Maharaja  Institute of Technology",
             "city": "Mysuru",
-            "code": "EMYS005",
+            "code": "EMYS176",
             "college_type": "ENGINEERING",
             "name": "MAHARAJA INSTITUTE OF TECHNOLOGY",
-            "website": "www.mitt.edu.in"
+            "website": "http://www.mitt.edu.in"
         },
         {
             "address": "No.1072 Big Banyan Tree 5 km T.",
             "city": "Mysuru",
-            "code": "EMYS006",
+            "code": "EMYS177",
             "college_type": "ENGINEERING",
             "name": "Mysore college of Engineering",
-            "website": "www.mycem.edu.in"
+            "website": "http://www.mycem.edu.in"
         },
         {
             "address": "CA-01 UNIVERSITY LAYOUT",
             "city": "Mysuru",
-            "code": "EMYS007",
+            "code": "EMYS178",
             "college_type": "ENGINEERING",
             "name": "MYSORE SCHOOL OF ARCHITECTUR",
-            "website": "www.msa.in.net"
+            "website": "http://www.msa.in.net"
         },
         {
             "address": "MANANDAWADI ROAD MYSORE :",
             "city": "Mysuru",
-            "code": "EMYS008",
+            "code": "EMYS179",
             "college_type": "ENGINEERING",
             "name": "National Institute of Engineering",
-            "website": "www.nie.ac.in"
+            "website": "http://www.nie.ac.in"
         },
         {
             "address": "Manandavadi Road Mysuru",
             "city": "Mysuru",
-            "code": "EMYS009",
+            "code": "EMYS180",
             "college_type": "ENGINEERING",
             "name": "National Institute of Engineering",
-            "website": "www.nie.ac.in"
+            "website": "http://www.nie.ac.in"
         },
         {
             "address": "#50(PART)Hootagalli Industrial",
             "city": "Mysuru",
-            "code": "EMYS010",
+            "code": "EMYS181",
             "college_type": "ENGINEERING",
             "name": "NIE Institute of Technology MYSORE",
-            "website": "www.nieit.ac.in"
+            "website": "http://www.nieit.ac.in"
         },
         {
             "address": "P. B. No. 206Gokulam - III stage Mysore",
             "city": "Mysuru",
-            "code": "EMYS011",
+            "code": "EMYS182",
             "college_type": "ENGINEERING",
             "name": "Vidya Vardhaka College of",
-            "website": "www.vvce.ac.in"
+            "website": "http://www.vvce.ac.in"
         },
         {
             "address": "#127-128 Alanahally Alanahally",
             "city": "Mysuru",
-            "code": "EMYS012",
+            "code": "EMYS183",
             "college_type": "ENGINEERING",
             "name": "Vidya Vikas Institute of Technology",
-            "website": "www.vidyavikasengineerin"
+            "website": "http://www.vidyavikasengineerin"
         },
         {
             "address": "1011 CH 20 KRISHNARAJA BOULEVARD",
             "city": "Mysuru",
-            "code": "EMYS013",
+            "code": "EMYS184",
             "college_type": "ENGINEERING",
             "name": "Wadiyar Centre For Architecture",
             "website": "https://www.wcfa.ac.in"
@@ -1475,207 +1475,207 @@
         {
             "address": "Hyderabad Road Yaramarus",
             "city": "Raichur",
-            "code": "ERAI001",
+            "code": "ERAI185",
             "college_type": "ENGINEERING",
             "name": "Govt. Engineering College",
-            "website": "www.gecrraichur.ac.in"
+            "website": "http://www.gecrraichur.ac.in"
         },
         {
             "address": "Yermarus Camp Raichur 584135",
             "city": "Raichur",
-            "code": "ERAI002",
+            "code": "ERAI186",
             "college_type": "ENGINEERING",
             "name": "H.K.E. Society'sS.L.N. College of",
-            "website": "www.slnceraichur.com"
+            "website": "http://www.slnceraichur.com"
         },
         {
             "address": "Navodaya Nagar Bijenagera",
             "city": "Raichur",
-            "code": "ERAI003",
+            "code": "ERAI187",
             "college_type": "ENGINEERING",
             "name": "Navodaya Institute of Technology",
-            "website": "https://engineering."
+            "website": null
         },
         {
             "address": "Bangalore-Mysore Road Ramanagara -",
             "city": "Ramanagara",
-            "code": "ERAM001",
+            "code": "ERAM188",
             "college_type": "ENGINEERING",
             "name": "Ghousia College of Engineering",
-            "website": "www.ghousiaedu.org"
+            "website": "http://www.ghousiaedu.org"
         },
         {
             "address": "Doddamannina gudde Near Janapadaloka",
             "city": "Ramanagara",
-            "code": "ERAM002",
+            "code": "ERAM189",
             "college_type": "ENGINEERING",
             "name": "Govt. Engineering College",
-            "website": "www.gecramanagara.ac.in"
+            "website": "http://www.gecramanagara.ac.in"
         },
         {
             "address": "Belakree Mudagere Gate Malur",
             "city": "Ramanagara",
-            "code": "ERAM003",
+            "code": "ERAM190",
             "college_type": "ENGINEERING",
             "name": "Sampoorna Institute of Technology",
-            "website": "www.sampoornainstitutio"
+            "website": "http://www.sampoornainstitutio"
         },
         {
             "address": "NAVULE SAVALANGA ROAD",
             "city": "Shivamogga",
-            "code": "ESHI001",
+            "code": "ESHI191",
             "college_type": "ENGINEERING",
             "name": "J N N College of Engineering",
-            "website": "www.jnnce.ac.in"
+            "website": "http://www.jnnce.ac.in"
         },
         {
             "address": "NH-206 Sagar Road Shivamogga-",
             "city": "Shivamogga",
-            "code": "ESHI002",
+            "code": "ESHI192",
             "college_type": "ENGINEERING",
             "name": "PES Institute of Technology",
-            "website": "www.pestrust.edu.in"
+            "website": "http://www.pestrust.edu.in"
         },
         {
             "address": "OBALAPURA POST LINGAPURA",
             "city": "Tumakuru",
-            "code": "ETUM001",
+            "code": "ETUM193",
             "college_type": "ENGINEERING",
             "name": "Akshaya Institute of Technology",
-            "website": "www.ait-tumkur.ac.in"
+            "website": "http://www.ait-tumkur.ac.in"
         },
         {
             "address": "NH 206 B H RoadHerur Gubbi Tumkur",
             "city": "Tumakuru",
-            "code": "ETUM002",
+            "code": "ETUM194",
             "college_type": "ENGINEERING",
             "name": "Channabasaveshwara Institute of",
-            "website": "www.cittumkur.org"
+            "website": "http://www.cittumkur.org"
         },
         {
             "address": "NH4 KESARAMADU POST",
             "city": "Tumakuru",
-            "code": "ETUM003",
+            "code": "ETUM195",
             "college_type": "ENGINEERING",
             "name": "H M S Institute of Technology TUMKUR",
-            "website": "www.hmsit.ac.in"
+            "website": "http://www.hmsit.ac.in"
         },
         {
             "address": "NH4 Kesaramadu Post",
             "city": "Tumakuru",
-            "code": "ETUM004",
+            "code": "ETUM196",
             "college_type": "ENGINEERING",
             "name": "HMS SCHOOL OF ARCHITECTUR",
-            "website": "www.hmssoa.in"
+            "website": "http://www.hmssoa.in"
         },
         {
             "address": "B.H.Road Near Hassan Circle Tiptur",
             "city": "Tumakuru",
-            "code": "ETUM005",
+            "code": "ETUM197",
             "college_type": "ENGINEERING",
             "name": "Kalpataru Institute of Technology",
-            "website": "www.kittiptur.ac.in"
+            "website": "http://www.kittiptur.ac.in"
         },
         {
             "address": "SIRA ROAD MARALENAHALLY TUMKUR",
             "city": "Tumakuru",
-            "code": "ETUM006",
+            "code": "ETUM198",
             "college_type": "ENGINEERING",
             "name": "Shridevi Institute of Engg",
-            "website": "shrideviengineering.org"
+            "website": "http://shrideviengineering.org"
         },
         {
             "address": "B. H. Road Tumakuru - 572103",
             "city": "Tumakuru",
-            "code": "ETUM007",
+            "code": "ETUM199",
             "college_type": "ENGINEERING",
             "name": "Siddaganga Institute of Technology",
-            "website": "www.sit.ac.in"
+            "website": "http://www.sit.ac.in"
         },
         {
             "address": "Madenur Gate B H Road Tiptur Tiptur",
             "city": "Tumakuru",
-            "code": "ETUM008",
+            "code": "ETUM200",
             "college_type": "ENGINEERING",
             "name": "Sri Basaveshwara Institute of",
-            "website": "www.sbesinstitutions.com"
+            "website": "http://www.sbesinstitutions.com"
         },
         {
             "address": "Moodlakatte Kundapura Kundapura",
             "city": "Udupi",
-            "code": "EUDU001",
+            "code": "EUDU201",
             "college_type": "ENGINEERING",
             "name": "Moodalkatte Institute of Technology",
-            "website": "www.mitkundapura.com"
+            "website": "http://www.mitkundapura.com"
         },
         {
             "address": "NMAM Institute of Technology",
             "city": "Udupi",
-            "code": "EUDU002",
+            "code": "EUDU202",
             "college_type": "ENGINEERING",
             "name": "N M A M Institute of Technology",
-            "website": "www.nmamit.nitte.edu."
+            "website": "http://www.nmamit.nitte.edu."
         },
         {
             "address": "Vishwothama Nagar Bantakal",
             "city": "Udupi",
-            "code": "EUDU003",
+            "code": "EUDU203",
             "college_type": "ENGINEERING",
             "name": "Shri Madhwa Vadiraja Institute of",
-            "website": "www.sode-edu.in"
+            "website": "http://www.sode-edu.in"
         },
         {
             "address": "P.O. NO. 24 ANJUMANABAD BHATKAL",
             "city": "Uttar Kannad",
-            "code": "EUTT001",
+            "code": "EUTT204",
             "college_type": "ENGINEERING",
             "name": "ANJUMAN INSTITUTE OF TECHNOLOGY",
-            "website": "aitmb.ac.in"
+            "website": "http://aitmb.ac.in"
         },
         {
             "address": "Utkagali Adjacent to Karnataka Goa",
             "city": "Uttar Kannad",
-            "code": "EUTT002",
+            "code": "EUTT205",
             "college_type": "ENGINEERING",
             "name": "GIRIJABAI SAIL INSTITUTE OF TECHNOLOGY",
-            "website": "www.gsit.in"
+            "website": "http://www.gsit.in"
         },
         {
             "address": "Udyog Vidyanagar Dandeli Road",
             "city": "Uttar Kannad",
-            "code": "EUTT003",
+            "code": "EUTT206",
             "college_type": "ENGINEERING",
             "name": "Vishwanathrao Deshpande Institute of",
-            "website": "www.vdrit.org"
+            "website": "http://www.vdrit.org"
         },
         {
             "address": "144/3 MAILAR ROAD A/P ZALAKI",
             "city": "Vijayapura",
-            "code": "EVIJ001",
+            "code": "EVIJ207",
             "college_type": "ENGINEERING",
             "name": "BASAV ENGINEERING SCHOOL OF",
-            "website": "www.best.edu.in"
+            "website": "http://www.best.edu.in"
         },
         {
             "address": "BLDEA Engg College  Ashram Road",
             "city": "Vijayapura",
-            "code": "EVIJ002",
+            "code": "EVIJ208",
             "college_type": "ENGINEERING",
             "name": "BLDEAs College of Engg.",
-            "website": "www.bldeacet.ac.in"
+            "website": "http://www.bldeacet.ac.in"
         },
         {
             "address": "424 Nauraspur Bagalkot",
             "city": "Vijayapura",
-            "code": "EVIJ003",
+            "code": "EVIJ209",
             "college_type": "ENGINEERING",
             "name": "Malik Sandal Inst. of Arts & Architecture",
-            "website": "www.secab.org"
+            "website": "http://www.secab.org"
         },
         {
             "address": "Nauraspur Bagalkot Road Vijaypur",
             "city": "Vijayapura",
-            "code": "EVIJ004",
+            "code": "EVIJ210",
             "college_type": "ENGINEERING",
             "name": "SECAB Institute of Engg.",
             "website": "https://siet.secab.org"
