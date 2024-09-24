@@ -9,8 +9,8 @@
       <tr>
         <th>College Code</th>
         <th>Name</th>
+        <th>Address</th>
         <th>City</th>
-        <th>Website</th>
       </tr>
       {% for college in college_list %}
         <tr>
@@ -18,14 +18,8 @@
             <a style="font-family: monospace;" href="{% url 'counselling:college_detail' college_id=college.id slug=college.slug %}">{{ college.code }}</a>
           </td>
           <td>{{ college.name }}</td>
+          <td>{{ college.address }}</td>
           <td>{{ college.city }}</td>
-          <td>
-            {% if college.website %}
-              <a href="{{ college.website }}">{{ college.website }}</a>
-            {% else %}
-              -
-            {% endif %}
-          </td>
         </tr>
       {% endfor %}
     </table>

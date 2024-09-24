@@ -29,6 +29,13 @@ Note there are some issues when using asan, such as undefined symbols, so for bu
 
 ## To seed the database with initial data
 
+To regenerate `dataset/data.json`
+```
+$ cd dataset
+$ pyton data_gen.py
+```
+
+Seed the database
 ```
 $ cd scm_site
 $ python manage.py seed ../dataset/data.json

@@ -15,6 +15,7 @@ class Course(models.Model):
         constraints = [
             models.UniqueConstraint(fields=["code"], name="course_code_unique")
         ]
+        indexes = [models.Index(fields=["code"], name="course_code_index")]
 
 
 class College(models.Model):
@@ -34,6 +35,7 @@ class College(models.Model):
         constraints = [
             models.UniqueConstraint(fields=["code"], name="college_code_unique")
         ]
+        indexes = [models.Index(fields=["code"], name="college_code_index")]
 
     def save(self, *args, **kwargs):
         # Doesn't matter if the URL changes, since the application does not care
@@ -48,6 +50,9 @@ class RankList(models.Model):
 
     def __str__(self) -> str:
         return f"[{self.short_name}] {self.name}"
+
+    class Meta:
+        indexes = [models.Index(fields=["short_name"])]
 
 
 class Program(models.Model):

@@ -1,36 +1,18 @@
 AD,Artificial Intelligence And Data Science
 AE,Aeronautical Engineering
 AI,Artificial Intelligence and Machine Learning
-AM,B TECH IN COMP SCI & ENGG (AI & ML)
 AR,Architecture
 AT,Automotive Engineering
-AU,Automobile  Engineering
+AU,Automobile Engineering
 BA,B.Tech(Agri.Engg)
-BB,B TECH IN ELECTRONICS & COMMUNICATION ENGINEERING
 BC,BTech Computer Technology
-BD,Computer Science Engineering-Big Data
+BD,Computer Science Technology-Big Data
 BE,Bio-Electronics Engineering
-BF,B TECH  (HONS) COMP SCI AND ENGG(DATA SCIENCE)
-BG,B TECH IN ARTIFICIAL INTELLI AND DATA SCIENCE
-BH,B TECH IN ARTIFICIAL INTELLIGENCE AND ML
 BI,Information Technology and Engineering
-BJ,B TECH IN ELECTRICAL & ELECTRONICS ENGINEERING
-BK,B TECH IN ENERGY ENGINEERING
-BL,B TECH IN AERO SPACE ENGINEERING
 BM,Bio Medical Engineering
-BN,B TECH IN COMPUTER SCIENCE AND TECH(BIG DATA)
-BO,B TECH IN BIO-TECHNOLOGY
-BP,B TECH IN CIVIL ENGINEERING
-BQ,B TECH IN COMPUTER SCIENCE AND TECHNOLOGY
 BR,BioMedical and Robotic Engineering
 BS,Bachelor of Science (Honours)
 BT,Bio Technology
-BU,B TECH IN  COMPUTER SCIENCE AND INFO TECH
-BV,B TECH IN COMPUTER ENGINEERING
-BW,B TECH IN COMPUTER SCIENCE AND ENGINEERING
-BX,B TECH IN COMP SCIENCE AND ENGG(CYBER SECURITY)
-BY,B TECH IN COMP SCIENCE AND TECHNOLOGY(DEV OPS)
-BZ,B TECH IN COMPUTER SCIENCE AND ENGG(DATA SCIENCE)
 CA,"Computer Science Engineering-AI, Machine Learning"
 CB,Computer Science and Business Systems
 CC,Computer and Communication Engineering
@@ -41,38 +23,16 @@ CG,Computer Science and Technology
 CH,Chemical Engineering
 CI,Computer Science and Information Technology
 CK,Civil Engineering (Kannada Medium)
-CL,B TECH IN ELECTRONICS & COMPUTER ENGINEERING
-CM,ELECTRONICS  ENGINEERING(VLSI DESIGN & TECH)
-CN,B TECH IN COMP SCI AND ENGG(IOT AND BLOCK CHAIN)
 CO,Computer Engineering
 CP,Civil Engineering and Planning
-CQ,B TECH IN COMPUTER SCIENCE AND ENGINEERING(IOT)
 CR,Ceramics and Cement Technology
 CS,Computers Science And Engineering
 CT,Construction Technology and Management
-CU,B TECH IN INFORMATION SCIENCE ENGINEERING
 CV,Civil Environmental Engineering
-CW,B TECH IN INFORMATION TECHNOLOGY
-CX,B TECH IN INFORMATION SCIENCE & TECHNOLOGY
 CY,Computer Science Engineering-Cyber Security
-CZ,B TECH IN COMPUTER SCIENCE AND ENGG(BLOCK CHAIN)
-DA,B TECH IN MATHAMATICS AND COMPUTING
-DB,B TECH IN MECHANICAL ENGINEERING
 DC,Data Sciences
-DD,B TECH IN MECHATRONICS ENGINEERING
-DE,B TECH IN PETROLEUM ENGINEERING
-DF,B TECH IN ROBOTICS AND AUTOMATION
-DG,DESIGN
-DH,B Tech in ROBOTICS AND ARTIFICIAL INTELLIGENCE
-DI,B TECH IN ROBOTIC ENGINEERING
-DJ,B TECH IN ROBOTICS
-DK,B TECH IN COMPUTER SCIENCE AND SYSTEM ENGG
-DL,B TECH IN COMPUTER SCIENCE
-DM,COMPUTER SCIENCE AND ENGINEERING (NETWORKS)
-DN,B.Tech in VLSI
 DS,Computer Science Engineering-Data Sciences
 EA,Agriculture Engineering
-EB,ELECTRONICS AND COMMUNICATION (ADV COMM TECH)
 EC,Electronics and Communication Engineering
 EE,Electrical And Electronics Engineering
 EG,Energy Engineering
@@ -82,11 +42,10 @@ EN,Environmental Engineering
 EP,BTech Technology and Enterprenership
 ER,Electrical and Computer Engineering
 ES,Electronics and Computer Engineering
-ET,Electronics and Telecommunication Engineering
-EV,Electronics  Engineering(VLSI Design Technology)
-EZ,ELECTRONICS AND COMPUTER SCIENCE
+ET,Electronics and Telecommunication Engg
+EV,Electronics Engineering(VLSI Design Technology)
 IB,Computer Science Engg-IoT including Block Chain
-IC,"CS-Internet of things,Cyber Security(Block Chain)"
+IC,"Internet of things,Cyber Security(Block Chain Technology)"
 IE,Information Science and Engineering
 IG,Information Technology
 II,Elec. and Communication- Industrial Integrated
@@ -96,27 +55,19 @@ IP,Industrial and Production Engineering
 IS,Information Science and Technology
 IT,Instrumentation Technology
 IY,CS - Information Technology-Cyber Security
-IZ,INFORMATION SCIENCE
 LA,B Plan
 LC,Computer Science Engineering-Block Chain
-LD,B TECH IN COMPUTER SCIENCE (DATA SCIENCE)
-LE,B TECH IN COMPUTER SCIENCE (AIML)
-LF,B TECH IN COMPUTER SCIENCE (CLOUD COMPUTING)
-LG,B TECH IN COMPUTER SCIENCE (CYBER SECURITY)
-LH,B TECH IN COMPUTER SCIENCE (INFORMATION SECURITY)
-LJ,BTECH IN COMPUTER SCIENCE & ENGG(BUSINESS SYSTEMS)
-LK,B TECH IN COMPUTER SCIENCE (INTERNET OF THINGS)
-MC,Mathematics and Computing
+MC,Mathamatics and Computing
 MD,Medical Electronics
 ME,Mechanical Engineering
-MI,Mining Engineering
 MK,Mechanical Engineering (Kannada Medium)
 MM,Mechanical and Smart Manufacturing
+MN,Mining Engineering
 MR,Marine Engineering
 MS,Manufacturing Science and Engineering
 MT,Mechatronics
 NT,Nano Technology
-OP,Computer Science Engineering-Dev Ops
+OP,Computer Science Technology-Dev Ops
 OT,Industrial IOT
 PE,Petrochem Engineering
 PL,Petroleum Engineering
@@ -125,7 +76,7 @@ PT,Polymer Science and Technology
 RA,Robotics and Automation
 RB,Robotics
 RI,Robotics and Artificial Intelligence
-RM,Computer Science  - Robotic Engineering-AI and ML
+RM,Computer Science - Robotic Engineering-AI and ML
 RO,Automation and Robotics Engineering
 SA,Smart Agritech
 SE,Aero Space Engineering
@@ -137,25 +88,3 @@ TI,Industrial IoT
 TX,Textile Technology
 UP,Planning
 UR,Planning
-YA,B.TECH IN COMPUTER SCIENCE AND ENGG (ROBOTICS)
-YB,B.TECH IN COMPUTER SICENCE AND ENGG (DATA ANALYTIC
-YC,B.TECH IN EMBEDDED SYSTEM AND VLSI
-YD,B.TECH IN COMPUTER SCIENCE AND ARTIFICIAL INTELLIG
-YE,B.TECH IN CIVIL CONSTRUCTION AND SUSTAINABILITY EN
-YF,B.TECH IN ELECTRICAL ENGINEERING AND COMPUTER SCIE
-YG,B.TECH IN ELECTRONICS ENGINEERING (VLSI AND EMBEDD
-YH,ENGINEERING DESIGN
-YI,B.TECH IN MECHANICAL AND AEROSPACE ENGINEERING
-ZA,B TECH IN AERONAUTICAL ENGINEERING
-ZC,COMPUTER SCIENCE
-ZH,B.TECH IN COMP. SCE. AND ENGG (ART. INT.DAT.SCE.)
-ZL,CIVIL ENGINEERING WITH COMPUTER APPLICATION
-ZM,BTECH IN COMPUTER SCIENCE AND DESIGN
-ZN,BTECH IN PHARMACEUTICAL ENGINEERING
-ZO,BTECH IN COMPUTER SCIENCE AND BUSINESS SYSTEMS
-ZQ,BTECH IN INFORMATION TECHNOLOGY DATA ANALYTICS
-ZR,COMPUTER SCIENCE AND ENGINEERING(ARTIFICAL INTELLI
-ZT,BTECH IN MECHANICAL AND SMART MANUFACTURING
-ZU,CYBER SECURITY
-ZV,BTECH IN INFORMATION TECHNOLOGY AUGMENTED REALITY
-ZW,COMPUTER SCIENCE AND ENGINEERING (AIML)
