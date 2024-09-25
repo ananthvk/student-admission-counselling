@@ -8,4 +8,5 @@ urlpatterns = [
     path("college/<int:college_id>/<slug:slug>", views.CollegeDetailView.as_view(), name="college_detail"),
     path("college/list/", views.CollegeListView.as_view(), name="college_list"),
     path("course/list/", views.CourseListView.as_view(), name="course_list"),
+    path("choiceentry/", views.option_entry_view, name="choice_entry")
 ]

@@ -9,4 +9,9 @@
   <div>
     <a href="{% url 'counselling:college_list' %}">List of participating colleges</a>
   </div>
+  {% if request.user.is_authenticated %}
+  <div>
+    <a href="{% url 'counselling:choice_entry' %}">Click here for option entry</a>
+  </div>
+  {% endif %}
 {% endblock %}
