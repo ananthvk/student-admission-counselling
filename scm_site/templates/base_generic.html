@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,21 +10,29 @@
     {% block title %}
       <title>College allotment system</title>
     {% endblock %}
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
     {% block stylesheets %}
     {% endblock %}
   </head>
   <body>
-    <nav>
-        <a href='{% url "counselling:index" %}'>Home</a>
-        <form method="post" action="{% url 'logout' %}">
-            {% csrf_token %}
-            <button type="submit">Logout</button>
-        </form>
-        <a href='{% url "login" %}'>Login</a>
-        
-    </nav>
+    {% block navbar %}
+        <nav class="top-navbar">
+            <div>
+                <a href='{% url "counselling:index" %}' class="nav-link">Home</a>
+            </div>
+            <div class="container">
+                {% if request.user.is_authenticated %}
+                    <form method="post" action="{% url 'logout' %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="primary-btn">Logout</button>
+                    </form>
+                {% else %}
+                    <a href='{% url "login" %}' class="primary-btn">Login</a>
+                {% endif %}
+            </div>
+        </nav>
+    {% endblock %}
     {% block content %}
-
     {% endblock %}
   </body>
 </html>

@@ -5,21 +5,24 @@
 {% block content %}
   <div>
     <h1>{{college.code}} {{ college.name }}</h1>
-    <h3>{{ college.address }}</h2>
-    <h2>Programs offered</h2>
-    <table>
-      <tr>
-        <th>Course code</th>
-        <th>Name</th>
-        <th>Total seats</th>
-      </tr>
-      {% for program in college.program_set.all %}
-        <tr>
-          <td>{{ program.course.code }}</td>
-          <td>{{ program.course.name }}</td>
-          <td>{{ program.total_seats }}</td>
-        </tr>
-      {% endfor %}
+    <h3>{{ college.address }}</h3>
+    <table class="data-table">
+        <thead>
+          <tr class="data-header">
+            <th class="data-th data-td-centered">Course code</th>
+            <th class="data-th data-td-centered">Name</th>
+            <th class="data-th data-td-centered">Total seats</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for program in college.program_set.all %}
+            <tr class="data-tr">
+              <td class="data-td data-td-centered">{{ program.course.code }}</td>
+              <td class="data-td">{{ program.course.name }}</td>
+              <td class="data-td data-td-centered">{{ program.total_seats }}</td>
+            </tr>
+          {% endfor %}
+        </tbody>
     </table>
   </div>
 {% endblock %}

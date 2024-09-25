@@ -5,17 +5,15 @@
 {% block content %}
   <h1>List of all courses</h1>
   {% if course_list %}
-    <table>
-      <tr>
-        <th>Course code</th>
-        <th>Course name</th>
+    <table class="data-table">
+      <tr class="data-header">
+        <th class="data-header data-td-centered">Course code</th>
+        <th class="data-header data-td-centered">Course name</th>
       </tr>
       {% for course in course_list %}
-        <tr>
-          <td>
-            <p style="font-family: monospace;">{{ course.code }}</p>
-          </td>
-          <td>{{ course.name }}</td>
+        <tr class="data-tr">
+          <td class="data-td data-td-centered">{{ course.code }}</td>
+          <td class="data-td">{{ course.name }}</td>
         </tr>
       {% endfor %}
     </table>
