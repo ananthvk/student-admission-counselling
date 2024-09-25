@@ -68,6 +68,9 @@ class Program(models.Model):
                 name="course_cannot_be_repeated_in_college",
             )
         ]
+        indexes = [
+            models.Index(fields=["college", "course"])
+        ]
 
     def __str__(self) -> str:
         return f"{self.college.code}_{self.course.code} {self.total_seats:03} {self.ranklist.short_name}"

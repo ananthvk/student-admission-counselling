@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Student seat allocation website" />
+    <meta name="keywords" content="student, counselling, admission, college-matcher, gale-shapley" />
+    <meta name="author" content="Ananthanarayanan Venkitakrishnan" />
+    {% block title %}
+      <title>College allotment system</title>
+    {% endblock %}
+    {% block stylesheets %}
+    {% endblock %}
+  </head>
+  <body>
+    <nav>
+        <a href='{% url "counselling:index" %}'>Home</a>
+        <form method="post" action="{% url 'logout' %}">
+            {% csrf_token %}
+            <button type="submit">Logout</button>
+        </form>
+        <a href='{% url "login" %}'>Login</a>
+        
+    </nav>
+    {% block content %}
+
+    {% endblock %}
+  </body>
+</html>

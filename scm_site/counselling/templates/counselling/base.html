@@ -1,18 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Student seat allocation website" />
-    <meta name="keywords" content="student, counselling, admission, college-matcher, gale-shapley" />
-    <meta name="author" content="Ananthanarayanan Venkitakrishnan" />
-    {% block title %}
-      <title>College allotment system</title>
-    {% endblock %}
-  </head>
-  <body>
-    {% block content %}
-
-    {% endblock %}
-  </body>
-</html>
+{% extends 'base_generic.html' %}
+{% load static %}
+{% block stylesheets %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'counselling/styles.css' %}">
+{% endblock %}

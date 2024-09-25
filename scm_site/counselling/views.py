@@ -13,6 +13,7 @@ def index(request: HttpRequest):
 
 class CollegeListView(ListView):
     model = College
+    ordering = 'code'
     # paginate_by = 100
 
 
