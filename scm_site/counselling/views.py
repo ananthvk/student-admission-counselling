@@ -1,9 +1,11 @@
-from django.http import HttpResponse, HttpRequest
+from django.http import HttpResponse, HttpRequest, JsonResponse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.shortcuts import render, get_object_or_404
 from .models import College, Course
 from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods
+
 
 # Create your views here.
 
@@ -28,4 +30,11 @@ class CollegeDetailView(DetailView):
 
 @login_required
 def option_entry_view(request: HttpRequest):
-    return render(request, "counselling/choice_entry.html")
+    queryset = College.objects.all().order_by("code")
+    return render(request, "counselling/choice_entry.html", {"colleges": queryset})
+
+@require_http_methods(["GET"])
+def get_programs_offered_by_college(request: HttpRequest, college_id):
+    #program_codes = get_object_or_404(College, pk=college_id).programs.order_by('code').values('code')
+    program_codes = get_object_or_404(College, pk=college_id).programs.order_by('code')
+    return JsonResponse({x.code:x.name for x in program_codes})

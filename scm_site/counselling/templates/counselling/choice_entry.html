@@ -1,4 +1,49 @@
-{% extends "counselling/base.html" %}
+{% extends 'counselling/base.html' %}
+{% block scripts %}
+  {{ block.super }}
+  <script>
+    function collegechanged() {
+      let select_node = document.getElementById('college-selector')
+      let courseSelectElement = document.getElementById('course-selector')
+      let college_id = select_node.value
+      fetch(`http://localhost:8000/counselling/api/college/${college_id}/programs`)
+        .then((response) => {
+          if (!response.ok) {
+            courseSelectElement.textContent = ''
+            throw new Error(`${response.status}`)
+          }
+          return response.json()
+        })
+        .then((data) => {
+          courseSelectElement.textContent = ''
+          for (let [course_code, course_name] of Object.entries(data)) {
+            const option = document.createElement('option')
+            option.value = course_code
+            option.textContent = `${course_code}-${course_name}`
+            courseSelectElement.appendChild(option)
+          }
+          console.log('Modified list')
+        })
+        .catch((err) => {
+          alert(`Network error, try again after some time ${err}`)
+          courseSelectElement.textContent = ''
+        })
+    }
+  </script>
+{% endblock %}
 {% block content %}
-Welcome to choice filling page
+<h1 class="centered">
+    Please fill your choices
+</h1>
+  <div class="flex-container">
+    <select name="choice" class="choice-entry-college choice-entry-select" size="10" onchange="collegechanged()" id="college-selector">
+      {% for college in colleges %}
+        <option value="{{ college.id }}">{{ college.code }} {{ college.name }}</option>
+      {% endfor %}
+    </select>
+    <select name="choice" class="choice-entry-course choice-entry-select" size="10" id="course-selector"></select>
+    <div>
+        <button>Add</button>
+    </div>
+  </div>
 {% endblock %}

@@ -43,3 +43,53 @@
 .data-clickable-row a {
     display: block;
 }
+
+.choice-entry-college {
+    overflow: auto;
+    width: 45%;
+    overflow-x: hidden;
+}
+
+.choice-entry-course {
+    overflow: scroll;
+    overflow-x: hidden;
+    width: 45%;
+}
+
+.flex-container {
+    margin-top: 1em;
+    display: flex;
+    min-width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.centered {
+    text-align: center;
+}
+
+.choice-entry-select {
+    border: 1px solid lightgray;
+    outline: none;
+    padding: 0.5em;
+}
+
+select::-webkit-scrollbar {
+    width: 0.8em;
+    height: 0.8em;
+}
+
+select::-webkit-scrollbar-track {
+    background: var(--color-white);
+}
+
+select::-webkit-scrollbar-thumb {
+    background: var(--color-secondary);
+    border-radius: 1em;
+}
+
+select::-webkit-scrollbar-thumb:hover {
+    background: var(--color-black);
+}
