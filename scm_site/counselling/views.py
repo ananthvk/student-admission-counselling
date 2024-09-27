@@ -30,7 +30,8 @@ class CollegeDetailView(DetailView):
 
 @login_required
 def option_entry_view(request: HttpRequest):
-    queryset = College.objects.all().order_by("code")
+    # Only return those colleges which offer atleast one program
+    queryset = College.objects.filter(programs__isnull=False).distinct().order_by("code")
     return render(request, "counselling/choice_entry.html", {"colleges": queryset})
 
 @require_http_methods(["GET"])
