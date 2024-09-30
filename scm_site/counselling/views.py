@@ -16,8 +16,9 @@ def index(request: HttpRequest):
 
 class CollegeListView(ListView):
     model = College
-    ordering = 'code'
+    ordering = "code"
     # paginate_by = 100
+
 
 class CourseListView(ListView):
     model = Course
@@ -28,14 +29,20 @@ class CollegeDetailView(DetailView):
     slug_url_kwarg = "slug"
     model = College
 
+
 @login_required
 def option_entry_view(request: HttpRequest):
     # Only return those colleges which offer atleast one program
-    queryset = College.objects.filter(programs__isnull=False).distinct().order_by("code")
+    queryset = (
+        College.objects.filter(programs__isnull=False).distinct().order_by("code")
+    )
     return render(request, "counselling/choice_entry.html", {"colleges": queryset})
+
 
 @require_http_methods(["GET"])
 def get_programs_offered_by_college(request: HttpRequest, college_id):
-    #program_codes = get_object_or_404(College, pk=college_id).programs.order_by('code').values('code')
-    program_codes = get_object_or_404(College, pk=college_id).programs.order_by('code')
-    return JsonResponse({x.code:x.name for x in program_codes})
+    # program_codes = get_object_or_404(College, pk=college_id).programs.order_by('code').values('code')
+    program_codes = get_object_or_404(College, pk=college_id).programs.order_by("code")
+    return JsonResponse(
+        {"courses": [{"code": x.code, "name": x.name} for x in program_codes]}
+    )
