@@ -20,17 +20,32 @@
         </option>
       </select>
         <div>
-            <button @click="addProgram">
+            <button @click="addProgram" class="primary-btn table-btn-blue">
                 Add
             </button>
         </div>
     </div>
     <div>
-      <ol type="1" id="selected-courses">
-        <li v-for="program in priority_order">
-            [[program]]
-        </li>
-      </ol>
+        <table class="data-table">
+          <tr class="data-header">
+            <th class="data-th data-td-centered">Choice number</th>
+            <th class="data-th data-td-centered">Code</th>
+            <th class="data-th data-td-centered">College name</th>
+            <th class="data-th data-td-centered">Course name</th>
+            <th class="data-th data-td-centered">Action</th>
+          </tr>
+            <tr class="data-tr" v-for="(program,index) in priority_order" :key="`${program.college_id}{program.course_id}`">
+              <td class="data-td data-td-centered">[[index + 1]]</td>
+              <td class="data-td data-td-centered">[[program.college_code]][[program.course_code]]</td>
+              <td class="data-td">[[program.college_name]]</td>
+              <td class="data-td">[[program.course_name]]</td>
+              <td class="data-td">
+                  <button class="primary-btn table-btn table-btn-red" @click="deleteProgram(index)">Delete</button>
+                  <button class="primary-btn table-btn table-btn-blue" @click="moveUp(index)">Move up</button>
+                  <button class="primary-btn table-btn table-btn-blue" @click="moveDown(index)">Move down</button>
+              </td>
+            </tr>
+        </table>
     </div>
   </div>
 {% endblock %}
@@ -60,7 +75,7 @@
             const selectedOption = e.target.options[e.target.selectedIndex];
             selected_college.value = e.target.value;
             selected_college_name.value = selectedOption.text;
-            fetchPrograms(selected_college.value);
+            fetchPrograms(parseInt(selected_college.value));
         }
           
         function onSelectedCourseChanged(e){
@@ -93,6 +108,29 @@
                 courses.value = {}
             })
         }
+        function deleteProgram(index) {
+            let program = priority_order.value[index]
+            priority_order.value.splice(index, 1);
+            let idx = choice_list_programs.value[program.college_id].indexOf(program.course_id)
+            choice_list_programs.value[program.college_id].splice(idx, 1);
+            choice_list_programs.value = choice_list_programs.value
+        }
+        
+        function moveUp(index) {
+            if (index > 0) {
+                const temp = priority_order.value[index];
+                priority_order.value[index] = priority_order.value[index - 1];
+                priority_order.value[index - 1] = temp;
+            }
+        }
+        
+        function moveDown(index) {
+            if (index < priority_order.value.length - 1) {
+                const temp = priority_order.value[index];
+                priority_order.value[index] = priority_order.value[index + 1];
+                priority_order.value[index + 1] = temp;
+            }
+        }
           
         function addProgram(e) {
             if(selected_college.value === ''){
@@ -104,20 +142,21 @@
                 return;
             }
             if(choice_list_programs.value[selected_college.value]){
-                choice_list_programs.value[selected_college.value].push(selected_course.value);
+                choice_list_programs.value[selected_college.value].push(parseInt(selected_course.value));
             } else{
-                choice_list_programs.value[selected_college.value] = [selected_course.value];
+                choice_list_programs.value[selected_college.value] = [parseInt(selected_course.value)];
             }
             
             // Don't show this course in the courses list
             courses.value = courses.value.filter(course => course.id !== parseInt(selected_course.value))
 
             priority_order.value.push({
-                "college_id": selected_college.value,
-                "course_id": selected_course.value,
+                "college_id": parseInt(selected_college.value),
+                "course_id": parseInt(selected_course.value),
                 "college_name": selected_college_name.value,
                 "course_name": selected_course_name.value,
-                "course_code": selected_course_name.value.split(" ")[0]
+                "course_code": selected_course_name.value.split(" ")[0],
+                "college_code": selected_college_name.value.split(" ")[0]
             })
         }
 
@@ -129,7 +168,10 @@
             courses,
             addProgram,
             choice_list_programs,
-            priority_order
+            priority_order,
+            deleteProgram,
+            moveUp,
+            moveDown
         }
       },
       delimiters: ['[[', ']]']

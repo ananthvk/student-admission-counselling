@@ -46,14 +46,14 @@
 
 .choice-entry-college {
     overflow: auto;
-    width: 45%;
     overflow-x: hidden;
+    min-width: 45%;
 }
 
 .choice-entry-course {
     overflow: scroll;
     overflow-x: hidden;
-    width: 45%;
+    min-width: 45%;
 }
 
 .flex-container {
@@ -64,6 +64,7 @@
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    margin-bottom: 1em;
 }
 
 .centered {
@@ -92,4 +93,19 @@ select::-webkit-scrollbar-thumb {
 
 select::-webkit-scrollbar-thumb:hover {
     background: var(--color-black);
+}
+
+.table-btn{
+    padding: 0.5em;
+    margin-left: 1em;
+}
+
+.table-btn-red{
+    background-color: #E63B60;
+    color: white;
+}
+
+.table-btn-blue{
+    background-color: #3A9BDC;
+    color: white;
 }
