@@ -14,10 +14,12 @@
         {% endfor %}
       </select>
       <select name="choice" class="choice-entry-course choice-entry-select" size="10" :value="selected_course" @change="onSelectedCourseChanged">
-        <option v-for="course in courses" :value="course.id" :key="course.id">
-            <!--Hide programs which have already been added-->
-        [[course.code]] [[ course.name ]]
-        </option>
+        <template v-for="course in courses" :key="course.id">
+            <option :value="course.id" v-if="!choice_list_programs[selected_college] || !choice_list_programs[selected_college].includes(course.id)">
+                [[course.code]] [[ course.name ]]
+            </option>
+            
+        </template>
       </select>
         <div>
             <button @click="addProgram" class="primary-btn table-btn-blue">
@@ -97,7 +99,7 @@
             .then((data) => {
               // Filter the courses, do not show courses which have already been added
               if(choice_list_programs.value[college_id]){
-                courses.value = data.courses.filter(course => choice_list_programs.value[college_id].indexOf(course.id) == -1 )
+                courses.value = data.courses; //filter(course => choice_list_programs.value[college_id].indexOf(course.id) == -1 )
               } else{
               courses.value = data.courses
               }
@@ -148,7 +150,7 @@
             }
             
             // Don't show this course in the courses list
-            courses.value = courses.value.filter(course => course.id !== parseInt(selected_course.value))
+            // courses.value = courses.value.filter(course => course.id !== parseInt(selected_course.value))
 
             priority_order.value.push({
                 "college_id": parseInt(selected_college.value),
