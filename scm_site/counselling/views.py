@@ -44,5 +44,5 @@ def get_programs_offered_by_college(request: HttpRequest, college_id):
     # program_codes = get_object_or_404(College, pk=college_id).programs.order_by('code').values('code')
     program_codes = get_object_or_404(College, pk=college_id).programs.order_by("code")
     return JsonResponse(
-        {"courses": [{"code": x.code, "name": x.name} for x in program_codes]}
+        {"courses": [{"id": x.id, "code": x.code, "name": x.name} for x in program_codes]}
     )
