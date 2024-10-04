@@ -27,6 +27,11 @@
             </button>
         </div>
     </div>
+    <div class="flex-container">
+        <button @click="postPrograms" class="primary-btn table-btn-blue">
+            Save choices
+        </button>
+    </div>
     <div>
         <table class="data-table">
           <tr class="data-header">
@@ -54,6 +59,24 @@
 {% block closingscript %}
   <script>
     const { createApp, ref } = Vue
+
+    function getCookie(name) {
+        let cookieValue = null;
+        if (document.cookie && document.cookie !== '') {
+            const cookies = document.cookie.split(';');
+            for (let i = 0; i < cookies.length; i++) {
+                const cookie = cookies[i].trim();
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                    cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        return cookieValue;
+    }
+
+    
     createApp({
       setup() {
         const selected_college = ref('');
@@ -63,7 +86,18 @@
         const selected_course_name = ref('');
 
         const courses = ref({});
-        const priority_order = ref([]);
+        const priority_order = ref([
+            {% for choice in choices %}
+            {
+                "college_id": {{ choice.program.college.id }},
+                "course_id": {{ choice.program.course.id }},
+                "college_name": "{{ choice.program.college.name }}",
+                "course_name": "{{ choice.program.course.name }}",
+                "course_code": "{{ choice.program.course.code }}",
+                "college_code": "{{ choice.program.college.code }}"
+            },
+            {% endfor %}
+        ]);
           
         // This contains the choice list of the student, example structure
         // {
@@ -84,6 +118,30 @@
             const selectedOption = e.target.options[e.target.selectedIndex];
             selected_course.value = e.target.value;
             selected_course_name.value = selectedOption.text;
+        }
+          
+        function postPrograms(e)
+        {
+            let selected_programs = priority_order.value.map((program, index) => [index+1, program.college_id, program.course_id])
+            const csrftoken = getCookie('csrftoken');
+            fetch(`{% url 'counselling:choice_entry_post' %}`, {
+                method: 'POST',
+                body: JSON.stringify(selected_programs),
+                headers: {
+                    "X-CSRFToken": csrftoken
+                }
+            }).then(res => {
+                if(!res.ok){
+                    alert('Error while saving program preferences, please try again later')
+                    console.log(res)
+                }
+                else {
+                    alert('Successfully saved your choice list')
+                }
+            }).catch(err => {
+                alert('Server error while saving preferences, please try again later')
+                console.log(err)
+            })
         }
 
 
@@ -176,7 +234,8 @@
             priority_order,
             deleteProgram,
             moveUp,
-            moveDown
+            moveDown,
+            postPrograms
         }
       },
       delimiters: ['[[', ']]']
