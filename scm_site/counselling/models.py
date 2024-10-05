@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.template.defaultfilters import slugify
 
+User._meta.get_field('email')._unique = True
 
 class Course(models.Model):
     code = models.TextField()

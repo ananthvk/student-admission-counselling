@@ -9,6 +9,8 @@ urlpatterns = [
     path("college/list/", views.CollegeListView.as_view(), name="college_list"),
     path("course/list/", views.CourseListView.as_view(), name="course_list"),
     path("choiceentry/", views.option_entry_view, name="choice_entry"),
+    path("rank/", views.view_ranks, name="view_ranks"),
+    path("ranklist/", views.RankListView.as_view(), name="ranklist_view"),
     path("api/choiceentry", views.option_entry_post, name="choice_entry_post"),
     path("api/college/<int:college_id>/programs", views.get_programs_offered_by_college, name="get_programs_offered_by_college"),
 ]

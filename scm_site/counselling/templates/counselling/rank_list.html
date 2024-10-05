@@ -1,0 +1,44 @@
+{% extends 'counselling/base.html' %}
+{% block title %}
+  <title>Rank list 2024</title>
+{% endblock %}
+{% block content %}
+  {% if rank_list %}
+    <h1 class="data-td-centered">Here is your rank information</h1>
+    <div class="flex-container">
+      <table class="data-table" style="width: 50%;">
+        <tr class="data-header">
+          <th class="data-header data-td-centered">Rank</th>
+          <th class="data-header data-td-centered">Rank List Name</th>
+          <th class="data-header data-td-centered">Name</th>
+        </tr>
+        {% for rank in rank_list %}
+          <tr class="data-tr">
+            <td class="data-td">{{ rank.rank }}</td>
+            <td class="data-td">{{ rank.ranklist.short_name }}</td>
+            <td class="data-td">{{ rank.student.user.get_full_name }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="pagination">
+      <span class="step-links">
+        {% if page_obj.has_previous %}
+          <a href="?page=1">&laquo; first</a>
+          <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.</span>
+
+        {% if page_obj.has_next %}
+          <a href="?page={{ page_obj.next_page_number }}">next</a>
+          <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+        {% endif %}
+      </span>
+    </div>
+
+  {% else %}
+    <h2>Sorry, you are not part of any rank list</h2>
+  {% endif %}
+{% endblock %}

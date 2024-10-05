@@ -2,7 +2,7 @@ from django.http import HttpResponse, HttpRequest, JsonResponse
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.shortcuts import render, get_object_or_404
-from .models import College, Course, Program, Student, ChoiceEntry
+from .models import College, Course, Program, Student, ChoiceEntry, RankList, RankListEntry
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import ensure_csrf_cookie
@@ -51,13 +51,22 @@ def option_entry_post(request: HttpRequest):
     payload = json.loads(request.body)
     student = Student.objects.get(user=request.user)
     with transaction.atomic():
+
+        # TODO: Delete all choices of the students before adding them again,
+        # This is wasteful and inefficient, Implement deletion of only those ids which are not in the list
+        ChoiceEntry.objects.filter(student=student).delete()
+
         for priority_number, college_id, course_id in payload:
             program = Program.objects.get(college_id=college_id, course_id=course_id)
-            choice_entry = ChoiceEntry(student=student, program=program, priority=priority_number)
-            choice_entry.save()
-        
-    return JsonResponse({"status": "ok"})
 
+            #choice_entry, created = ChoiceEntry.objects.update_or_create(
+            #    student=student, program=program,
+            #    defaults={'priority': priority_number},
+            #)
+            ChoiceEntry(student=student, program=program, priority=priority_number).save()
+        
+
+    return JsonResponse({"status": "ok"})
 
 @require_http_methods(["GET"])
 def get_programs_offered_by_college(request: HttpRequest, college_id):
@@ -70,3 +79,16 @@ def get_programs_offered_by_college(request: HttpRequest, college_id):
             ]
         }
     )
+
+@require_http_methods(["GET"])
+@login_required
+def view_ranks(request: HttpRequest):
+    ranklist_entries = RankListEntry.objects.filter(student=request.user.student)
+    return render(request, "counselling/view_ranks.html", context={"ranklist_entries": ranklist_entries})
+
+class RankListView(ListView):
+    model = RankListEntry
+    template_name = 'counselling/rank_list.html'
+    paginate_by = 100
+    queryset = RankListEntry.objects.all().order_by("rank")
+    context_object_name = 'rank_list'
