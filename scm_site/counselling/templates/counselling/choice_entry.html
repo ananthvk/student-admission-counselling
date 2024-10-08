@@ -58,7 +58,7 @@
 {% endblock %}
 {% block closingscript %}
   <script>
-    const { createApp, ref } = Vue
+    const { createApp, ref, onMounted } = Vue
 
     function getCookie(name) {
         let cookieValue = null;
@@ -105,6 +105,18 @@
         // }
         // This is used to hide courses from the select menu if they have already been added
         const choice_list_programs = ref({});
+
+        onMounted(() => {
+            priority_order.value.forEach(program => {
+                const collegeId = program.college_id;
+                const courseId = program.course_id;
+    
+                if (!choice_list_programs.value[collegeId]) {
+                    choice_list_programs.value[collegeId] = [];
+                }
+                choice_list_programs.value[collegeId].push(courseId);
+            });
+        });
         
         function onSelectedCollegeChanged(e){
             // The selected college has changed, fetch courses from the api and update the other select box
