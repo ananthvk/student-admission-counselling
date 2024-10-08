@@ -13,14 +13,16 @@
     <a href="{% url 'counselling:ranklist_view' %}" class="link">Ranklist of all students</a>
   </div>
   {% if request.user.is_authenticated %}
-  <div>
-    <a href="{% url 'counselling:choice_entry' %}" class="link">Click here for option entry</a>
-  </div>
-  <div>
-    <a href="{% url 'counselling:view_ranks' %}" class="link">Click here to view your rank</a>
-  </div>
-  <div>
-    <a href="{% url 'counselling:download_choice_report' %}" class="link">Download choice report</a>
-  </div>
+    <div>
+      {% if preferences.SitePreference.choice_entry_enabled %}
+        <a href="{% url 'counselling:choice_entry' %}" class="link">Click here for choice entry</a>
+      {% endif %}
+    </div>
+    <div>
+      <a href="{% url 'counselling:view_ranks' %}" class="link">Click here to view your rank</a>
+    </div>
+    <div>
+      <a href="{% url 'counselling:download_choice_report' %}" class="link">Download choice report</a>
+    </div>
   {% endif %}
 {% endblock %}

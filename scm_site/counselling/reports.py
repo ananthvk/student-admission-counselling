@@ -4,7 +4,7 @@ from reportlab.lib import colors
 from reportlab.lib.units import inch
 from reportlab.lib.styles import ParagraphStyle
 from .models import User, ChoiceEntry
-from time import gmtime, strftime
+from time import gmtime, strftime, localtime
 
 
 class PreferenceListReport:
@@ -17,7 +17,7 @@ class PreferenceListReport:
         right_margin = 18
         name = self.user.get_full_name()
         username = self.user.username
-        report_generation_time = strftime("%Y-%m-%d %H:%M:%S", gmtime())
+        report_generation_time = strftime("%Y-%m-%d %H:%M:%S", localtime())
 
         doc = SimpleDocTemplate(
             buffer,

@@ -1,4 +1,10 @@
-from django.http import HttpResponse, HttpRequest, JsonResponse, FileResponse
+from django.http import (
+    HttpResponse,
+    HttpRequest,
+    JsonResponse,
+    FileResponse,
+    HttpResponseForbidden,
+)
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.shortcuts import render, get_object_or_404
@@ -10,6 +16,7 @@ from .models import (
     ChoiceEntry,
     RankList,
     RankListEntry,
+    SitePreference,
 )
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
@@ -17,7 +24,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.db import transaction
 import json
 from .reports import PreferenceListReport
-
+from preferences import preferences
 
 # Create your views here.
 
@@ -45,6 +52,10 @@ class CollegeDetailView(DetailView):
 @login_required
 @ensure_csrf_cookie
 def option_entry_view(request: HttpRequest):
+
+    if not preferences.SitePreference.choice_entry_enabled:
+        return render(request, "counselling/choice_entry_closed.html")
+
     # Only return those colleges which offer atleast one program
     queryset = (
         College.objects.filter(programs__isnull=False).distinct().order_by("code")
@@ -62,6 +73,8 @@ def option_entry_view(request: HttpRequest):
 @login_required
 @require_http_methods(["POST"])
 def option_entry_post(request: HttpRequest):
+    if not preferences.SitePreference.choice_entry_enabled:
+        return HttpResponseForbidden("Choice entry has been closed")
     payload = json.loads(request.body)
     student = Student.objects.get(user=request.user)
     with transaction.atomic():
