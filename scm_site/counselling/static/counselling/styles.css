@@ -109,3 +109,14 @@ select::-webkit-scrollbar-thumb:hover {
     background-color: #3A9BDC;
     color: white;
 }
+
+.link {
+    color: darkslateblue;
+    font-size: 1.2em;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.link:hover{
+    color: darkblue;
+}

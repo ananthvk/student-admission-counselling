@@ -4,20 +4,23 @@
 {% endblock %}
 {% block content %}
   <div>
-    <a href="{% url 'counselling:course_list' %}">List of available courses</a>
+    <a href="{% url 'counselling:course_list' %}" class="link">List of available courses</a>
   </div>
   <div>
-    <a href="{% url 'counselling:college_list' %}">List of participating colleges</a>
+    <a href="{% url 'counselling:college_list' %}" class="link">List of participating colleges</a>
   </div>
   <div>
-    <a href="{% url 'counselling:ranklist_view' %}">Ranklist of all students</a>
+    <a href="{% url 'counselling:ranklist_view' %}" class="link">Ranklist of all students</a>
   </div>
   {% if request.user.is_authenticated %}
   <div>
-    <a href="{% url 'counselling:choice_entry' %}">Click here for option entry</a>
+    <a href="{% url 'counselling:choice_entry' %}" class="link">Click here for option entry</a>
   </div>
   <div>
-    <a href="{% url 'counselling:view_ranks' %}">Click here to view your rank</a>
+    <a href="{% url 'counselling:view_ranks' %}" class="link">Click here to view your rank</a>
+  </div>
+  <div>
+    <a href="{% url 'counselling:download_choice_report' %}" class="link">Download choice report</a>
   </div>
   {% endif %}
 {% endblock %}
