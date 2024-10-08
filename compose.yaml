@@ -1,0 +1,19 @@
+services:
+  web: 
+    build:
+      context: ./scm_site
+    restart: always
+    ports: 
+      - '8000:8000'
+    networks:
+      - scm-net
+    volumes:
+      - db-volume:/app/db_data
+
+networks:
+  scm-net:
+    driver: bridge
+
+volumes:
+  db-volume:
+    driver: local

@@ -4,7 +4,7 @@ from reportlab.lib import colors
 from reportlab.lib.units import inch
 from reportlab.lib.styles import ParagraphStyle
 from .models import User, ChoiceEntry
-from time import gmtime, strftime, localtime
+from time import gmtime, strftime, localtime, sleep
 
 
 class PreferenceListReport:
@@ -12,6 +12,9 @@ class PreferenceListReport:
         self.user = user
 
     def as_bytes(self):
+        # Add a small delay to simulate work
+        sleep(4)
+
         buffer = BytesIO()
         left_margin = 18
         right_margin = 18
@@ -47,13 +50,13 @@ class PreferenceListReport:
 
         table_style = ParagraphStyle(name="TableStyle", fontSize=10)
 
-        for i, choice in enumerate(choices):
+        for choice in choices:
             program = choice.program
             course = program.course
             college = program.college
             data.append(
                 [
-                    Paragraph("%s" % (i + 1), style=table_style),
+                    Paragraph("%s" % choice.priority, style=table_style),
                     Paragraph(college.code, style=table_style),
                     Paragraph(f'{college.name}, {college.city}', style=table_style),
                     Paragraph(course.code, style=table_style),
