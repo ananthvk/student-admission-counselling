@@ -87,3 +87,4 @@ local_settings.py
 db.sqlite3
 **/__pycache__
 credentials.txt
+db_data/

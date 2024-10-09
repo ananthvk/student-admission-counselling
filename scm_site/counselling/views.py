@@ -155,6 +155,9 @@ def get_task_status(request: HttpRequest, task_id):
 @login_required
 def get_task_result(request: HttpRequest, task_id):
     result = AsyncResult(task_id)
+    if result is None or result.result is None:
+        return HttpResponseNotFound("Resource not found")
+        
     if ('%s' % request.user.id) != ('%s' % result.result['user_id']):
         return HttpResponseNotFound("Resource not found")
     if result.status == 'SUCCESS':
