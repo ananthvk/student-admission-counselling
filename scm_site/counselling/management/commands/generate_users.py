@@ -13,8 +13,13 @@ from django.db import transaction
 
 NUMBER_OF_USERS = 10**3
 NUM_ZEROS = 5
+MIN_NUMBER_OF_CHOICES = 0
+MAX_NUMBER_OF_CHOICES = 30
+CONST_PASSWORD = 'password'
+
 logger = logging.getLogger(__name__)
 Faker.seed(100)
+random.seed(42)
 
 faker = Faker('en_IN')
 counter = 0
@@ -22,7 +27,8 @@ counter = 0
 def get_application_id():
     global counter
     counter += 1
-    return f'241{random.randint(10, 99)}{("%s" % counter).zfill(NUM_ZEROS)}'
+    #return f'241{random.randint(10, 99)}{("%s" % counter).zfill(NUM_ZEROS)}'
+    return f'{("%s" % counter).zfill(NUM_ZEROS)}'
     
 
 
@@ -39,15 +45,23 @@ def seed_data():
     logger.info(f"Adding {NUMBER_OF_USERS} users")
     # Delete all non super users
     User.objects.filter(is_superuser=False).delete()
+    ChoiceEntry.objects.all().delete()
+    Student.objects.all().delete()
+    RankListEntry.objects.all().delete()
+    ChoiceEntry.objects.all().delete()
+    Student(user=User.objects.first(), date_of_birth='2000-12-20').save()
     usr_psd = []
     ranklist = RankList.objects.get(short_name="ENG-RL")
     ranks = list(range(1, NUMBER_OF_USERS + 1))
     random.shuffle(ranks)
     
+    program_ids = sorted(Program.objects.values_list('pk', flat=True))
+    total_choices = 0
+    
     for i in range(NUMBER_OF_USERS):
         with transaction.atomic():
             username=get_application_id()
-            password=faker.password()
+            password=CONST_PASSWORD #faker.password()
 
             user = User(
                 username=username,
@@ -64,11 +78,18 @@ def seed_data():
             student.save()
             
             RankListEntry(ranklist=ranklist, student=student, rank=ranks[i]).save()
+            
+            
+            # Also generate a random choice list for each user
+            number_of_choices = random.randint(MIN_NUMBER_OF_CHOICES, MAX_NUMBER_OF_CHOICES)
+            total_choices += number_of_choices
+            chosen_programs = random.sample(program_ids, k=number_of_choices)
+            for i, program in enumerate(chosen_programs):
+                ChoiceEntry(student=student, program_id=program, priority=(i+1)).save()
 
-            if i % 10_000 == 0:
-                print(f'Finished adding {i} users')
 
     logger.info(f'Added {NUMBER_OF_USERS} users')
+    logger.info(f'Added {total_choices} choices for students')
     with open('credentials.txt', 'w') as cred:
         for username, password in usr_psd:
             cred.write(f'{username} {password}\n')

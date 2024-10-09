@@ -1,10 +1,10 @@
 from django.http import (
-    HttpResponse,
     HttpRequest,
     JsonResponse,
     FileResponse,
     HttpResponseForbidden,
 )
+import io
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.shortcuts import render, get_object_or_404
@@ -14,9 +14,7 @@ from .models import (
     Program,
     Student,
     ChoiceEntry,
-    RankList,
     RankListEntry,
-    SitePreference,
 )
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
@@ -26,6 +24,7 @@ import json
 from .reports import PreferenceListReport
 from .tasks import generate_report_task
 from preferences import preferences
+from celery.result import AsyncResult
 
 # Create your views here.
 
@@ -132,11 +131,21 @@ class RankListView(ListView):
 
 @login_required
 def download_choice_report_view(request: HttpRequest):
-    generate_report_task.delay()
-    return HttpResponse('Ok')
-    #pref_report = PreferenceListReport(request.user)
+    task = generate_report_task.delay(request.user.pk)
+    #result = io.BytesIO(task.get())
     #return FileResponse(
-    #    pref_report.as_bytes(),
+    #    result,
     #    as_attachment=False,
     #    filename=f"{request.user.username}_choice_report.pdf",
     #)
+    return render(request, "counselling/download_choice_report.html", context={"task": task})
+    
+
+def get_task_status(request: HttpRequest, task_id):
+    result = AsyncResult(task_id)
+    response = {
+        "task_id": task_id,
+        "task_status": result.status,
+        "task_result": result.result
+    }
+    return JsonResponse(response, status=200)

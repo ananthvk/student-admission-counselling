@@ -8,7 +8,6 @@ services:
     networks:
       - scm-net
     volumes:
-      - db-volume:/app/db_data
       - ./scm_site:/app
     depends_on:
       - cache
@@ -49,7 +48,5 @@ networks:
     driver: bridge
 
 volumes:
-  db-volume:
-    driver: local
   cache-volume:
     driver: local

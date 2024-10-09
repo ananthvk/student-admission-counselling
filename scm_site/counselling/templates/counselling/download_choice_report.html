@@ -1,0 +1,11 @@
+{% extends 'counselling/base.html' %}
+{% block title %}
+  <title>Download choice report</title>
+{% endblock %}
+{% block scripts %}
+    {{ block.super }}
+{% endblock %}
+{% block content %}
+    Please wait a moment for the report to be generated....
+    <a href="{% url 'counselling:get_task_status' task_id=task.id %}">View status</a>
+{% endblock %}
