@@ -3,6 +3,7 @@ from django.http import (
     JsonResponse,
     FileResponse,
     HttpResponseForbidden,
+    HttpResponseNotFound,
     HttpResponse
 )
 import io
@@ -151,8 +152,11 @@ def get_task_status(request: HttpRequest, task_id):
 
     return JsonResponse(task_result, status=200)
 
+@login_required
 def get_task_result(request: HttpRequest, task_id):
     result = AsyncResult(task_id)
+    if ('%s' % request.user.id) != ('%s' % result.result['user_id']):
+        return HttpResponseNotFound("Resource not found")
     if result.status == 'SUCCESS':
             response = HttpResponse(result.result['pdf'], content_type='application/pdf')
             response['Content-Disposition'] = 'inline; filename="report.pdf"'
