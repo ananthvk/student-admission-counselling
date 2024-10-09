@@ -9,6 +9,25 @@ services:
       - scm-net
     volumes:
       - db-volume:/app/db_data
+      - ./scm_site:/app
+    depends_on:
+      - cache
+    environment:
+      - CELERY_RESULT_BACKEND=redis://default:redispw@cache:6379/0
+      - CELERY_BROKER_URL=redis://default:redispw@cache:6379/0
+
+  
+  cache:
+    image: redis:7.4-alpine
+    restart: always
+    ports:
+      - '6379:6379'
+    expose:
+      - '6379'
+    volumes:
+      - cache-volume:/data
+    networks:
+      - scm-net
 
 networks:
   scm-net:
@@ -16,4 +35,6 @@ networks:
 
 volumes:
   db-volume:
+    driver: local
+  cache-volume:
     driver: local

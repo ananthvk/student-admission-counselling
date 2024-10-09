@@ -24,6 +24,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.db import transaction
 import json
 from .reports import PreferenceListReport
+from .tasks import generate_report_task
 from preferences import preferences
 
 # Create your views here.
@@ -131,9 +132,11 @@ class RankListView(ListView):
 
 @login_required
 def download_choice_report_view(request: HttpRequest):
-    pref_report = PreferenceListReport(request.user)
-    return FileResponse(
-        pref_report.as_bytes(),
-        as_attachment=False,
-        filename=f"{request.user.username}_choice_report.pdf",
-    )
+    generate_report_task.delay()
+    return HttpResponse('Ok')
+    #pref_report = PreferenceListReport(request.user)
+    #return FileResponse(
+    #    pref_report.as_bytes(),
+    #    as_attachment=False,
+    #    filename=f"{request.user.username}_choice_report.pdf",
+    #)
