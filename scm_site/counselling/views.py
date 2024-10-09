@@ -3,6 +3,7 @@ from django.http import (
     JsonResponse,
     FileResponse,
     HttpResponseForbidden,
+    HttpResponse
 )
 import io
 from django.views.generic.list import ListView
@@ -143,9 +144,18 @@ def download_choice_report_view(request: HttpRequest):
 
 def get_task_status(request: HttpRequest, task_id):
     result = AsyncResult(task_id)
-    response = {
+    task_result = {
         "task_id": task_id,
         "task_status": result.status,
-        "task_result": result.result
     }
-    return JsonResponse(response, status=200)
+
+    return JsonResponse(task_result, status=200)
+
+def get_task_result(request: HttpRequest, task_id):
+    result = AsyncResult(task_id)
+    if result.status == 'SUCCESS':
+            response = HttpResponse(result.result['pdf'], content_type='application/pdf')
+            response['Content-Disposition'] = 'inline; filename="report.pdf"'
+            return response
+    else:
+        return JsonResponse({'error': 'Not yet ready'}, status=500)

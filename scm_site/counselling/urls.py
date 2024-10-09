@@ -14,5 +14,6 @@ urlpatterns = [
     path("api/choiceentry", views.option_entry_post, name="choice_entry_post"),
     path("api/college/<int:college_id>/programs", views.get_programs_offered_by_college, name="get_programs_offered_by_college"),
     path("download_choice_report/", views.download_choice_report_view, name="download_choice_report"),
-    path("tasks/<str:task_id>/status", views.get_task_status, name="get_task_status")
+    path("tasks/<str:task_id>/status", views.get_task_status, name="get_task_status"),
+    path("tasks/<str:task_id>/pdf", views.get_task_result, name="get_task_result")
 ]

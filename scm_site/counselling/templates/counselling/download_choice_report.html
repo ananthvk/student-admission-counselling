@@ -4,8 +4,29 @@
 {% endblock %}
 {% block scripts %}
     {{ block.super }}
+    <script>
+    const taskId = '{{ task.id }}';
+    const taskStatusUrl = "{% url 'counselling:get_task_status' task_id=task.id %}";
+    const taskResultUrl = "{% url 'counselling:get_task_result' task_id=task.id %}";
+
+    function checkStatus() {
+        fetch(taskStatusUrl)
+            .then(response => response.json())
+            .then(data => {
+                console.log("Task status:", data.task_status);
+                if (data.task_status === 'SUCCESS') {
+                    clearInterval(intervalId);
+                    window.location.href = taskResultUrl;
+                }
+            })
+            .catch(error => console.error('Error fetching task status:', error));
+    }
+
+    const intervalId = setInterval(checkStatus, 5000);
+</script>
+
+
 {% endblock %}
 {% block content %}
     Please wait a moment for the report to be generated....
-    <a href="{% url 'counselling:get_task_status' task_id=task.id %}">View status</a>
 {% endblock %}
