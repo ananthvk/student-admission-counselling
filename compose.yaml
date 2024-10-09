@@ -1,14 +1,14 @@
 services:
   web: 
     build:
-      context: ./scm_site
+      context: .
     restart: always
     ports: 
       - '8000:8000'
     networks:
       - scm-net
     volumes:
-      - ./scm_site:/app
+      - .:/app
     depends_on:
       - cache
       - celery_worker
@@ -18,7 +18,7 @@ services:
   
   celery_worker:
     build:
-      context: ./scm_site
+      context: .
     restart: always
     command: /start_celery_worker
     networks:
@@ -29,7 +29,7 @@ services:
       - CELERY_RESULT_BACKEND=redis://default:redispw@cache:6379/0
       - CELERY_BROKER_URL=redis://default:redispw@cache:6379/0
     volumes:
-      - ./scm_site:/app
+      - .:/app
   
   cache:
     image: redis:7.4-alpine

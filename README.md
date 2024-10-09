@@ -16,8 +16,8 @@ $ docker compose run web python manage.py createsuperuser
 
 Then seed the database if required (optional)
 ```
-$ mkdir scm_site/db_data
-$ cp dataset/data.json scm_site/db_data
+$ mkdir db_data
+$ cp dataset/data.json db_data
 $ docker compose run web python manage.py seed db_data/data.json
 $ docker compose run web python manage.py generate_users
 $ docker compose down --remove-orphans
