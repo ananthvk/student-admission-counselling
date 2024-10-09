@@ -29,3 +29,7 @@ $ docker compose up
 ```
 
 View the application at [http://localhost:8000/counselling](http://localhost:8000/counselling)
+
+Usernames follow the following pattern: 00001, 00002, 00003 ....
+
+and the password for every user is `password`
