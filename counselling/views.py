@@ -4,7 +4,7 @@ from django.http import (
     FileResponse,
     HttpResponseForbidden,
     HttpResponseNotFound,
-    HttpResponse
+    HttpResponse,
 )
 import io
 from django.views.generic.list import ListView
@@ -17,70 +17,22 @@ from .models import (
     Student,
     ChoiceEntry,
     RankListEntry,
+    RankList,
 )
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.core.files.storage import default_storage
 from django.db import transaction
 import json
-from .reports import PreferenceListReport
-from .tasks import generate_report_task
+from .tasks import generate_report_task, perform_allotment_da
 from preferences import preferences
 from celery.result import AsyncResult
-from pymatcher import PyRankList, PyGaleShapley, Students, Courses
-# Create your views here.
-import random
-import time
-import logging
 
-logger = logging.getLogger(__name__)
 
 def index(request: HttpRequest):
-    # Just to make sure it works
-
-    """
-    NUMBER_OF_STUDENTS = 100
-    NUMBER_OF_COURSES = 10
-    MIN_CAPACITY_COURSE = 10
-    MAX_CAPACITY_COURSE = 20
-    MIN_NUMBER_OF_CHOICES = 0
-    MAX_NUMBER_OF_CHOICES = 10
-
-    random.seed(10001)
-
-    logger.info('Generating data')
-    start_time = time.time()
-    ranks_list = list(range(1, NUMBER_OF_STUDENTS + 1))
-    random.shuffle(ranks_list)
-    ranks = PyRankList(ranks_list)
-
-    courses = Courses()
-    for i in range(NUMBER_OF_COURSES):
-        courses.add(ranks, random.randint(MIN_CAPACITY_COURSE, MAX_CAPACITY_COURSE))
-
-    students = Students()
-    preferences = list(range(NUMBER_OF_COURSES))
-    for i in range(NUMBER_OF_STUDENTS):
-        number_of_choices = random.randint(MIN_NUMBER_OF_CHOICES, MAX_NUMBER_OF_CHOICES)
-        random.shuffle(preferences)
-        students.add(preferences[:number_of_choices],i)
-    end_time = time.time()
-    elapsed_time = end_time - start_time
-    logger.info(f"Data generation time: {elapsed_time:.6f} seconds")
-
-    logger.info('Starting algorithm')
-    start_time = time.time()
-    PyGaleShapley.perform_allotment(students, courses)
-    end_time = time.time()
-    elapsed_time = end_time - start_time
-    logger.info(f"Execution time: {elapsed_time:.6f} seconds")
-
-    for i in range(0, len(students)):
-        print(students[i].get_alloted_course_id())
-
-    """
-    return render(request, "counselling/index.html", context={})
-
+    # perform_allotment_da.delay()
+    return render(request, "counselling/index.html")
 
 
 class CollegeListView(ListView):
@@ -182,14 +134,10 @@ class RankListView(ListView):
 @login_required
 def download_choice_report_view(request: HttpRequest):
     task = generate_report_task.delay(request.user.pk)
-    #result = io.BytesIO(task.get())
-    #return FileResponse(
-    #    result,
-    #    as_attachment=False,
-    #    filename=f"{request.user.username}_choice_report.pdf",
-    #)
-    return render(request, "counselling/download_choice_report.html", context={"task": task})
-    
+    return render(
+        request, "counselling/download_choice_report.html", context={"task": task}
+    )
+
 
 def get_task_status(request: HttpRequest, task_id):
     result = AsyncResult(task_id)
@@ -200,17 +148,21 @@ def get_task_status(request: HttpRequest, task_id):
 
     return JsonResponse(task_result, status=200)
 
+
 @login_required
 def get_task_result(request: HttpRequest, task_id):
     result = AsyncResult(task_id)
     if result is None or result.result is None:
         return HttpResponseNotFound("Resource not found")
-        
-    if ('%s' % request.user.id) != ('%s' % result.result['user_id']):
+
+    if ("%s" % request.user.id) != ("%s" % result.result["user_id"]):
         return HttpResponseNotFound("Resource not found")
-    if result.status == 'SUCCESS':
-            response = HttpResponse(result.result['pdf'], content_type='application/pdf')
-            response['Content-Disposition'] = 'inline; filename="report.pdf"'
+    if result.status == "SUCCESS":
+        with default_storage.open(result.result["path"]) as report_file:
+            response = HttpResponse(report_file, content_type="application/pdf")
+            response["Content-Disposition"] = (
+                f'inline; filename="{request.user.username}_choice_report.pdf"'
+            )
             return response
     else:
-        return JsonResponse({'error': 'Not yet ready'}, status=500)
+        return JsonResponse({"error": "Not yet ready"}, status=500)

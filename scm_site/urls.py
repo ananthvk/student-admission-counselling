@@ -16,6 +16,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+#from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from debug_toolbar.toolbar import debug_toolbar_urls
 from django.conf import settings
@@ -26,7 +27,8 @@ urlpatterns = [
     path('accounts/login/', auth_views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
     path('accounts/', include("django.contrib.auth.urls")),
     path("__reload__/", include("django_browser_reload.urls")),
-]
+]# + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
 
 if not settings.TESTING:
     urlpatterns = [

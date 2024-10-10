@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-ze$66u)2o5gsuqxx5b!%2sgncx2z9-!i9b!kax6=uyr5ko+&n7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ["*"]
 
 
 LOGGING = {
@@ -85,6 +85,7 @@ TEMPLATES = [
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
                 "preferences.context_processors.preferences_cp",
+                "django.template.context_processors.media",
             ],
         },
     },
@@ -167,16 +168,19 @@ INTERNAL_IPS = [
 ]
 
 PASSWORD_HASHERS = (
-    'django.contrib.auth.hashers.PBKDF2PasswordHasher',
-    'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
-    'django.contrib.auth.hashers.BCryptPasswordHasher',
-    'django.contrib.auth.hashers.MD5PasswordHasher',
+    "django.contrib.auth.hashers.PBKDF2PasswordHasher",
+    "django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher",
+    "django.contrib.auth.hashers.BCryptPasswordHasher",
+    "django.contrib.auth.hashers.MD5PasswordHasher",
 )
 
 SITE_ID = 1
 
-MIGRATION_MODULES = {'preferences': 'counselling.migrations.preferences'}
+MIGRATION_MODULES = {"preferences": "counselling.migrations.preferences"}
 
-CELERY_BROKER_URL = os.getenv('CELERY_BROKER_URL')
-CELERY_RESULT_BACKEND = os.getenv('CELERY_RESULT_BACKEND')
+CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL")
+CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
+
+MEDIA_ROOT = os.path.join(BASE_DIR, "db_data/uploads/")
+MEDIA_URL = "/media/"
