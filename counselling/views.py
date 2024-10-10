@@ -95,7 +95,9 @@ def option_entry_post(request: HttpRequest):
             ChoiceEntry(
                 student=student, program=program, priority=priority_number
             ).save()
-
+    
+    # Generate the report when the student saves their choices, so that later it can be served directly
+    generate_report_task.delay(request.user.pk)
     return JsonResponse({"status": "ok"})
 
 
@@ -133,36 +135,11 @@ class RankListView(ListView):
 
 @login_required
 def download_choice_report_view(request: HttpRequest):
-    task = generate_report_task.delay(request.user.pk)
-    return render(
-        request, "counselling/download_choice_report.html", context={"task": task}
-    )
-
-
-def get_task_status(request: HttpRequest, task_id):
-    result = AsyncResult(task_id)
-    task_result = {
-        "task_id": task_id,
-        "task_status": result.status,
-    }
-
-    return JsonResponse(task_result, status=200)
-
-
-@login_required
-def get_task_result(request: HttpRequest, task_id):
-    result = AsyncResult(task_id)
-    if result is None or result.result is None:
-        return HttpResponseNotFound("Resource not found")
-
-    if ("%s" % request.user.id) != ("%s" % result.result["user_id"]):
-        return HttpResponseNotFound("Resource not found")
-    if result.status == "SUCCESS":
-        with default_storage.open(result.result["path"]) as report_file:
-            response = HttpResponse(report_file, content_type="application/pdf")
-            response["Content-Disposition"] = (
-                f'inline; filename="{request.user.username}_choice_report.pdf"'
-            )
-            return response
-    else:
-        return JsonResponse({"error": "Not yet ready"}, status=500)
+    report_path = f'{request.user.username}_choice_report.pdf'
+    
+    with default_storage.open(report_path) as report_file:
+        response = HttpResponse(report_file, content_type="application/pdf")
+        response["Content-Disposition"] = (
+            f'inline; filename="{report_path}"'
+        )
+        return response

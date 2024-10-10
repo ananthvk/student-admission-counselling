@@ -14,16 +14,20 @@ logger = logging.getLogger(__name__)
 @shared_task(bind=True)
 def generate_report_task(self, user_id):
     user = User.objects.get(pk=user_id)
+    path = f"{user.username}_choice_report.pdf"
+    # If the report has already been generated, delete it
+    if default_storage.exists(path):
+        default_storage.delete(path)
+
     print("Start report generation....")
     pref_report = PreferenceListReport(user)
     print("Finished report generation")
     path = default_storage.save(
-        f"{user.username}_choice_report.pdf",
+        path,
         ContentFile(pref_report.as_bytes().getvalue()),
         
     )
     return {"user_id": user_id, "path": path}
-
 
 @shared_task
 def perform_allotment_da():
