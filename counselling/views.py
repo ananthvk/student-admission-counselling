@@ -57,10 +57,16 @@ class CollegeDetailView(DetailView):
     slug_url_kwarg = "slug"
     model = College
 
+    def get_queryset(self):
+        return College.objects.prefetch_related('program_set', 'program_set__course').all().order_by("code")
 
+
+"""
+This view displays the choice entry page, where a student can add, modify or reorder their preference list.
+"""
 @login_required
 @ensure_csrf_cookie
-def option_entry_view(request: HttpRequest):
+def choice_entry_view(request: HttpRequest):
 
     if not preferences.SitePreference.choice_entry_enabled:
         return render(request, "counselling/choice_entry_closed.html")
@@ -71,7 +77,9 @@ def option_entry_view(request: HttpRequest):
     )
     # Also pass in the options filled by this candidate, if they want to update it
     student = Student.objects.get(user=request.user)
-    choices = ChoiceEntry.objects.filter(student=student).order_by("priority")
+    
+    # Avoid the N+1 problem by using select_related so that Django performs a join instead of creating multiple queries
+    choices = ChoiceEntry.objects.select_related("program", "program__college", "program__course").filter(student=student).order_by("priority")
     return render(
         request,
         "counselling/choice_entry.html",
@@ -81,7 +89,7 @@ def option_entry_view(request: HttpRequest):
 
 @login_required
 @require_http_methods(["POST"])
-def option_entry_post(request: HttpRequest):
+def choice_entry_post(request: HttpRequest):
     if not preferences.SitePreference.choice_entry_enabled:
         return HttpResponseForbidden("Choice entry has been closed")
     payload = json.loads(request.body)
@@ -105,12 +113,16 @@ def option_entry_post(request: HttpRequest):
     
     # TODO: If the user hits save twice, two tasks are generated, discard the previous task
     # Generate the report when the student saves their choices, so that later it can be served directly
+    # TODO: Move this over to the view page, the user has to wait for a while, but it won't create concurrent tasks
     task = generate_report_task.delay(request.user.pk)
     # Save the task_id and the user_id to the cache, so that the user cannot make multiple requests to generate the report
     cache.set(request.user.pk, task.id)
     return JsonResponse({"status": "ok"})
 
 
+"""
+This view returns all courses offered by a college as JSON, this is used by the choice entry view.
+"""
 @require_http_methods(["GET"])
 @cache_page(settings.TIMEOUT)
 def get_programs_offered_by_college(request: HttpRequest, college_id):
@@ -142,6 +154,10 @@ class RankListView(ListView):
     paginate_by = 100
     queryset = RankListEntry.objects.all().order_by("rank")
     context_object_name = "rank_list"
+
+    def get_queryset(self):
+        # Avoid the N+1 problem by using select_related
+        return RankListEntry.objects.select_related('student', 'student__user').all().order_by("rank")
 
 
 @login_required
