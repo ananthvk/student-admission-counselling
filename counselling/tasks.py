@@ -5,6 +5,7 @@ from .models import User, RankList, RankListEntry, Student, ChoiceEntry, Program
 from pymatcher import PyRankList, PyGaleShapley, Students, Courses
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
+from preferences import preferences
 
 import logging
 
@@ -31,9 +32,9 @@ def generate_report_task(self, user_id):
 
 @shared_task
 def perform_allotment_da():
-    # Just to make sure it works
     # For now, just do it for ENG-RL, not all ranklists
     # TODO: Implement for all ranklists
+
     logger.info("Performing allotment: Building data structures")
     start_time = time.time()
     ranklist = RankList.objects.get(short_name="ENG-RL")

@@ -14,7 +14,8 @@ services:
       - celery_worker
     environment:
       - CELERY_RESULT_BACKEND=redis://default:redispw@cache:6379/0
-      - CELERY_BROKER_URL=redis://default:redispw@cache:6379/0
+      - CELERY_BROKER_URL=redis://default:redispw@cache:6379/1
+      - REDIS_CACHE_URL=redis://default:redispw@cache:6379/2
   
   celery_worker:
     build:
@@ -27,7 +28,8 @@ services:
       - cache
     environment:
       - CELERY_RESULT_BACKEND=redis://default:redispw@cache:6379/0
-      - CELERY_BROKER_URL=redis://default:redispw@cache:6379/0
+      - CELERY_BROKER_URL=redis://default:redispw@cache:6379/1
+      - REDIS_CACHE_URL=redis://default:redispw@cache:6379/2
     volumes:
       - .:/app
   

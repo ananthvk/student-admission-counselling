@@ -1,12 +1,10 @@
 from django.http import (
     HttpRequest,
     JsonResponse,
-    FileResponse,
     HttpResponseForbidden,
-    HttpResponseNotFound,
     HttpResponse,
 )
-import io
+from django.utils import timezone
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.shortcuts import render, get_object_or_404
@@ -17,28 +15,28 @@ from .models import (
     Student,
     ChoiceEntry,
     RankListEntry,
-    RankList,
 )
+from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.cache import cache_page
 from django.core.files.storage import default_storage
 from django.db import transaction
 import json
 from .tasks import generate_report_task, perform_allotment_da
 from preferences import preferences
-from celery.result import AsyncResult
-
+from django.core.cache import cache
 
 def index(request: HttpRequest):
     # perform_allotment_da.delay()
     return render(request, "counselling/index.html")
 
-
 class CollegeListView(ListView):
     model = College
     ordering = "code"
     # paginate_by = 100
+
 
 
 class CourseListView(ListView):
@@ -95,13 +93,20 @@ def option_entry_post(request: HttpRequest):
             ChoiceEntry(
                 student=student, program=program, priority=priority_number
             ).save()
+        
+        student.last_choice_save_date=timezone.now()
+        student.save()
     
+    # TODO: If the user hits save twice, two tasks are generated, discard the previous task
     # Generate the report when the student saves their choices, so that later it can be served directly
-    generate_report_task.delay(request.user.pk)
+    task = generate_report_task.delay(request.user.pk)
+    # Save the task_id and the user_id to the cache, so that the user cannot make multiple requests to generate the report
+    cache.set(request.user.pk, task.id)
     return JsonResponse({"status": "ok"})
 
 
 @require_http_methods(["GET"])
+@cache_page(settings.TIMEOUT)
 def get_programs_offered_by_college(request: HttpRequest, college_id):
     # program_codes = get_object_or_404(College, pk=college_id).programs.order_by('code').values('code')
     program_codes = get_object_or_404(College, pk=college_id).programs.order_by("code")
@@ -136,6 +141,16 @@ class RankListView(ListView):
 @login_required
 def download_choice_report_view(request: HttpRequest):
     report_path = f'{request.user.username}_choice_report.pdf'
+    task_id = cache.get(request.user.pk) 
+
+    if not default_storage.exists(report_path):
+        # Create a task to generate the report
+        if task_id is None:
+            task = generate_report_task.delay(request.user.pk)
+            cache.set(request.user.pk, task.id)
+
+        # A task is working on generating this user's report, do not create another task
+        return HttpResponse("Your report is being generated, please wait for a while and then try again later")
     
     with default_storage.open(report_path) as report_file:
         response = HttpResponse(report_file, content_type="application/pdf")

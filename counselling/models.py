@@ -82,6 +82,7 @@ class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     date_of_birth = models.DateField()
     registration_date = models.DateTimeField(default=timezone.now)
+    last_choice_save_date = models.DateTimeField(default=timezone.now) # Last time the user updated their choices
 
     def __str__(self) -> str:
         return f"{self.user.id} {self.user.get_full_name()}"

@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 from pathlib import Path
 import os
 import sys
+import socket
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -162,10 +163,9 @@ if not TESTING:
         *MIDDLEWARE,
     ]
 
-INTERNAL_IPS = [
-    "localhost",
-    "127.0.0.1",
-]
+
+hostname, _, ips = socket.gethostbyname_ex(socket.gethostname())
+INTERNAL_IPS = [ip[:-1] + "1" for ip in ips] + ["127.0.0.1", "localhost"]
 
 PASSWORD_HASHERS = (
     "django.contrib.auth.hashers.PBKDF2PasswordHasher",
@@ -184,3 +184,21 @@ CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "db_data/uploads/")
 MEDIA_URL = "/media/"
+
+if TESTING or DEBUG:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+        }
+    }
+else:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": os.getenv("REDIS_CACHE_URL"),
+        }
+    }
+
+
+CACHE_MIDDLEWARE_SECONDS = 3600
+TIMEOUT = 3600

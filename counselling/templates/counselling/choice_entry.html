@@ -1,4 +1,5 @@
 {% extends 'counselling/base.html' %}
+{% load cache %}
 {% block scripts %}
   {{ block.super }}
   <script src="https://unpkg.com/vue@3/dist/vue.global.prod.js"></script>
@@ -9,9 +10,11 @@
     <div class="flex-container">
       <select name="choice" class="choice-entry-college choice-entry-select" size="10" :value="selected_college" @change="onSelectedCollegeChanged">
         <option disabled value="">Select a college</option>
-        {% for college in colleges %}
-          <option value="{{ college.id }}">{{ college.code }} {{ college.name }}</option>
-        {% endfor %}
+        {% cache 3600 college_list_choice_entry %}
+            {% for college in colleges %}
+              <option value="{{ college.id }}">{{ college.code }} {{ college.name }}</option>
+            {% endfor %}
+        {% endcache %}
       </select>
       <select name="choice" class="choice-entry-course choice-entry-select" size="10" :value="selected_course" @change="onSelectedCourseChanged">
         <template v-for="course in courses" :key="course.id">
@@ -87,6 +90,7 @@
 
         const courses = ref({});
         const priority_order = ref([
+            {% cache 3600 request.user.username request.user.student.last_choice_save_date %}
             {% for choice in choices %}
             {
                 "college_id": {{ choice.program.college.id }},
@@ -97,6 +101,7 @@
                 "college_code": "{{ choice.program.college.code }}"
             },
             {% endfor %}
+            {% endcache %}
         ]);
           
         // This contains the choice list of the student, example structure
