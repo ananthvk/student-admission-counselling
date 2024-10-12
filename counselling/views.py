@@ -94,9 +94,10 @@ def choice_entry_post(request: HttpRequest):
         return HttpResponseForbidden("Choice entry has been closed")
     payload = json.loads(request.body)
     student = Student.objects.get(user=request.user)
+    college_ids = [i[1] for i in payload]
+    course_ids = [i[2] for i in payload]
+
     with transaction.atomic():
-        college_ids = [i[1] for i in payload]
-        course_ids = [i[2] for i in payload]
 
         ChoiceEntry.objects.filter(student=student).exclude(program__college_id__in=college_ids, program__course_id__in=course_ids).delete()
 
@@ -114,9 +115,9 @@ def choice_entry_post(request: HttpRequest):
     # TODO: If the user hits save twice, two tasks are generated, discard the previous task
     # Generate the report when the student saves their choices, so that later it can be served directly
     # TODO: Move this over to the view page, the user has to wait for a while, but it won't create concurrent tasks
-    task = generate_report_task.delay(request.user.pk)
+    #task = generate_report_task.delay(request.user.pk)
     # Save the task_id and the user_id to the cache, so that the user cannot make multiple requests to generate the report
-    cache.set(request.user.pk, task.id)
+    #cache.set(request.user.pk, task.id)
     return JsonResponse({"status": "ok"})
 
 

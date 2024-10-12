@@ -120,3 +120,11 @@ select::-webkit-scrollbar-thumb:hover {
 .link:hover{
     color: darkblue;
 }
+
+.table-btn-blue:disabled {
+    background-color: gray;
+}
+
+.table-btn-blue:disabled:hover {
+    background-color: gray;
+}

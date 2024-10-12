@@ -31,7 +31,7 @@
         </div>
     </div>
     <div class="flex-container">
-        <button @click="postPrograms" class="primary-btn table-btn-blue">
+        <button @click="postPrograms" class="primary-btn table-btn-blue" id="save-btn">
             Save choices
         </button>
     </div>
@@ -141,6 +141,7 @@
         {
             let selected_programs = priority_order.value.map((program, index) => [index+1, program.college_id, program.course_id])
             const csrftoken = getCookie('csrftoken');
+            document.getElementById("save-btn").disabled = true;
             fetch(`{% url 'counselling:choice_entry_post' %}`, {
                 method: 'POST',
                 body: JSON.stringify(selected_programs),
@@ -149,13 +150,16 @@
                 }
             }).then(res => {
                 if(!res.ok){
+                    document.getElementById("save-btn").disabled = false;
                     alert('Error while saving program preferences, please try again later')
                     console.log(res)
                 }
                 else {
+                    document.getElementById("save-btn").disabled = false;
                     alert('Successfully saved your choice list')
                 }
             }).catch(err => {
+                document.getElementById("save-btn").disabled = false;
                 alert('Server error while saving preferences, please try again later')
                 console.log(err)
             })

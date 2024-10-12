@@ -6,7 +6,7 @@ from django.utils import autoreload
 def restart_celery():
     cmd = 'pkill -f "celery worker"'
     subprocess.call(shlex.split(cmd))
-    cmd = 'watchmedo auto-restart --directory=./ --pattern=*.py --recursive -- celery -A scm_site worker --loglevel=INFO'
+    cmd = 'watchmedo auto-restart --directory=./ --pattern=*.py --ignore-pattern=**/test/** --recursive -- celery -A scm_site worker --loglevel=INFO'
     #cmd = 'python -m celery -A scm_site worker -l info'
     subprocess.call(shlex.split(cmd))
 
