@@ -1,3 +1,4 @@
+import json
 from django.http import (
     HttpRequest,
     JsonResponse,
@@ -8,6 +9,16 @@ from django.utils import timezone
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.shortcuts import render, get_object_or_404
+from django.conf import settings
+from django.contrib.auth.decorators import login_required
+from django.views.decorators.http import require_http_methods
+from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.cache import cache_page
+from django.core.files.storage import default_storage
+from django.db import transaction
+from preferences import preferences
+from django.core.cache import cache
+from .tasks import generate_report_task
 from .models import (
     College,
     Course,
@@ -16,33 +27,31 @@ from .models import (
     ChoiceEntry,
     RankListEntry,
 )
-from django.conf import settings
-from django.contrib.auth.decorators import login_required
-from django.views.decorators.http import require_http_methods
-from django.views.decorators.csrf import ensure_csrf_cookie
-from django.views.decorators.cache import cache_page
-from django.core.files.storage import default_storage
-from django.db import transaction
-import json
-from .tasks import generate_report_task, perform_allotment_da
-from preferences import preferences
-from django.core.cache import cache
 
+"""
+This view is the home page for the application, it shows some links related to counselling
+such as choice entry, view ranks, etc.
+"""
 def index(request: HttpRequest):
-    # perform_allotment_da.delay()
     return render(request, "counselling/index.html")
 
+"""
+This view lists the colleges which are available, along with a link to view detailed information about the college.
+"""
 class CollegeListView(ListView):
     model = College
     ordering = "code"
-    # paginate_by = 100
 
-
-
+"""
+This view lists all courses which are offered by the colleges, along with their course code.
+"""
 class CourseListView(ListView):
     model = Course
 
 
+"""
+This view displays detailed information about a particular college, also has a slug field 
+"""
 class CollegeDetailView(DetailView):
     pk_url_kwarg = "college_id"
     slug_url_kwarg = "slug"
@@ -78,21 +87,18 @@ def option_entry_post(request: HttpRequest):
     payload = json.loads(request.body)
     student = Student.objects.get(user=request.user)
     with transaction.atomic():
+        college_ids = [i[1] for i in payload]
+        course_ids = [i[2] for i in payload]
 
-        # TODO: Delete all choices of the students before adding them again,
-        # This is wasteful and inefficient, Implement deletion of only those ids which are not in the list
-        ChoiceEntry.objects.filter(student=student).delete()
+        ChoiceEntry.objects.filter(student=student).exclude(program__college_id__in=college_ids, program__course_id__in=course_ids).delete()
 
         for priority_number, college_id, course_id in payload:
             program = Program.objects.get(college_id=college_id, course_id=course_id)
 
-            # choice_entry, created = ChoiceEntry.objects.update_or_create(
-            #    student=student, program=program,
-            #    defaults={'priority': priority_number},
-            # )
-            ChoiceEntry(
-                student=student, program=program, priority=priority_number
-            ).save()
+            choice_entry, created = ChoiceEntry.objects.update_or_create(
+               student=student, program=program,
+               defaults={'priority': priority_number},
+            )
         
         student.last_choice_save_date=timezone.now()
         student.save()
