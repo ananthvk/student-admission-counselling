@@ -28,7 +28,8 @@ class College(models.Model):
     college_type = models.TextField()
     code = models.TextField()
     programs = models.ManyToManyField(Course, through="Program")
-    slug = models.SlugField()
+    # By default, max length of slug field is 50, which causes error in Postgres
+    slug = models.SlugField(max_length=255)
 
     def __str__(self) -> str:
         return f"[{self.code}] {self.name}"

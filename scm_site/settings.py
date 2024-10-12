@@ -43,12 +43,10 @@ LOGGING = {
         "handlers": ["console"],
         "level": "DEBUG",
     },
-    'loggers': {
-        'django.db.backends': {
-            'handlers': ['console'],
-            'level': 'DEBUG',
-        }
-    }
+    "django.db.backends": {
+        "handlers": ["console"],
+        "level": "DEBUG",
+    },
 }
 
 
@@ -108,8 +106,23 @@ DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
         "NAME": BASE_DIR / "db_data" / "dbnew.sqlite3",
-    }
+    },
+    "postgres": {
+        "ENGINE": "django.db.backends.postgresql",
+        "CONN_HEALTH_CHECKS": True,
+        "OPTIONS": {
+            "pool": True,
+        },
+        "NAME": os.getenv("DB_NAME"),
+        "USER": os.getenv("DB_USER"),
+        "PASSWORD": os.getenv("DB_PASSWORD"),
+        "HOST": os.getenv("DB_HOST"),
+        "PORT": os.getenv("DB_PORT"),
+    },
 }
+
+if os.getenv("DEFAULT_DB") == "postgres":
+    DATABASES["default"] = DATABASES["postgres"]
 
 
 # Password validation

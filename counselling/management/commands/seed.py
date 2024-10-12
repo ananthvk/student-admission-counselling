@@ -29,6 +29,12 @@ class Command(BaseCommand):
 
 def seed_data(seed_data: dict):
     logger.info("Seeding data...")
+
+    Program.objects.all().delete()
+    Course.objects.all().delete()
+    College.objects.all().delete()
+    RankList.objects.all().delete()
+
     logger.info("Adding ranklist")
     for ranklist in seed_data["ranklists"]:
         rank_list = RankList(short_name=ranklist["short_name"], name=ranklist["name"])

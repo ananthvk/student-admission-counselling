@@ -12,11 +12,10 @@ services:
     depends_on:
       - cache
       - celery_worker
-    environment:
-      - CELERY_RESULT_BACKEND=redis://default:redispw@cache:6379/0
-      - CELERY_BROKER_URL=redis://default:redispw@cache:6379/1
-      - REDIS_CACHE_URL=redis://default:redispw@cache:6379/2
-  
+      - db
+    env_file:
+      - dev.env
+      
   celery_worker:
     build:
       context: .
@@ -26,10 +25,9 @@ services:
       - scm-net
     depends_on:
       - cache
-    environment:
-      - CELERY_RESULT_BACKEND=redis://default:redispw@cache:6379/0
-      - CELERY_BROKER_URL=redis://default:redispw@cache:6379/1
-      - REDIS_CACHE_URL=redis://default:redispw@cache:6379/2
+      - db
+    env_file:
+      - dev.env
     volumes:
       - .:/app
   
@@ -44,6 +42,36 @@ services:
       - cache-volume:/data
     networks:
       - scm-net
+  
+  db:
+    image: postgres:16-alpine
+    expose:
+      - 5432
+    # Also expose the DB on the local machine so that tests can run on it
+    ports:
+      - 127.0.0.1:5432:5432
+    networks:
+      - scm-net
+    volumes:
+      - db_volume:/var/lib/postgresql/data
+    restart: always
+    environment:
+      - POSTGRES_PASSWORD=dev
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    ports:
+      - "8080:80"
+    networks:
+      - scm-net
+    volumes:
+      - pgadmin_volume:/var/lib/pgadmin
+    environment:
+      - PGADMIN_DEFAULT_EMAIL=admin@localhost.com
+      - PGADMIN_DEFAULT_PASSWORD=dev
+    depends_on:
+      - db
 
 networks:
   scm-net:
@@ -52,3 +80,8 @@ networks:
 volumes:
   cache-volume:
     driver: local
+  db_volume:
+    driver: local
+  pgadmin_volume:
+    driver: local
+
