@@ -5,7 +5,6 @@ from .models import User, RankList, RankListEntry, Student, ChoiceEntry, Program
 from pymatcher import PyRankList, PyGaleShapley, Students, Courses
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
-from preferences import preferences
 
 import logging
 

@@ -7,7 +7,7 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('counselling', '0010_sitepreference'),
+        ('counselling', '0009_program_counselling_college_4aef51_idx_and_more'),
     ]
 
     operations = [

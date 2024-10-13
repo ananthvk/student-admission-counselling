@@ -13,11 +13,11 @@
     <a href="{% url 'counselling:ranklist_view' %}" class="link">Ranklist of all students</a>
   </div>
   {% if request.user.is_authenticated %}
+    {% if config.CHOICE_ENTRY_ENABLED %}
     <div>
-      {% if preferences.SitePreference.choice_entry_enabled %}
-        <a href="{% url 'counselling:choice_entry' %}" class="link">Click here for choice entry</a>
-      {% endif %}
+      <a href="{% url 'counselling:choice_entry' %}" class="link">Click here for choice entry</a>
     </div>
+    {% endif %}
     <div>
       <a href="{% url 'counselling:view_ranks' %}" class="link">Click here to view your rank</a>
     </div>

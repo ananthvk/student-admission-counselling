@@ -53,6 +53,7 @@ LOGGING = {
 # Application definition
 
 INSTALLED_APPS = [
+    "constance",
     "django_browser_reload",
     "unfold",  # before django.contrib.admin
     "unfold.contrib.filters",  # optional, if special filters are needed
@@ -61,7 +62,6 @@ INSTALLED_APPS = [
     "unfold.contrib.import_export",  # optional, if django-import-export package is used
     "unfold.contrib.guardian",  # optional, if django-guardian package is used
     "unfold.contrib.simple_history",  # optional, if django-simple-history package is used
-    "counselling.apps.CounsellingConfig",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -69,7 +69,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "django.contrib.sites",
-    "preferences",
+    "counselling.apps.CounsellingConfig",
 ]
 
 MIDDLEWARE = [
@@ -92,11 +92,11 @@ TEMPLATES = [
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
+                "constance.context_processors.config",
                 "django.template.context_processors.debug",
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
-                "preferences.context_processors.preferences_cp",
                 "django.template.context_processors.media",
             ],
         },
@@ -202,8 +202,6 @@ PASSWORD_HASHERS = (
 
 SITE_ID = 1
 
-MIGRATION_MODULES = {"preferences": "counselling.migrations.preferences"}
-
 CELERY_BROKER_URL = os.getenv("CELERY_BROKER_URL")
 CELERY_RESULT_BACKEND = os.getenv("CELERY_RESULT_BACKEND")
 CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
@@ -228,3 +226,11 @@ else:
 
 CACHE_MIDDLEWARE_SECONDS = 3600
 TIMEOUT = 3600
+
+CONSTANCE_BACKEND = "constance.backends.database.DatabaseBackend"
+
+CONSTANCE_DATABASE_CACHE_BACKEND = "default"
+
+CONSTANCE_CONFIG = {
+    "CHOICE_ENTRY_ENABLED": (True, "whether choice entry is enabled or not", bool)
+}

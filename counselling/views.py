@@ -16,7 +16,6 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.cache import cache_page
 from django.core.files.storage import default_storage
 from django.db import transaction
-from preferences import preferences
 from django.core.cache import cache
 from .tasks import generate_report_task
 from .models import (
@@ -27,6 +26,8 @@ from .models import (
     ChoiceEntry,
     RankListEntry,
 )
+from constance import config
+
 
 """
 This view is the home page for the application, it shows some links related to counselling
@@ -68,7 +69,7 @@ This view displays the choice entry page, where a student can add, modify or reo
 @ensure_csrf_cookie
 def choice_entry_view(request: HttpRequest):
 
-    if not preferences.SitePreference.choice_entry_enabled:
+    if not config.CHOICE_ENTRY_ENABLED:
         return render(request, "counselling/choice_entry_closed.html")
 
     # Only return those colleges which offer atleast one program
@@ -90,8 +91,10 @@ def choice_entry_view(request: HttpRequest):
 @login_required
 @require_http_methods(["POST"])
 def choice_entry_post(request: HttpRequest):
-    if not preferences.SitePreference.choice_entry_enabled:
+
+    if not config.CHOICE_ENTRY_ENABLED:
         return HttpResponseForbidden("Choice entry has been closed")
+
     payload = json.loads(request.body)
     student = Student.objects.get(user=request.user)
     college_ids = [i[1] for i in payload]

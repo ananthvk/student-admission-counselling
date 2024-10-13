@@ -2,7 +2,6 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.template.defaultfilters import slugify
-from preferences.models import Preferences
 
 User._meta.get_field('email')._unique = True
 
@@ -120,7 +119,4 @@ class ChoiceEntry(models.Model):
 
     def __str__(self) -> str:
         return f"{self.student} {self.program} {self.priority}"
-
-class SitePreference(Preferences):
-    choice_entry_enabled = models.BooleanField(default=True)
 

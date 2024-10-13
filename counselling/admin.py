@@ -1,7 +1,6 @@
 from django.contrib import admin
 from unfold.admin import ModelAdmin
-from preferences.admin import PreferencesAdmin
-from .models import Course, College, ChoiceEntry, Program, RankList, RankListEntry, Student, SitePreference
+from .models import Course, College, ChoiceEntry, Program, RankList, RankListEntry, Student
 # Register your models here.
 
 
@@ -11,10 +10,6 @@ class CourseAdmin(ModelAdmin):
 
 @admin.register(College)
 class CollegeAdmin(ModelAdmin):
-    pass
-
-@admin.register(ChoiceEntry)
-class ChoiceEntryAdmin(ModelAdmin):
     pass
 
 @admin.register(Program)
@@ -31,8 +26,4 @@ class RankListEntryAdmin(ModelAdmin):
 
 @admin.register(Student)
 class StudentAdmin(ModelAdmin):
-    pass
-
-admin.site.register(SitePreference, PreferencesAdmin)
-class PreferencesAdminClass(ModelAdmin):
     pass

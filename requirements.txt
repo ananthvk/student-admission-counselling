@@ -9,8 +9,8 @@ click-plugins==1.1.1
 click-repl==0.3.0
 Django==5.1.1
 django-browser-reload==1.15.0
+django-constance==4.1.2
 django-debug-toolbar==4.4.6
-django-preferences==1.0.0
 django-storages==1.14.4
 django-unfold==0.40.0
 Faker==29.0.0
