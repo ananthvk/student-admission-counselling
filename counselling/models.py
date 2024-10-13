@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 from django.utils import timezone
 from django.template.defaultfilters import slugify
 
-User._meta.get_field('email')._unique = True
+User._meta.get_field("email")._unique = True
+
 
 class Course(models.Model):
     code = models.TextField()
@@ -70,9 +71,7 @@ class Program(models.Model):
                 name="course_cannot_be_repeated_in_college",
             )
         ]
-        indexes = [
-            models.Index(fields=["college", "course"])
-        ]
+        indexes = [models.Index(fields=["college", "course"])]
 
     def __str__(self) -> str:
         return f"{self.college.code}_{self.course.code} {self.total_seats:03} {self.ranklist.short_name}"
@@ -82,7 +81,9 @@ class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     date_of_birth = models.DateField()
     registration_date = models.DateTimeField(default=timezone.now)
-    last_choice_save_date = models.DateTimeField(default=timezone.now) # Last time the user updated their choices
+    last_choice_save_date = models.DateTimeField(
+        default=timezone.now
+    )  # Last time the user updated their choices
     choice_report_path = models.FilePathField(null=True, blank=True)
 
     def __str__(self) -> str:
@@ -120,3 +121,25 @@ class ChoiceEntry(models.Model):
     def __str__(self) -> str:
         return f"{self.student} {self.program} {self.priority}"
 
+
+class Round(models.Model):
+    number = models.IntegerField()
+    name = models.TextField()
+    
+    def __str__(self) -> str:
+        return f'[{self.number}] {self.name}'
+
+
+class Allotment(models.Model):
+    round = models.ForeignKey(Round, on_delete=models.CASCADE)
+    student = models.ForeignKey(Student, on_delete=models.CASCADE)
+    program = models.ForeignKey(
+        Program, null=True, blank=True, on_delete=models.CASCADE
+    )
+
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["round", "student"], name="round_student_unique"
+            )
+        ]

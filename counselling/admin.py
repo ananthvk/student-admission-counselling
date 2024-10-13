@@ -1,6 +1,6 @@
 from django.contrib import admin
 from unfold.admin import ModelAdmin
-from .models import Course, College, ChoiceEntry, Program, RankList, RankListEntry, Student
+from .models import Course, College, ChoiceEntry, Program, RankList, RankListEntry, Student, Round
 # Register your models here.
 
 
@@ -26,6 +26,10 @@ class RankListEntryAdmin(ModelAdmin):
 
 @admin.register(Student)
 class StudentAdmin(ModelAdmin):
+    pass
+
+@admin.register(Round)
+class RoundAdmin(ModelAdmin):
     pass
 
 from constance.admin import ConstanceAdmin, Config
