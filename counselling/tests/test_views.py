@@ -10,7 +10,7 @@ from ..models import (
     ChoiceEntry,
     RankListEntry,
 )
-from preferences import preferences
+from constance import config
 import json
 
 
@@ -118,7 +118,6 @@ class CounsellingViewsTestCase(TestCase):
 
     def test_choice_entry_post(self):
         self.client.login(username="testuser", password="password")
-        preferences.SitePreference.choice_entry_enabled = True
         payload = [[1, self.college.id, self.courses[0].id]]
         response = self.client.post(
             reverse("counselling:choice_entry_post"),
@@ -128,24 +127,14 @@ class CounsellingViewsTestCase(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertEqual(ChoiceEntry.objects.count(), 1)
 
-"""
     def test_choice_entry_post_choice_entry_closed(self):
         self.client.login(username="testuser", password="password")
-        print('****', preferences.SitePreference.choice_entry_enabled)
-        preferences.SitePreference.choice_entry_enabled = False
-        print(dir(preferences.SitePreference))
-        print(type(preferences.SitePreference))
-        print('****', preferences.SitePreference.choice_entry_enabled)
-        # TODO Fix this
-        preferences.SitePreference()
-        preferences.SitePreference.save()
+        config.CHOICE_ENTRY_ENABLED = False
         payload = [[1, self.college.id, self.courses[0].id]]
         response = self.client.post(
             reverse("counselling:choice_entry_post"),
             json.dumps(payload),
             content_type="application/json",
         )
-        print(response.content)
+        self.assertTrue(b'Choice entry has been closed' in response.content)
         self.assertEqual(response.status_code, 403)
-
-"""

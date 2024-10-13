@@ -27,3 +27,17 @@ class RankListEntryAdmin(ModelAdmin):
 @admin.register(Student)
 class StudentAdmin(ModelAdmin):
     pass
+
+from constance.admin import ConstanceAdmin, Config
+from constance.forms import ConstanceForm
+class CustomConfigForm(ConstanceForm):
+      def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        #... do stuff to make your settings form nice ...
+
+class ConfigAdmin(ConstanceAdmin, ModelAdmin):
+    change_list_form = CustomConfigForm
+    change_list_template = 'admin/config/settings.html'
+
+admin.site.unregister([Config])
+admin.site.register([Config], ConstanceAdmin)
