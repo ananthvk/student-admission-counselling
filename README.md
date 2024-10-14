@@ -4,28 +4,54 @@ The algorithm is written in C++, which is then accessed by python through a Cyth
 
 ## Getting started
 
-Firstly, to create the necessary tables:
+Create a database `scm_site` by using `psql` or `pgadmin`.
+
+Here is one way to do it using psql,
 ```
-$ docker compose run web python manage.py migrate 
+$ docker compose up db
+$ docker ps
+$ docker exec -it <db_container_id> ash
+/ # psql -U postgres
+postgres=# CREATE DATABASE scm_site;
+```
+
+Get a shell to the `web` docker container
+```
+$ docker compose up web
+$ docker ps
+$ docker exec -it <web_container_id> ash
+```
+
+To create the necessary tables:
+```
+# python manage.py migrate 
 ```
 
 Create the superuser with
 ```
-$ docker compose run web python manage.py createsuperuser
+# python manage.py createsuperuser
+```
+
+Run this in the host,
+```
+$ mkdir db_data
+$ cp dataset/data.json db_data
 ```
 
 Then seed the database if required (optional)
 ```
-$ mkdir db_data
-$ cp dataset/data.json db_data
-$ docker compose run web python manage.py seed db_data/data.json
-$ docker compose run web python manage.py generate_users
-$ docker compose down --remove-orphans
+# python manage.py seed db_data/data.json
+# python manage.py generate_users
 ```
 
 Start the site with
 ```
 $ docker compose up
+```
+
+To run tests, use `docker exec -it <web_container_id> ash`, to get a shell and run the following command.
+```
+# python manage.py test --no-logs --parallel auto
 ```
 
 View the application at [http://localhost:8000/counselling](http://localhost:8000/counselling)

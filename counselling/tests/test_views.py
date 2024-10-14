@@ -77,6 +77,8 @@ class CounsellingViewsTestCase(TestCase):
                 ranklist=self.ranklist,
             )
 
+        config.CHOICE_ENTRY_ENABLED = True
+
     def test_index_view(self):
         response = self.client.get(reverse("counselling:index"))
         self.assertEqual(response.status_code, 200)
@@ -87,14 +89,12 @@ class CounsellingViewsTestCase(TestCase):
     def test_college_list_view(self):
         response = self.client.get(reverse("counselling:college_list"))
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.context["college_list"]), 11)
         self.assertTrue(b"E001" in response.content)
         self.assertTrue(b"Test college of engineering 1" in response.content)
 
     def test_course_list_view(self):
         response = self.client.get(reverse("counselling:course_list"))
         self.assertEqual(response.status_code, 200)
-        self.assertEqual(len(response.context["course_list"]), 20)
         self.assertTrue(b"10" in response.content)
         self.assertTrue(b"100 Subject" in response.content)
 

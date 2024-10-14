@@ -2,6 +2,12 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+import logging
+
+if '--no-logs' in sys.argv:
+    print('> Disabling logging levels of CRITICAL and below.')
+    sys.argv.remove('--no-logs')
+    logging.disable(logging.CRITICAL)
 
 
 def main():
