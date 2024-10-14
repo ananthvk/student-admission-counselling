@@ -17,7 +17,7 @@ from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
 from django.utils import timezone
 from django.core.cache import cache
-
+from constance import config
 import logging
 
 logger = logging.getLogger(__name__)
@@ -59,8 +59,6 @@ https://en.wikipedia.org/wiki/Gale%E2%80%93Shapley_algorithm
 For performance reasons, this calls the API implemented in C++ through a Python extension module.
 """
 
-current_round = 1
-
 
 @shared_task
 def perform_allotment_da():
@@ -71,6 +69,7 @@ def perform_allotment_da():
     # For now, just do it for ENG-RL, not all ranklists
     # TODO: Implement for all ranklists
 
+    round = Round.objects.get(number=config.CURRENT_ROUND)
     ranklist = RankList.objects.first()
     """
     The API requires that the ranklist is a vector, with ranklist[i] holding the rank of student with id `i`
@@ -133,7 +132,6 @@ def perform_allotment_da():
     logger.info(
         f"Writing allotment results to database: Started at {datetime.now():%Y-%m-%d %H:%M:%S.%f}"
     )
-    round = Round.objects.get(number=current_round)
     for i in range(0, len(py_students)):
         program_id = py_students[i].get_alloted_course_id()
         actual_student_id = student_id_api_to_db_mapping[i]

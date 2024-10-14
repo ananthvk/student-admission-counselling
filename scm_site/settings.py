@@ -209,12 +209,19 @@ CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 MEDIA_ROOT = os.path.join(BASE_DIR, "db_data/uploads/")
 MEDIA_URL = "/media/"
 
-CACHES = {
-    "default": {
-        "BACKEND": "django.core.cache.backends.redis.RedisCache",
-        "LOCATION": os.getenv("REDIS_CACHE_URL"),
+if not TESTING:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.redis.RedisCache",
+            "LOCATION": os.getenv("REDIS_CACHE_URL"),
+        }
     }
-}
+else:
+    CACHES = {
+        "default": {
+            "BACKEND": "django.core.cache.backends.dummy.DummyCache",
+        }
+    }
 
 
 CACHE_MIDDLEWARE_SECONDS = 3600
@@ -225,5 +232,6 @@ CONSTANCE_BACKEND = "constance.backends.database.DatabaseBackend"
 CONSTANCE_DATABASE_CACHE_BACKEND = "default"
 
 CONSTANCE_CONFIG = {
-    "CHOICE_ENTRY_ENABLED": (True, "whether choice entry is enabled or not", bool)
+    "CHOICE_ENTRY_ENABLED": (True, "whether choice entry is enabled or not", bool),
+    "CURRENT_ROUND": (1, "current round number", int)
 }

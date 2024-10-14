@@ -3,26 +3,23 @@
   <title>Seat allocation system</title>
 {% endblock %}
 {% block content %}
-  <div>
-    <a href="{% url 'counselling:course_list' %}" class="link">List of available courses</a>
-  </div>
-  <div>
-    <a href="{% url 'counselling:college_list' %}" class="link">List of participating colleges</a>
-  </div>
-  <div>
-    <a href="{% url 'counselling:ranklist_view' %}" class="link">Ranklist of all students</a>
-  </div>
-  {% if request.user.is_authenticated %}
-    {% if config.CHOICE_ENTRY_ENABLED %}
-    <div>
-      <a href="{% url 'counselling:choice_entry' %}" class="link">Click here for choice entry</a>
-    </div>
+  <div class="dashboard-container">
+    <a href="{% url 'counselling:course_list' %}" class="card"><h3>List of available courses</h3></a>
+
+    <a href="{% url 'counselling:college_list' %}" class="card"><h3>List of participating colleges</h3></a>
+
+    <a href="{% url 'counselling:ranklist_view' %}" class="card"><h3>Ranklist of all students</h3></a>
+
+    {% if request.user.is_authenticated %}
+      {% if config.CHOICE_ENTRY_ENABLED %}
+        <a href="{% url 'counselling:choice_entry' %}" class="card"><h3>Click here for choice entry</h3></a>
+      {% endif %}
+
+      <a href="{% url 'counselling:view_ranks' %}" class="card"><h3>Click here to view your rank</h3></a>
+
+      <a href="{% url 'counselling:download_choice_report' %}" class="card"><h3>Download choice report</h3></a>
+
+      <a href="{% url 'counselling:view_allotment' %}" class="card"><h3>View allotment</h3></a>
     {% endif %}
-    <div>
-      <a href="{% url 'counselling:view_ranks' %}" class="link">Click here to view your rank</a>
-    </div>
-    <div>
-      <a href="{% url 'counselling:download_choice_report' %}" class="link">Download choice report</a>
-    </div>
-  {% endif %}
+  </div>
 {% endblock %}

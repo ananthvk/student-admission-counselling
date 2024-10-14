@@ -1,0 +1,32 @@
+{% extends 'counselling/base.html' %}
+{% block title %}
+  <title>Your rank</title>
+{% endblock %}
+{% block content %}
+  <div class="rank-container">
+    {% if allotment.program %}
+      <div class="allotment-success">
+        <h3>Congratulations! You have been allotted a program in {{ round.name }} seat allotment</h3>
+        <div class="allotment-details">
+          <p>
+            <strong>College Code:</strong>
+            <a href="{% url 'counselling:college_detail' college_id=allotment.program.college.id slug=allotment.program.college.slug %}">{{ allotment.program.college.code }}</a>
+          </p>
+          <p>
+            <strong>College Name:</strong> {{ allotment.program.college.name }}
+          </p>
+          <p>
+            <strong>Course Name:</strong> {{ allotment.program.course.name }}
+          </p>
+          <p>
+            <strong>Course Code:</strong> {{ allotment.program.course.code }}
+          </p>
+        </div>
+      </div>
+    {% else %}
+      <div class="no-allotment">
+        <h2>Sorry, you have not been allotted any course</h2>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

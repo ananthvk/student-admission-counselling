@@ -129,6 +129,13 @@ class Round(models.Model):
     def __str__(self) -> str:
         return f"[{self.number}] {self.name}"
 
+    class Meta:
+        constraints = [
+            models.UniqueConstraint(
+                fields=["number"], name="round_number_unique"
+            )
+        ]
+
 
 class Allotment(models.Model):
     round = models.ForeignKey(Round, on_delete=models.CASCADE)
