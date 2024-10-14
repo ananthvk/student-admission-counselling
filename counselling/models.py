@@ -81,9 +81,9 @@ class Student(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     date_of_birth = models.DateField()
     registration_date = models.DateTimeField(default=timezone.now)
-    last_choice_save_date = models.DateTimeField(
-        default=timezone.now
-    )  # Last time the user updated their choices
+    # Last time the user updated their choices
+    last_choice_save_date = models.DateTimeField(default=timezone.now)
+    last_choice_report_generation_date = models.DateTimeField(null=True, blank=True)
     choice_report_path = models.FilePathField(null=True, blank=True)
 
     def __str__(self) -> str:
@@ -125,9 +125,9 @@ class ChoiceEntry(models.Model):
 class Round(models.Model):
     number = models.IntegerField()
     name = models.TextField()
-    
+
     def __str__(self) -> str:
-        return f'[{self.number}] {self.name}'
+        return f"[{self.number}] {self.name}"
 
 
 class Allotment(models.Model):

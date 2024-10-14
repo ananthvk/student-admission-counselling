@@ -27,7 +27,7 @@ from .models import (
     RankListEntry,
 )
 from constance import config
-
+from scm_site.celery import app
 
 """
 This view is the home page for the application, it shows some links related to counselling
@@ -114,13 +114,13 @@ def choice_entry_post(request: HttpRequest):
         
         student.last_choice_save_date=timezone.now()
         student.save()
+
+    # If a task is generating the report for the student, stop it
+    task_id = cache.get(request.user.pk) 
+    if task_id is not None:
+        app.control.revoke(task_id, terminate=True)
+        cache.delete(request.user.pk)
     
-    # TODO: If the user hits save twice, two tasks are generated, discard the previous task
-    # Generate the report when the student saves their choices, so that later it can be served directly
-    # TODO: Move this over to the view page, the user has to wait for a while, but it won't create concurrent tasks
-    #task = generate_report_task.delay(request.user.pk)
-    # Save the task_id and the user_id to the cache, so that the user cannot make multiple requests to generate the report
-    #cache.set(request.user.pk, task.id)
     return JsonResponse({"status": "ok"})
 
 
@@ -163,20 +163,29 @@ class RankListView(ListView):
         # Avoid the N+1 problem by using select_related
         return RankListEntry.objects.select_related('student', 'student__user').all().order_by("rank")
 
-
+from logging import getLogger
+logger = getLogger(__name__)
 @login_required
 def download_choice_report_view(request: HttpRequest):
-    report_path = f'{request.user.username}_choice_report.pdf'
+    student: Student = request.user.student
+    report_path = student.choice_report_path
     task_id = cache.get(request.user.pk) 
 
-    if not default_storage.exists(report_path):
-        # Create a task to generate the report
-        if task_id is None:
+    # A task is working on generating this user's report, do not create another task
+    if task_id is not None:
+        return HttpResponse("Your report is being generated, please wait for a while and then try again later")
+        
+
+    # If The student has not generated any report, or
+    # If the choices were updated, generate a new report
+    # Or if the report was deleted
+    if (student.last_choice_report_generation_date is None 
+        or student.last_choice_save_date > student.last_choice_report_generation_date
+        or (student.choice_report_path and not default_storage.exists(student.choice_report_path))
+        ):
             task = generate_report_task.delay(request.user.pk)
             cache.set(request.user.pk, task.id)
-
-        # A task is working on generating this user's report, do not create another task
-        return HttpResponse("Your report is being generated, please wait for a while and then try again later")
+            return HttpResponse("Your report is being generated, please wait for a while and then try again later")
     
     with default_storage.open(report_path) as report_file:
         response = HttpResponse(report_file, content_type="application/pdf")
@@ -184,3 +193,4 @@ def download_choice_report_view(request: HttpRequest):
             f'inline; filename="{report_path}"'
         )
         return response
+

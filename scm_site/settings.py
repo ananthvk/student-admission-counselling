@@ -209,6 +209,7 @@ CELERY_BROKER_CONNECTION_RETRY_ON_STARTUP = True
 MEDIA_ROOT = os.path.join(BASE_DIR, "db_data/uploads/")
 MEDIA_URL = "/media/"
 
+"""
 if TESTING or DEBUG:
     CACHES = {
         "default": {
@@ -216,12 +217,13 @@ if TESTING or DEBUG:
         }
     }
 else:
-    CACHES = {
-        "default": {
-            "BACKEND": "django.core.cache.backends.redis.RedisCache",
-            "LOCATION": os.getenv("REDIS_CACHE_URL"),
-        }
+"""
+CACHES = {
+    "default": {
+        "BACKEND": "django.core.cache.backends.redis.RedisCache",
+        "LOCATION": os.getenv("REDIS_CACHE_URL"),
     }
+}
 
 
 CACHE_MIDDLEWARE_SECONDS = 3600

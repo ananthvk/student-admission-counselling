@@ -15,27 +15,41 @@ from .models import (
 from pymatcher import PyRankList, PyGaleShapley, Students, Courses
 from django.core.files.base import ContentFile
 from django.core.files.storage import default_storage
+from django.utils import timezone
+from django.core.cache import cache
 
 import logging
 
 logger = logging.getLogger(__name__)
 
-
-@shared_task(bind=True)
-def generate_report_task(self, user_id):
-    user = User.objects.get(pk=user_id)
-    path = f"{user.username}_choice_report.pdf"
-    # If the report has already been generated, delete it
-    if default_storage.exists(path):
-        default_storage.delete(path)
-
+def generate_report(user: User, path: str):
     logger.info("Start report generation....")
     pref_report = PreferenceListReport(user)
     logger.info("Finished report generation")
+    # Overwrite the file
+    if default_storage.exists(path):
+        default_storage.delete(path)
+        
     path = default_storage.save(
         path,
         ContentFile(pref_report.as_bytes().getvalue()),
     )
+    return path
+
+"""
+This task just generates the report, it does not check if a report has to be generated or not, it is the responsibility of the caller
+to do these checks
+"""
+@shared_task(bind=True)
+def generate_report_task(self, user_id):
+    user = User.objects.get(pk=user_id)
+    path = f"{user.username}_choice_report.pdf"
+    student: Student = user.student
+    path = generate_report(user, path)
+    student.last_choice_report_generation_date = timezone.now()
+    student.choice_report_path = path
+    student.save()
+    cache.delete(user_id)
     return {"user_id": user_id, "path": path}
 
 
