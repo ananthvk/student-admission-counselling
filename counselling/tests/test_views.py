@@ -12,6 +12,9 @@ from ..models import (
 )
 from constance import config
 import json
+from unittest.mock import patch
+from django.test import override_settings
+from django.core.files.storage import default_storage
 
 
 class CounsellingViewsTestCase(TestCase):
@@ -138,3 +141,11 @@ class CounsellingViewsTestCase(TestCase):
         )
         self.assertTrue(b'Choice entry has been closed' in response.content)
         self.assertEqual(response.status_code, 403)
+
+    @override_settings(CELERY_TASK_ALWAYS_EAGER=True)
+    @patch('counselling.tasks.generate_report_task.run')
+    def test_report_generated(self, mocked):
+        self.client.login(username="testuser", password="password")
+        response = self.client.get(reverse("counselling:download_choice_report"))
+        
+        

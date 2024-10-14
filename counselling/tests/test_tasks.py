@@ -1,5 +1,4 @@
 from ..tasks import perform_allotment_da
-
 from django.test import TestCase, Client
 from django.urls import reverse
 from django.contrib.auth.models import User
@@ -18,7 +17,7 @@ from constance import config
 import json
 
 
-class CounsellingViewsTestCase(TestCase):
+class TasksTestCase(TestCase):
     def setUp(self):
         self.ranklist = RankList.objects.create(short_name="RL", name="A rank list")
         self.round = Round.objects.create(number=1, name="First round")
@@ -102,4 +101,15 @@ class CounsellingViewsTestCase(TestCase):
 
         self.assertIsNone(Allotment.objects.get(round=self.round, student=self.student).program)
 
+    def test_multiple_students_no_seats_available(self):
+        for student in self.students:
+            ChoiceEntry.objects.create(student=student, program=self.program, priority=1)
 
+        perform_allotment_da()
+        
+        for i, student in enumerate(self.students):
+            allotment = Allotment.objects.get(round=self.round, student=student)
+            if i < 5:
+                self.assertEqual(allotment.program, self.program)
+            else:
+                self.assertIsNone(allotment.program)
