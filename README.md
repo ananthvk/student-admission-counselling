@@ -4,7 +4,7 @@ The algorithm is written in C++, which is then accessed by python through a Cyth
 
 ## Getting started
 
-Create a database `scm_site` by using `psql` or `pgadmin`.
+Create database `scm_site` by using `psql` or `pgadmin`.
 
 Here is one way to do it using psql,
 ```
@@ -22,39 +22,42 @@ $ docker ps
 $ docker exec -it <web_container_id> ash
 ```
 
-To create the necessary tables:
+To create the necessary tables: (in `web` container shell)
 ```
 # python manage.py migrate 
 ```
 
-Create the superuser with
+Create the superuser with (in `web` container shell)
 ```
 # python manage.py createsuperuser
 ```
 
+### To seed the database (optional), for dummy data
 Run this in the host,
 ```
 $ mkdir db_data
 $ cp dataset/data.json db_data
 ```
-
-Then seed the database if required (optional)
+Run this in the container
 ```
 # python manage.py seed db_data/data.json
 # python manage.py generate_users
 ```
 
+### To start the site
 Start the site with
 ```
 $ docker compose up
 ```
 
-To run tests, use `docker exec -it <web_container_id> ash`, to get a shell and run the following command.
+To run tests, (in `web` container shell)
 ```
 # python manage.py test --no-logs --parallel auto
 ```
 
-View the application at [http://localhost:8000/counselling](http://localhost:8000/counselling)
+### View site
+
+View the application at [http://localhost:8000/counselling](http://localhost:8000/dashboard)
 
 Usernames follow the following pattern: 00001, 00002, 00003 ....
 
