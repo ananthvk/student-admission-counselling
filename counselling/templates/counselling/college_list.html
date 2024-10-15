@@ -5,23 +5,31 @@
 {% block content %}
   <h1>College list</h1>
   {% if college_list %}
-    <table class="data-table">
-      <tr class="data-header">
-        <th class="data-th data-td-centered">College Code</th>
-        <th class="data-th data-td-centered">Name</th>
-        <th class="data-th data-td-centered">Address</th>
-        <th class="data-th data-td-centered">City</th>
-      </tr>
-      {% for college in college_list %}
-        <tr class="data-tr">
-          <td class="data-td data-td-centered">
-            <a href="{% url 'counselling:college_detail' college_id=college.id slug=college.slug %}">{{ college.code }}</a>
-          </td>
-          <td class="data-td">{{ college.name }}</td>
-          <td class="data-td">{{ college.address }}</td>
-          <td class="data-td data-td-centered">{{ college.city }}</td>
+    <div style="overflow-x:auto;">
+      <table class="data-table">
+        <tr class="data-header">
+          <th class="data-th data-td-centered">College Code</th>
+          <th class="data-th data-td-centered">Name</th>
+          <th class="data-th data-td-centered">Address</th>
+          <th class="data-th data-td-centered">City</th>
         </tr>
-      {% endfor %}
-    </table>
+        {% for college in college_list %}
+          <tr class="data-tr">
+            <td class="data-td data-td-centered">
+              <a href="{% url 'counselling:college_detail' college_id=college.id slug=college.slug %}">{{ college.code }}</a>
+            </td>
+            <td class="data-td">
+              <p>{{ college.name }}</p>
+            </td>
+            <td class="data-td">
+              <p>{{ college.address }}</p>
+            </td>
+            <td class="data-td data-td-centered">
+              <p>{{ college.city }}</p>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
   {% endif %}
 {% endblock %}

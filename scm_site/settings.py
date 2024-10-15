@@ -233,5 +233,6 @@ CONSTANCE_DATABASE_CACHE_BACKEND = "default"
 
 CONSTANCE_CONFIG = {
     "CHOICE_ENTRY_ENABLED": (True, "whether choice entry is enabled or not", bool),
+    "SHOW_ALLOTMENT_RESULTS": (False, "whether allotment results are shown or not", bool),
     "CURRENT_ROUND": (1, "current round number", int)
 }

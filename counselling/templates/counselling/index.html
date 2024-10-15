@@ -18,8 +18,9 @@
       <a href="{% url 'counselling:view_ranks' %}" class="card"><h3>Click here to view your rank</h3></a>
 
       <a href="{% url 'counselling:download_choice_report' %}" class="card"><h3>Download choice report</h3></a>
-
-      <a href="{% url 'counselling:view_allotment' %}" class="card"><h3>View allotment</h3></a>
+      {% if config.SHOW_ALLOTMENT_RESULTS %}
+        <a href="{% url 'counselling:view_allotment' %}" class="card"><h3>View allotment</h3></a>
+      {% endif %}
     {% endif %}
   </div>
 {% endblock %}

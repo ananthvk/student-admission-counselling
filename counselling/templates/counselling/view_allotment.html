@@ -4,7 +4,7 @@
 {% endblock %}
 {% block content %}
   <div class="rank-container">
-    {% if allotment.program %}
+    {% if allotment and allotment.program %}
       <div class="allotment-success">
         <h3>Congratulations! You have been allotted a program in {{ round.name }} seat allotment</h3>
         <div class="allotment-details">

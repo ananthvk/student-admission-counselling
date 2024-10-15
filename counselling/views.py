@@ -5,6 +5,7 @@ from django.http import (
     HttpResponseForbidden,
     HttpResponse,
 )
+from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
 from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
@@ -183,9 +184,15 @@ def view_ranks(request: HttpRequest):
 
 @login_required
 def view_allotment(request: HttpRequest):
+    if not config.SHOW_ALLOTMENT_RESULTS:
+        return HttpResponseForbidden("Allotment results are not yet published")
+        
     student: Student = request.user.student
     round: Round = Round.objects.get(number=config.CURRENT_ROUND)
-    allotment = Allotment.objects.select_related("program", "program__course", "program__college").get(student=student, round=round)
+    try:
+        allotment = Allotment.objects.select_related("program", "program__course", "program__college").get(student=student, round=round)
+    except ObjectDoesNotExist:
+        allotment = None
     return render(
         request,
         "counselling/view_allotment.html",
