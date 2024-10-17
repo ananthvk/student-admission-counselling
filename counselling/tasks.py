@@ -22,13 +22,16 @@ import logging
 
 logger = logging.getLogger(__name__)
 
-def generate_report(user: User, path: str):
+def generate_report(user: User, path: str, last_path: str):
     logger.info("Start report generation....")
     pref_report = PreferenceListReport(user)
     logger.info("Finished report generation")
-    # Overwrite the file
-    if default_storage.exists(path):
-        default_storage.delete(path)
+    # Delete the previous report
+    if last_path is not None and default_storage.exists(last_path):
+        try:
+            default_storage.delete(last_path)
+        except:
+            pass
         
     path = default_storage.save(
         path,
@@ -43,9 +46,10 @@ to do these checks
 @shared_task(bind=True)
 def generate_report_task(self, user_id):
     user = User.objects.get(pk=user_id)
-    path = f"{user.username}_choice_report.pdf"
+    path = f"{user.username}-{self.request.id}-choice-report.pdf"
     student: Student = user.student
-    path = generate_report(user, path)
+    last_path = student.choice_report_path
+    path = generate_report(user, path, last_path)
     student.last_choice_report_generation_date = timezone.now()
     student.choice_report_path = path
     student.save()

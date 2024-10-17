@@ -6,6 +6,7 @@ from django.http import (
     HttpResponse,
     HttpResponseNotFound
 )
+from django.shortcuts import redirect
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
 from django.views.generic.list import ListView
@@ -265,10 +266,11 @@ def download_choice_report_view(request: HttpRequest):
             "Your report is being generated, please wait for a while and then try again later"
         )
 
-    with default_storage.open(report_path) as report_file:
-        response = HttpResponse(report_file, content_type="application/pdf")
-        response["Content-Disposition"] = f'inline; filename="{report_path}"'
-        return response
+    #with default_storage.open(report_path) as report_file:
+    #    response = HttpResponse(report_file, content_type="application/pdf")
+    #    response["Content-Disposition"] = f'inline; filename="{report_path}"'
+    #    return response
+    return redirect(f"{settings.MEDIA_URL}{report_path}")
 
 
 """

@@ -17,6 +17,6 @@ urlpatterns = [
     path("rank/", views.view_ranks, name="view_ranks"),
     path("api/choiceentry", views.choice_entry_post, name="choice_entry_post"),
     path("api/college/<int:college_id>/programs", views.get_programs_offered_by_college, name="get_programs_offered_by_college"),
-    path("download_choice_report/", views.download_choice_report_view, name="download_choice_report"),
+    path("dl/choice/", views.download_choice_report_view, name="download_choice_report"),
     path("viewallotment/", views.view_allotment, name="view_allotment"),
 ]
