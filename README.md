@@ -57,7 +57,7 @@ To run tests, (in `web` container shell)
 
 ### View site
 
-View the application at [http://localhost:8000/counselling](http://localhost:8000/dashboard)
+View the application at [http://localhost:8000/counselling](http://localhost:8000/counselling)
 
 Usernames follow the following pattern: 00001, 00002, 00003 ....
 

@@ -4,6 +4,7 @@ from django.http import (
     JsonResponse,
     HttpResponseForbidden,
     HttpResponse,
+    HttpResponseNotFound
 )
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils import timezone
@@ -14,11 +15,12 @@ from django.conf import settings
 from django.contrib.auth.decorators import login_required
 from django.views.decorators.http import require_http_methods
 from django.views.decorators.csrf import ensure_csrf_cookie
+from django.views.decorators.csrf import requires_csrf_token
 from django.views.decorators.cache import cache_page
 from django.core.files.storage import default_storage
 from django.db import transaction
 from django.core.cache import cache
-from .tasks import generate_report_task
+from .tasks import generate_report_task, perform_allotment_da
 from .models import (
     College,
     Course,
@@ -89,14 +91,24 @@ This view displays the choice entry page, where a student can add, modify or reo
 def choice_entry_view(request: HttpRequest):
 
     if not config.CHOICE_ENTRY_ENABLED:
-        return render(request, "counselling/choice_entry_closed.html")
+        return render(
+            request, "counselling/choice_entry_closed.html", context={"message": ""}
+        )
+
+    student = Student.objects.get(user=request.user)
+
+    if student.choice_entry_disabled:
+        return render(
+            request,
+            "counselling/choice_entry_closed.html",
+            context={"message": "You are not allowed to modify your choices further"},
+        )
 
     # Only return those colleges which offer atleast one program
     queryset = (
         College.objects.filter(programs__isnull=False).distinct().order_by("code")
     )
     # Also pass in the options filled by this candidate, if they want to update it
-    student = Student.objects.get(user=request.user)
 
     # Avoid the N+1 problem by using select_related so that Django performs a join instead of creating multiple queries
     choices = (
@@ -117,11 +129,12 @@ def choice_entry_view(request: HttpRequest):
 @require_http_methods(["POST"])
 def choice_entry_post(request: HttpRequest):
 
-    if not config.CHOICE_ENTRY_ENABLED:
+    student = Student.objects.get(user=request.user)
+
+    if not config.CHOICE_ENTRY_ENABLED or student.choice_entry_disabled:
         return HttpResponseForbidden("Choice entry has been closed")
 
     payload = json.loads(request.body)
-    student = Student.objects.get(user=request.user)
     college_ids = [i[1] for i in payload]
     course_ids = [i[2] for i in payload]
 
@@ -186,11 +199,13 @@ def view_ranks(request: HttpRequest):
 def view_allotment(request: HttpRequest):
     if not config.SHOW_ALLOTMENT_RESULTS:
         return HttpResponseForbidden("Allotment results are not yet published")
-        
+
     student: Student = request.user.student
     round: Round = Round.objects.get(number=config.CURRENT_ROUND)
     try:
-        allotment = Allotment.objects.select_related("program", "program__course", "program__college").get(student=student, round=round)
+        allotment = Allotment.objects.select_related(
+            "program", "program__course", "program__college"
+        ).get(student=student, round=round)
     except ObjectDoesNotExist:
         allotment = None
     return render(
@@ -254,3 +269,23 @@ def download_choice_report_view(request: HttpRequest):
         response = HttpResponse(report_file, content_type="application/pdf")
         response["Content-Disposition"] = f'inline; filename="{report_path}"'
         return response
+
+
+"""
+Various actions: Such as allotment, other tasks for the superuser
+"""
+@login_required
+@requires_csrf_token
+def actions_view(request: HttpRequest):
+    if not request.user.is_superuser:
+        return HttpResponseNotFound("Not found")
+    
+    if request.method == 'POST':
+        if cache.get("allotment-task") is not None:
+            return HttpResponse(f'Allotment task is already running....please wait until the task completes')
+        cache.set("allotment-task", "created")
+        task = perform_allotment_da.delay()
+        return HttpResponse(f'Created task for allotment {task.id}')
+    else:
+        return render(request, "counselling/actions_view.html")
+        

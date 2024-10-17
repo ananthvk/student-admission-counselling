@@ -1,0 +1,11 @@
+{% extends 'counselling/base.html' %}
+{% block title %}
+  <title>Administrative actions</title>
+{% endblock %}
+{% block content %}
+  <h1>Actions</h1>
+  <form method="post">
+    {% csrf_token %}
+    <button class="primary-btn" type="submit">Start allotment</button>
+  </form>
+{% endblock %}

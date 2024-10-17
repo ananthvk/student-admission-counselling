@@ -49,7 +49,11 @@ def seed_data():
     Student.objects.all().delete()
     RankListEntry.objects.all().delete()
     ChoiceEntry.objects.all().delete()
-    Student(user=User.objects.first(), date_of_birth='2000-12-20').save()
+    try:
+        Student(user=User.objects.first(), date_of_birth='2000-12-20').save()
+    except:
+        logger.warning("Could not set student model for admin user")
+        
     usr_psd = []
     ranklist = RankList.objects.get(short_name="ENG-RL")
     ranks = list(range(1, NUMBER_OF_USERS + 1))

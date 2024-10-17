@@ -2,6 +2,7 @@ from django.core.management.base import BaseCommand
 import os
 import logging
 import json
+from django.core.cache import cache
 from ...models import *
 
 logger = logging.getLogger(__name__)
@@ -34,6 +35,15 @@ def seed_data(seed_data: dict):
     Course.objects.all().delete()
     College.objects.all().delete()
     RankList.objects.all().delete()
+    Round.objects.all().delete()
+    Allotment.objects.all().delete()
+    Student.objects.all().delete()
+    User.objects.all().delete()
+    cache.clear()
+    
+    Round.objects.create(number=1, name="First round")
+    Round.objects.create(number=2, name="Second round")
+    Round.objects.create(number=3, name="Second extended round")
 
     logger.info("Adding ranklist")
     for ranklist in seed_data["ranklists"]:

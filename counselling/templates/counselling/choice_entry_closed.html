@@ -3,5 +3,9 @@
   <title>Choice entry has been closed for this round</title>
 {% endblock %}
 {% block content %}
-  <h1>Choice entry has been closed</h1>
+  {% if message %}
+    <h1>{{ message }}</h1>
+  {% else %}
+    <h1>Choice entry has been closed</h1>
+  {% endif %}
 {% endblock %}

@@ -7,6 +7,7 @@ CACHE_TTL = settings.TIMEOUT
 app_name = "counselling"
 urlpatterns = [
     path("", views.index, name="index"),
+    path("actions/", views.actions_view, name="actions_view"),
     path("college/<int:college_id>/", cache_page(CACHE_TTL)(views.CollegeDetailView.as_view()), name="college_detail"),
     path("college/<int:college_id>/<slug:slug>", cache_page(CACHE_TTL)(views.CollegeDetailView.as_view()), name="college_detail"),
     path("college/list/", cache_page(CACHE_TTL)(views.CollegeListView.as_view()), name="college_list"),

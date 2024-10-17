@@ -62,6 +62,10 @@ For performance reasons, this calls the API implemented in C++ through a Python 
 
 @shared_task
 def perform_allotment_da():
+    # Disable choice entry and viewing of results before beginning
+    config.CHOICE_ENTRY_ENABLED = False
+    config.SHOW_ALLOTMENT_RESULTS = False
+    cache.set("allotment-task", "processing")
     start_time = time.time()
     logger.info(
         f"Building data structures: Started at {datetime.now():%Y-%m-%d %H:%M:%S.%f}"
@@ -70,6 +74,7 @@ def perform_allotment_da():
     # TODO: Implement for all ranklists
 
     round = Round.objects.get(number=config.CURRENT_ROUND)
+    Allotment.objects.filter(round=round).delete()
     ranklist = RankList.objects.first()
     """
     The API requires that the ranklist is a vector, with ranklist[i] holding the rank of student with id `i`
@@ -150,6 +155,9 @@ def perform_allotment_da():
 
     end_time = time.time()
     elapsed_time = end_time - start_time
+    config.CHOICE_ENTRY_ENABLED = True
+    config.SHOW_ALLOTMENT_RESULTS = True
     logger.info(
         f"Writing allotment results to database: Finished in {elapsed_time:.6f} seconds"
     )
+    cache.delete("allotment-task")

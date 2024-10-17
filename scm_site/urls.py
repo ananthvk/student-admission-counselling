@@ -23,7 +23,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('dashboard/', include('counselling.urls')),
+    path('counselling/', include('counselling.urls')),
     path('accounts/login/', auth_views.LoginView.as_view(redirect_authenticated_user=True), name='login'),
     path('accounts/', include("django.contrib.auth.urls")),
     path("__reload__/", include("django_browser_reload.urls")),

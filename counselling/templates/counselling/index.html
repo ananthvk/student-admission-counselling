@@ -11,15 +11,20 @@
     <a href="{% url 'counselling:ranklist_view' %}" class="card"><h3>Ranklist of all students</h3></a>
 
     {% if request.user.is_authenticated %}
-      {% if config.CHOICE_ENTRY_ENABLED %}
-        <a href="{% url 'counselling:choice_entry' %}" class="card"><h3>Click here for choice entry</h3></a>
+      {% if not request.user.is_superuser %}
+        {% if config.CHOICE_ENTRY_ENABLED %}
+          <a href="{% url 'counselling:choice_entry' %}" class="card"><h3>Click here for choice entry</h3></a>
+        {% endif %}
+
+        <a href="{% url 'counselling:view_ranks' %}" class="card"><h3>Click here to view your rank</h3></a>
+
+        <a href="{% url 'counselling:download_choice_report' %}" class="card"><h3>Download choice report</h3></a>
+        {% if config.SHOW_ALLOTMENT_RESULTS %}
+          <a href="{% url 'counselling:view_allotment' %}" class="card"><h3>View allotment</h3></a>
+        {% endif %}
       {% endif %}
-
-      <a href="{% url 'counselling:view_ranks' %}" class="card"><h3>Click here to view your rank</h3></a>
-
-      <a href="{% url 'counselling:download_choice_report' %}" class="card"><h3>Download choice report</h3></a>
-      {% if config.SHOW_ALLOTMENT_RESULTS %}
-        <a href="{% url 'counselling:view_allotment' %}" class="card"><h3>View allotment</h3></a>
+      {% if request.user.is_superuser %}
+        <a href="{% url 'counselling:actions_view' %}" class="card"><h3>Administrative actions</h3></a>
       {% endif %}
     {% endif %}
   </div>
