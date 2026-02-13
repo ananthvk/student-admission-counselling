@@ -62,3 +62,30 @@ View the application at [http://localhost:8000/counselling](http://localhost:800
 Usernames follow the following pattern: 00001, 00002, 00003 ....
 
 and the password for every user is `password`
+
+## Screenshots
+
+### Home Screen (Student View)
+![Home Screen Student](images/home_screen_student.png)
+
+### Choice Entry
+![Choice Entry](images/choice_entry.png)
+
+### Choice Report
+![Choice Report](images/choice_report.png)
+
+## Disclaimer
+
+**IMPORTANT LEGAL NOTICE:**
+
+This project is an **educational simulation** created solely to demonstrate the implementation of the Gale-Shapley (deferred acceptance) algorithm for stable matching. All data used in this project is **fictional and generated for demonstration purposes only**.
+
+- **Student Names**: All student names are **fictitious** and have been randomly generated using the ["Faker" fake name library](https://faker.readthedocs.io/). These names do **not** refer to, identify, or represent any real individuals, living or deceased. Any resemblance to actual persons, whether fictional or real, is purely coincidental.
+
+- **College Names**: College and institution names referenced in this project have been sourced from the **KCET (Karnataka Common Entrance Test)** counseling process and are used **strictly for educational purposes** to simulate a realistic college admission scenario.
+
+- **No Real-World Implications**: This is **NOT** a real college admission system, nor is it affiliated with, endorsed by, or connected to KCET, COMEDK, JOSSA, or any other admission counseling body. All rankings, seats, allotments, and data shown are **completely fabricated** and do not represent any real admission process, results, or merit lists.
+
+- **Educational Use Only**: This software is provided **"as is"** for educational and learning purposes only. The authors and contributors assume **no liability** and shall **not be held responsible** for any misinterpretation, misuse, or confusion that may arise from any resemblance of this simulated data to real-world admission processes or individuals.
+
+By using, viewing, or referencing this project, you acknowledge that you understand and agree that all content is **fictional and intended solely for educational demonstration**.
