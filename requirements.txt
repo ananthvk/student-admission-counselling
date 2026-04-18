@@ -19,7 +19,7 @@ Faker==29.0.0
 idna==3.10
 isodate==0.7.2
 kombu==5.4.2
-pillow==12.1.1
+pillow==12.2.0
 prompt_toolkit==3.0.48
 psycopg==3.2.3
 psycopg-binary==3.2.3
